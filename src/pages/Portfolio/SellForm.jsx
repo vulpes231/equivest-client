@@ -604,3 +604,5 @@ const SellForm = ({ tradeType, wallets, activeTab, walletData }) => {
 };
 
 export default SellForm;
+
+

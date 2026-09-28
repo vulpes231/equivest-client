@@ -391,3 +391,4 @@ const yearRevenueData = [
 ];
 
 export { ecomWidgets, bestSellingProducts, topSellers, recentOrders, topCategories, allRevenueData, monthRevenueData, halfYearRevenueData, yearRevenueData };
+

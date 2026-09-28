@@ -99,3 +99,5 @@ const Widgets = ({ analytics, tradeInfo }) => {
 };
 
 export default Widgets;
+
+

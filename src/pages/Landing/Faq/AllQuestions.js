@@ -1,18 +1,18 @@
 export const generalFaq = [
   {
     id: 1,
-    question: "Who may open an account on Itrust Investment?",
+    question: "Who may open an account on Equivest?",
     answer: `Any individual 18 years old or older, residing in and outside of the U.S., including U.S. citizens residing abroad for regulatory reasons.. We also require clients to have a phone number that can accept SMS for security verification purposes.`,
   },
   {
     id: 2,
     question:
-      "What types of accounts does Itrust Investment currently support?",
-    answer: `Itrust Investment supports individual high interest cash accounts, automated investing accounts, taxable brokerage account and other retirement savings accounts:`,
+      "What types of accounts does Equivest currently support?",
+    answer: `Equivest supports individual high interest cash accounts, automated investing accounts, taxable brokerage account and other retirement savings accounts:`,
   },
   {
     id: 3,
-    question: "Account minimums to invest with Itrust Investment",
+    question: "Account minimums to invest with Equivest",
     answer: `Stock Investing Accounts
 
       The minimum investment you can schedule in a Stock Investing Account is $1. The Stock Investing Account does not have rebalancing or Tax-Loss Harvesting services.
@@ -21,25 +21,25 @@ export const generalFaq = [
       
       You’ll need to deposit at least $5000 to open an Automated Investing Account. You’ll get a periodically rebalanced, diversified portfolio of low-cost index funds enhanced with our Tax-Loss Harvesting service. As of November 2024, your portfolio will also be optimised to your estimated tax level (for taxable accounts).
       
-      Account minimums for Itrust Investment exclusives (US Direct Indexing and Smart Beta) To invest in US Direct Indexing you’ll need to deposit at least $100,000 in your account. Should your account with US Direct Indexing approach $500,000, you will automatically receive Smart Beta.
+      Account minimums for Equivest exclusives (US Direct Indexing and Smart Beta) To invest in US Direct Indexing you’ll need to deposit at least $100,000 in your account. Should your account with US Direct Indexing approach $500,000, you will automatically receive Smart Beta.
       
       A Classic recommended portfolio won’t automatically contain US Direct Indexing when your balance reaches the minimum. To learn more about adding US Direct Indexing to your account, contact support.`,
   },
   {
     id: 4,
     question: "Where is my money held?",
-    answer: `Your assets are held in a brokerage account in your name at Itrust Investment LLC, a subsidiary as a subsidiary of Itrust Asset Management a member of the Financial Industry Regulatory Authority (FINRA). With FINRA number is 164193, and the SEC number is 801-115048. Please note that Itrust Investment LLC has partnered with RBC Clearing & Custody (RBC CC) for many clearing functions such as trade settlement. We use Forge Trust as the custodian for all IRA accounts`,
+    answer: `Your assets are held in a brokerage account in your name at Equivest LLC, a subsidiary as a subsidiary of Itrust Asset Management a member of the Financial Industry Regulatory Authority (FINRA). With FINRA number is 164193, and the SEC number is 801-115048. Please note that Equivest LLC has partnered with RBC Clearing & Custody (RBC CC) for many clearing functions such as trade settlement. We use Forge Trust as the custodian for all IRA accounts`,
   },
   {
     id: 5,
-    question: "How much should I invest on Itrust Investment?",
-    answer: `We believe you should set aside a “rainy day fund” in cash to cover at least six months of expenses to handle any unforeseen emergencies that might arise in your life and if you are fortunate enough, a discretionary fund to invest in opportunities in which you have high conviction like a particular stock or angel investment. The rest of your money should be invested for the long term in a responsible, diversified strategy of the type offered by Itrust Investment . However, we understand if you want to start with less.`,
+    question: "How much should I invest on Equivest?",
+    answer: `We believe you should set aside a “rainy day fund” in cash to cover at least six months of expenses to handle any unforeseen emergencies that might arise in your life and if you are fortunate enough, a discretionary fund to invest in opportunities in which you have high conviction like a particular stock or angel investment. The rest of your money should be invested for the long term in a responsible, diversified strategy of the type offered by Equivest . However, we understand if you want to start with less.`,
   },
   {
     id: 6,
     question:
-      "How does Itrust Investment trade my Automated Investing Account?",
-    answer: `Itrust Investment places trades in your Automated Investing. Account when we invest a deposit, sell securities to satisfy a withdrawal, rebalance your portfolio, harvest tax losses, and more. When these trades are placed, we route them through one of our Executing brokers and signal providers. These brokers comply with FINRAs best execution practices`,
+      "How does Equivest trade my Automated Investing Account?",
+    answer: `Equivest places trades in your Automated Investing. Account when we invest a deposit, sell securities to satisfy a withdrawal, rebalance your portfolio, harvest tax losses, and more. When these trades are placed, we route them through one of our Executing brokers and signal providers. These brokers comply with FINRAs best execution practices`,
   },
   {
     id: 7,
@@ -62,14 +62,14 @@ export const cashFaq = [
   },
   {
     id: 2,
-    question: "How do I transfer funds to and from Itrust Investment?",
+    question: "How do I transfer funds to and from Equivest?",
     answer: `How to deposit
 
-      To transfer funds between Itrust Investment and your bank or crypto wallet, log in and select “Cash” on your dashboard. To transfer funds into Itrust Investment, select “Deposit”. To transfer funds out, select “Withdraw”.
+      To transfer funds between Equivest and your bank or crypto wallet, log in and select “Cash” on your dashboard. To transfer funds into Equivest, select “Deposit”. To transfer funds out, select “Withdraw”.
       
       Transfer minimums
       
-      For Itrust investment accounts, each deposit can be a minimum of $1000 and each withdrawal a minimum of $250. For Itrust cash accounts, you can deposit and withdraw a minimum of $1. Transfer minimum and maximums may vary by transfer type
+      For Equivest accounts, each deposit can be a minimum of $1000 and each withdrawal a minimum of $250. For Itrust cash accounts, you can deposit and withdraw a minimum of $1. Transfer minimum and maximums may vary by transfer type
       
       Expected arrival times
       
@@ -121,7 +121,7 @@ export const cashFaq = [
   },
   {
     id: 8,
-    question: "Is my money safe with Itrust Investment?",
+    question: "Is my money safe with Equivest?",
     answer: `Exceptionally safe. Your money gets up to $8 million in FDIC insurance (or $16 million for joint accounts). This is possible because we aren’t a bank — we sweep your deposits to up 32 partner banks (each with its own federally-insured $250,000 limit) at any given time. As a result, you get
 
       32x the FDIC insurance in a Itrust Cash Account than you’d get with a regular bank account.Beyond the federal backstop provided by the FDIC, we keep your money secure by complying with the rules of our federal regulators, protecting your data with robust security practices , and conducting annual third-party accounting audits. `,
@@ -137,7 +137,7 @@ export const investFaq = [
   {
     id: 1,
     question: "I’ve opened my account, when can I start investing?",
-    answer: `You can make an investment in your Stock Investing Account using the funds in your Itrust Investment Cash Account.
+    answer: `You can make an investment in your Stock Investing Account using the funds in your Equivest Cash Account.
 
           Once you’ve selected the stocks or crypto you want to include in your Stock Investing Account, you can schedule an investment by tapping Buy or Sell on your account dashboard`,
   },
@@ -151,12 +151,12 @@ export const investFaq = [
     question: "Why do I need a Cash Account to open a Stock Investing Account?",
     answer: `In order to use Itrust Stock Investing Account, you must also have a Cash Account. The funds in your Cash Account will be used to purchase securities in your Stock Investing Account, and when you sell securities, the proceeds can be transferred to your Cash Account.
 
-          It is standard for brokerage firms to give clients a place to store their cash that they are preparing to invest. At Itrust Investment, the Cash Account serves this purpose. Your Cash Account comes with a high APY and FDIC insurance through partner banks.`,
+          It is standard for brokerage firms to give clients a place to store their cash that they are preparing to invest. At Equivest, the Cash Account serves this purpose. Your Cash Account comes with a high APY and FDIC insurance through partner banks.`,
   },
   {
     id: 4,
     question: "How do I add a stock to my Stock Investing Account?",
-    answer: `To add a stock, head to Markets, where you can search and browse all of the investment options available on Itrust Investment. When you find one that you’re interested in, tap Buy or Sell to start trading. You’ll be prompted to add that stock into one of your portfolios.
+    answer: `To add a stock, head to Markets, where you can search and browse all of the investment options available on Equivest. When you find one that you’re interested in, tap Buy or Sell to start trading. You’ll be prompted to add that stock into one of your portfolios.
 
           Alternatively, you can go to Trade on your dashboard and enter amount and select a stock to buy or sell.`,
   },
@@ -168,13 +168,13 @@ export const investFaq = [
   },
   {
     id: 6,
-    question: "Do I own the shares I buy through Itrust Investment?",
+    question: "Do I own the shares I buy through Equivest?",
     answer: `You own the shares you buy through Itrust as soon as your order is executed.`,
   },
   {
     id: 7,
     question: "What is an ETF?",
-    answer: `An exchange-traded fund (ETF) is an investment fund that is traded on stock exchanges throughout the trading day, much like stocks and unlike mutual funds. An ETF holds assets such as stocks, commodities, or bonds, and trades close to its net asset value over the course of the trading day. Most ETFs track an index, such as the S&P 500 or MSCI EAFE. Itrust Investment evaluates thousands of ETFs for attractive investments based on their low cost, tax efficiency, and stock-like features.`,
+    answer: `An exchange-traded fund (ETF) is an investment fund that is traded on stock exchanges throughout the trading day, much like stocks and unlike mutual funds. An ETF holds assets such as stocks, commodities, or bonds, and trades close to its net asset value over the course of the trading day. Most ETFs track an index, such as the S&P 500 or MSCI EAFE. Equivest evaluates thousands of ETFs for attractive investments based on their low cost, tax efficiency, and stock-like features.`,
   },
   {
     id: 8,
@@ -241,17 +241,17 @@ export const savingsFaq = [
   },
   {
     id: 3,
-    question: "How does Itrust Investment help me plan for retirement?",
-    answer: `Itrust Investment financial planning experience helps estimate your net worth at retirement and what you could spend per month at that time.
+    question: "How does Equivest help me plan for retirement?",
+    answer: `Equivest financial planning experience helps estimate your net worth at retirement and what you could spend per month at that time.
 
           Our advice engine, compares your projected retirement income against a target spending amount that’s based on your estimated current spending and age, so you can determine whether you will be able to maintain your current lifestyle in retirement.
           
-          Itrust Investment allows you to change key variables such as retirement age, planned savings, target retirement spending, and life expectancy, so you can personalize your retirement plan.`,
+          Equivest allows you to change key variables such as retirement age, planned savings, target retirement spending, and life expectancy, so you can personalize your retirement plan.`,
   },
   {
     id: 4,
     question: "What accounts are included in my retirement goal?",
-    answer: `We automatically create your retirement plan using data from both Itrust Investment and external accounts you have linked.
+    answer: `We automatically create your retirement plan using data from both Equivest and external accounts you have linked.
 
           We use contributions from the following account types to make estimates around planned savings: 401(k), 403(b), 401(a), Thrift Savings Plan, 457(b), Traditional IRA, SIMPLE IRA, Other Non-Taxable Brokerage Accounts, SEP IRA, Depository Accounts, Checking Accounts, Savings `,
   },
@@ -274,7 +274,7 @@ export const savingsFaq = [
           
           Linked accounts: Link more accounts to your plan at any time and this will generate a more comprehensive retirement income estimate. You can also change the type of a linked account to better reflect its account type in case its classification is not correct. For example, the data we obtain from your account might not be sufficient to classify it properly, in which case it might be classified as Unknown type. You can change its type to better reflect its actual type and contribution limits.
           
-          Planned savings: Specify expected monthly contribution amounts toward your Itrust Investment and other linked accounts. As you change this amount, Itrust Investment provides recommendations on how to adjust your contributions across accounts. Planned savings grow with projected inflation in your plan.
+          Planned savings: Specify expected monthly contribution amounts toward your Equivest and other linked accounts. As you change this amount, Equivest provides recommendations on how to adjust your contributions across accounts. Planned savings grow with projected inflation in your plan.
           
           Because of their tax benefits, we recommend you prioritise employer-sponsored plans like 401(k) and individual retirement accounts like Roth or Traditional IRA over a taxable personal savings account. If your employer does not offer a 401(k) plan or if you cannot use tax advantaged accounts, we recommend you use a taxable personal savings account.
           
@@ -287,7 +287,7 @@ export const savingsFaq = [
   {
     id: 6,
     question:
-      "How does Itrust Investment help me plan for taking time off to travel?",
+      "How does Equivest help me plan for taking time off to travel?",
     answer: `We help you understand how taking extended time to travel impacts your long-term financial security. This helps you answer complex questions like how long you can travel without an income or how much you can afford to spend before your long-term security is affected.
 
       You input your travel scenario including duration, income, and costs. We give you an affordability rating which considers your current finances, long-term security, and your other goals. You may discover that your travel goal impacts the affordability of other goals. We’ll show you the magnitude of impact so that you can make a fully informed decision about whether -- or how -- to travel. For example, you may discover that you can afford to travel for one year if you retire three years later.
@@ -296,17 +296,17 @@ export const savingsFaq = [
   },
   {
     id: 7,
-    question: "How does Itrust Investment help me plan for college expenses?",
-    answer: `Itrust Investment projects your child’s total college costs and compares them with your projected college savings and financial aid to estimate how much you’ll be able to afford by the time your child enrolls.To project the future costs, savings, and aid, we use real-world data for tuition, inflation, financial aid, and 529 investment returns.
+    question: "How does Equivest help me plan for college expenses?",
+    answer: `Equivest projects your child’s total college costs and compares them with your projected college savings and financial aid to estimate how much you’ll be able to afford by the time your child enrolls.To project the future costs, savings, and aid, we use real-world data for tuition, inflation, financial aid, and 529 investment returns.
 
-      Itrust Investment also allows you to change key variables such as your target school and monthly college savings contributions`,
+      Equivest also allows you to change key variables such as your target school and monthly college savings contributions`,
   },
 ];
 
 export const settignsFaq = [
   {
     id: 1,
-    question: "How do I update my information on my Itrust Investment account?",
+    question: "How do I update my information on my Equivest account?",
     answer: `How to update personal information
 
       You can edit your details in the top right corner of your dashboard and selecting “Settings.” Then click on “Profile” from the menu on the left and you can request the change under “Personal Information.”
@@ -324,21 +324,21 @@ export const settignsFaq = [
   },
   {
     id: 3,
-    question: "How does Itrust Investment secure my account information?",
-    answer: `To connect your account, we partner with third-party providers to establish and maintain secure, read-only links on your behalf. These providers specialize in tracking financial data; they employ robust, bank-grade security and follow data protection best practices. Itrust Investment does not store your account password.
+    question: "How does Equivest secure my account information?",
+    answer: `To connect your account, we partner with third-party providers to establish and maintain secure, read-only links on your behalf. These providers specialize in tracking financial data; they employ robust, bank-grade security and follow data protection best practices. Equivest does not store your account password.
 
       We use this data to provide you with financial advice, including recommendations on how to best manage your cash and investments. We will not share your data with anyone.`,
   },
   {
     id: 4,
-    question: "How are my funds protected at Itrust Investment?",
+    question: "How are my funds protected at Equivest?",
     answer: `We are committed to protecting your money and privacy with the highest standards of insurance and security available. We maximise the protection of your assets by doing the following:
 
       We protect your cash with FDIC insurance through our partner banks.
       
-      Your cash is insured by the Federal Deposit Insurance Corporation (FDIC). This coverage protects your cash in the event that a bank goes out of business. Itrust Investment uses multiple partner banks to ensure FDIC coverage of up to $8 million for your cash deposits. FDIC insurance coverage is limited to $250,000 per qualified customer account per banking institution
+      Your cash is insured by the Federal Deposit Insurance Corporation (FDIC). This coverage protects your cash in the event that a bank goes out of business. Equivest uses multiple partner banks to ensure FDIC coverage of up to $8 million for your cash deposits. FDIC insurance coverage is limited to $250,000 per qualified customer account per banking institution
       
-      FDIC insurance is not provided until the funds arrive at the Program Banks. While funds are at Itrust Investment Brokerage, and before they are swept to the Program Banks, they are subject to SIPC’s protection limit of $250,000 for cash.
+      FDIC insurance is not provided until the funds arrive at the Program Banks. While funds are at Equivest Brokerage, and before they are swept to the Program Banks, they are subject to SIPC’s protection limit of $250,000 for cash.
       
       We protect your investments with SIPC insurance.
       
@@ -370,3 +370,5 @@ export const allFaqs = [
   ...savingsFaq,
   ...settignsFaq,
 ];
+
+

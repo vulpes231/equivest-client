@@ -176,3 +176,5 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
 };
 
 export default Header;
+
+

@@ -77,3 +77,5 @@ const DeleteAccount = ({ onClose }) => {
 };
 
 export default DeleteAccount;
+
+

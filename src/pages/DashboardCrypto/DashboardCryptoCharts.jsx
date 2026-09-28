@@ -316,3 +316,5 @@ const WidgetsCharts = ({ seriesData }) => {
 };
 
 export { PortfolioCharts, MarkerCharts, WidgetsCharts };
+
+

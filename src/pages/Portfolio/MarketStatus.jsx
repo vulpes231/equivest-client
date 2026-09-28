@@ -250,3 +250,5 @@ const MarketStatus = ({ activeWallet, trades, accounts }) => {
 };
 
 export default MarketStatus;
+
+

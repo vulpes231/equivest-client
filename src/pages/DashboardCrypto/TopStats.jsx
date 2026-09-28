@@ -53,3 +53,5 @@ const TopStats = ({ walletAnalytics, networth }) => {
 };
 
 export default TopStats;
+
+

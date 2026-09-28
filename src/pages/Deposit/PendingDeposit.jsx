@@ -42,3 +42,5 @@ const PendingDeposit = ({ analytics }) => {
 };
 
 export default PendingDeposit;
+
+

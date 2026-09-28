@@ -299,7 +299,7 @@ const MyCurrencies = () => {
                 <span style={{ color: "#878A99" }}>Filter by:</span>
 
                 <select
-                  className="btn btn-soft-primary btn-sm text-capitalize"
+                  className="btn btn-soft-secondary btn-sm text-capitalize"
                   name="assetFilter"
                   onChange={(e) => handleAssetFilterChange(e.target.value)}
                   value={assetFilter}
@@ -314,8 +314,8 @@ const MyCurrencies = () => {
                   onClick={() => handleSortChange("24h_change")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "24h_change" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "btn-secondary"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   24H
@@ -325,7 +325,7 @@ const MyCurrencies = () => {
                   type="button"
                   onClick={handleWatchlistFilter}
                   className={`btn btn-sm text-capitalize ${
-                    showWatchlistOnly ? "btn-primary" : "btn-soft-primary"
+                    showWatchlistOnly ? "btn-secondary" : "btn-soft-secondary"
                   }`}
                 >
                   Watchlist
@@ -336,8 +336,8 @@ const MyCurrencies = () => {
                   onClick={() => handleSortChange("top_gainers")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "top_gainers" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "btn-secondary"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   Top Gainers
@@ -348,8 +348,8 @@ const MyCurrencies = () => {
                   onClick={() => handleSortChange("top_losers")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "top_losers" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "btn-secondary"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   Top Losers
@@ -360,8 +360,8 @@ const MyCurrencies = () => {
                   onClick={() => handleSortChange("market_cap")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "market_cap" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "btn-secondary"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   Market Cap
@@ -377,7 +377,7 @@ const MyCurrencies = () => {
               className="text-center py-5 gap-2 d-flex align-items-center justify-content-center"
               style={{ height: "500px" }}
             >
-              <div className="spinner-border text-primary" role="status">
+              <div className="spinner-border text-secondary" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
               <p className="mt-2 text-muted">
@@ -408,7 +408,7 @@ const MyCurrencies = () => {
               {showWatchlistOnly && (
                 <button
                   onClick={() => setShowWatchlistOnly(false)}
-                  className="btn btn-sm btn-primary mt-2"
+                  className="btn btn-sm btn-secondary mt-2"
                 >
                   Browse Assets
                 </button>

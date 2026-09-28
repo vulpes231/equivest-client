@@ -216,3 +216,5 @@ const EditPersonalInfo = ({ isOpen, handleToggle, user }) => {
 };
 
 export default EditPersonalInfo;
+
+

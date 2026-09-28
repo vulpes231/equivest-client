@@ -117,7 +117,7 @@ const Crypto = () => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -179,7 +179,7 @@ const Crypto = () => {
                   <div
                     className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1  ${
                       selectedAccount._id === wallet._id
-                        ? "bg-primary-subtle border-secondary"
+                        ? "bg-secondary-subtle border-secondary"
                         : ""
                     }`}
                     // style={{
@@ -387,3 +387,5 @@ const Crypto = () => {
 };
 
 export default Crypto;
+
+

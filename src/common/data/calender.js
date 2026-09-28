@@ -110,7 +110,7 @@ const events = [
     id: 153,
     title: "All Day Event",
     start: new Date(y, m, 1),
-    className: "bg-primary-subtle",
+    className: "bg-secondary-subtle",
     location: "San Francisco, US",
     allDay: false,
     extendedProps: {
@@ -153,7 +153,7 @@ const events = [
     start: new Date(y, m, d + 4, 16, 0),
     end: new Date(y, m, d + 9, 16, 0),
     allDay: false,
-    className: "bg-primary-subtle",
+    className: "bg-secondary-subtle",
     location: "Las Vegas, US",
     extendedProps: {
       department: "Repeating Event",
@@ -247,3 +247,4 @@ const calenderDefaultCategories = [
 ];
 
 export { calenderDefaultCategories, events, defaultevent };
+

@@ -173,3 +173,5 @@ const Widgets = ({ wallets, user, walletData }) => {
 };
 
 export default Widgets;
+
+

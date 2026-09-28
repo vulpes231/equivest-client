@@ -69,3 +69,5 @@ const fadeUp = {
 };
 
 export { imageVariant, textVariant, slideLeft, slideRight, fadeUp };
+
+

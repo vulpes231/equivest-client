@@ -23,3 +23,4 @@ const getChartColorsArray = (colors) => {
 };
 
 export default getChartColorsArray;
+

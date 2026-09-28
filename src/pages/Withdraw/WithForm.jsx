@@ -98,7 +98,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
         <div className="pb-4">
           <FlexRow>
             <span
-              className="bg-primary d-flex align-items-center justify-content-center"
+              className="bg-secondary d-flex align-items-center justify-content-center"
               style={{
                 fontSize: "25px",
                 fontWeight: 600,
@@ -267,3 +267,5 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
 };
 
 export default WithForm;
+
+

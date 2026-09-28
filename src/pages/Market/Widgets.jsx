@@ -104,3 +104,5 @@ const Widgets = ({ analytics, walletData, count }) => {
 };
 
 export default Widgets;
+
+

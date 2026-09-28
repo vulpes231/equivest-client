@@ -78,3 +78,5 @@ const Returns = (cell) => {
 };
 
 export { Quantity, AvgPrice, CurrentValue, Returns, OrderType, Date };
+
+

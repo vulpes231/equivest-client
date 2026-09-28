@@ -52,3 +52,4 @@ const AuthSlider = () => {
 };
 
 export default AuthSlider;
+

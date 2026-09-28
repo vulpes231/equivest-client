@@ -135,13 +135,13 @@ const Footer = () => {
             <Col>
               <div>
                 <p className="copy-rights mb-0 fs-15">
-                  {new Date().getFullYear()} &copy; Itrust Investments. All
+                  {new Date().getFullYear()} &copy; Equivest. All
                   rights reserved. Itrust means Itrust Markets and web
                   experiences with its family of wholly owned subsidiaries which
-                  includes Itrust investment, Itrust Securities, and Itrust
+                  includes Equivest, Itrust Securities, and Itrust
                   Crypto. All investments involve risk and loss of capital.
                   Securities trading is offered to self-directed customers by
-                  Itrust Investment. Itrust Investment operates as a subsidiary
+                  Equivest. Equivest operates as a subsidiary
                   of Itrust Asset Management a member of the Financial Industry
                   Regulatory Authority (FINRA). With FINRA number is 164193, and
                   the SEC number is 801-115048.
@@ -156,3 +156,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

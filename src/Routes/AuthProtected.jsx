@@ -102,3 +102,5 @@ const AccessRoute = ({ component: Component, ...rest }) => {
 };
 
 export { AuthProtected, AccessRoute };
+
+

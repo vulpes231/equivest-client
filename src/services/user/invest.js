@@ -22,3 +22,5 @@ export async function activatePlan(formData) {
     throw new Error(errMsg);
   }
 }
+
+

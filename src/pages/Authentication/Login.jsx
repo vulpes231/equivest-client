@@ -138,7 +138,7 @@ const Login = (props) => {
     }
   }, [error]);
 
-  document.title = "Login - Itrust Investments";
+  document.title = "Login - Equivest";
   return (
     <React.Fragment>
       {/* <ParticlesAuth>
@@ -294,3 +294,5 @@ const Login = (props) => {
 };
 
 export default withRouter(Login);
+
+

@@ -140,7 +140,7 @@ const Crypto = ({ settings, user }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -236,7 +236,7 @@ const Crypto = ({ settings, user }) => {
       {selectedMode && (
         <div>
           <Col lg={12}>
-            <div className="d-flex align-items-center bg-primary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
+            <div className="d-flex align-items-center bg-secondary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
               <div>
                 <IoAlertCircleOutline className="text-primary" />
               </div>
@@ -504,3 +504,5 @@ const Crypto = ({ settings, user }) => {
 };
 
 export default Crypto;
+
+

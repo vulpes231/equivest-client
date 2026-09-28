@@ -42,3 +42,5 @@ async function toggleOptions() {
 }
 
 export { getSettings, toggleDrip, toggleMargin, toggleOptions };
+
+

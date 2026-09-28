@@ -124,3 +124,5 @@ const Sidebar = ({ layoutType }) => {
 };
 
 export default Sidebar;
+
+

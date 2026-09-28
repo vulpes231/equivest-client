@@ -24,3 +24,5 @@ const SuccessToast = ({ successMsg, isOpen = true, onClose }) => {
 };
 
 export default SuccessToast;
+
+

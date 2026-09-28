@@ -57,3 +57,5 @@ const SideTabs = ({ activeTab, setActiveTab }) => {
 };
 
 export default SideTabs;
+
+

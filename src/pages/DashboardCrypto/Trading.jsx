@@ -250,7 +250,7 @@ const Trading = () => {
           <div className="card-body p-0">
             <TabContent activeTab={activeTab} className="p-0">
               <TabPane tabId="buy">
-                <div className="p-3 bg-primary-subtle">
+                <div className="p-3 bg-secondary-subtle">
                   <Col xl={5}>
                     <Input
                       style={{
@@ -764,3 +764,5 @@ const Trading = () => {
 };
 
 export default Trading;
+
+

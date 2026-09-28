@@ -165,7 +165,7 @@ const Statistics = ({
           x: item.x,
           y: item.y,
         })),
-        color: "#5162be",
+        color: "#07A397",
       },
     ],
     [filteredData],
@@ -197,13 +197,13 @@ const Statistics = ({
           opacityTo: 0.05,
           stops: [0, 90],
         },
-        colors: ["#5162be"],
+        colors: ["#07A397"],
       },
 
       stroke: {
         curve: "stepline",
         width: 3,
-        colors: ["#5162be"],
+        colors: ["#07A397"],
       },
 
       grid: {
@@ -339,7 +339,7 @@ const Statistics = ({
                     key={r}
                     type="button"
                     className={`${
-                      range === r ? "btn-primary" : "btn-soft-primary"
+                      range === r ? "btn-secondary" : "btn-soft-secondary"
                     } btn timeline-btn btn-sm`}
                     onClick={() => setRange(r)}
                   >

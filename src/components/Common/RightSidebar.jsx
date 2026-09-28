@@ -184,7 +184,7 @@ const RightSidebar = (props) => {
           className="offcanvas-end border-0"
         >
           <OffcanvasHeader
-            className="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header-dark"
+            className="d-flex align-items-center bg-secondary bg-gradient p-3 offcanvas-header-dark"
             toggle={toggleLeftCanvas}
           >
             <span className="m-0 me-2 text-white">Theme Customizer</span>
@@ -218,10 +218,10 @@ const RightSidebar = (props) => {
                         <span className="d-flex gap-1 h-100">
                           <span className="flex-shrink-0">
                             <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                              <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                              <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                             </span>
                           </span>
                           <span className="flex-grow-1">
@@ -256,9 +256,9 @@ const RightSidebar = (props) => {
                       >
                         <span className="d-flex h-100 flex-column gap-1">
                           <span className="bg-light d-flex p-1 gap-1 align-items-center">
-                            <span className="d-block p-1 bg-primary-subtle rounded me-1"></span>
-                            <span className="d-block p-1 pb-0 px-2 bg-primary-subtle ms-auto"></span>
-                            <span className="d-block p-1 pb-0 px-2 bg-primary-subtle"></span>
+                            <span className="d-block p-1 bg-secondary-subtle rounded me-1"></span>
+                            <span className="d-block p-1 pb-0 px-2 bg-secondary-subtle ms-auto"></span>
+                            <span className="d-block p-1 pb-0 px-2 bg-secondary-subtle"></span>
                           </span>
                           <span className="bg-light d-block p-1"></span>
                           <span className="bg-light d-block p-1 mt-auto"></span>
@@ -289,18 +289,18 @@ const RightSidebar = (props) => {
                         <span className="d-flex gap-1 h-100">
                           <span className="flex-shrink-0">
                             <span className="bg-light d-flex h-100 flex-column gap-1">
-                              <span className="d-block p-1 bg-primary-subtle mb-2"></span>
-                              <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
+                              <span className="d-block p-1 bg-secondary-subtle mb-2"></span>
+                              <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
                             </span>
                           </span>
                           <span className="flex-shrink-0">
                             <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                             </span>
                           </span>
                           <span className="flex-grow-1">
@@ -336,10 +336,10 @@ const RightSidebar = (props) => {
                         <span className="d-flex gap-1 h-100">
                           <span className="flex-shrink-0 p-1">
                             <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                              <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                              <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                             </span>
                           </span>
                           <span className="flex-grow-1">
@@ -384,10 +384,10 @@ const RightSidebar = (props) => {
                           <span className="d-flex gap-1 h-100">
                             <span className="flex-shrink-0">
                               <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                               </span>
                             </span>
                             <span className="flex-grow-1">
@@ -478,10 +478,10 @@ const RightSidebar = (props) => {
                             <span className="d-flex gap-1 h-100">
                               <span className="flex-shrink-0 p-1">
                                 <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                  <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                  <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                  <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                  <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                  <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                  <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                  <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                  <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                 </span>
                               </span>
                               <span className="flex-grow-1">
@@ -572,10 +572,10 @@ const RightSidebar = (props) => {
                                 <span className="d-flex gap-1 h-100">
                                   <span className="flex-shrink-0">
                                     <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                      <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                      <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                     </span>
                                   </span>
                                   <span className="flex-grow-1">
@@ -616,10 +616,10 @@ const RightSidebar = (props) => {
                                 <span className="d-flex gap-1 h-100 border-start border-end">
                                   <span className="flex-shrink-0">
                                     <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                      <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                      <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                     </span>
                                   </span>
                                   <span className="flex-grow-1">
@@ -723,10 +723,10 @@ const RightSidebar = (props) => {
                         <span className="d-flex gap-1 h-100">
                           <span className="flex-shrink-0">
                             <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                              <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                              <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                             </span>
                           </span>
                           <span className="flex-grow-1">
@@ -762,15 +762,15 @@ const RightSidebar = (props) => {
                         <span className="d-flex gap-1 h-100">
                           <span className="flex-shrink-0">
                             <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                              <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                              <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                              <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                              <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                             </span>
                           </span>
                           <span className="flex-grow-1">
                             <span className="d-flex h-100 flex-column">
-                              <span className="bg-primary d-block p-1"></span>
+                              <span className="bg-secondary d-block p-1"></span>
                               <span className="bg-light d-block p-1 mt-auto"></span>
                             </span>
                           </span>
@@ -819,10 +819,10 @@ const RightSidebar = (props) => {
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
                                   <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                    <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                    <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                   </span>
                                 </span>
                                 <span className="flex-grow-1">
@@ -864,10 +864,10 @@ const RightSidebar = (props) => {
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
                                   <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                    <span className="d-block p-1 bg-primary-subtle rounded mb-2"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                    <span className="d-block p-1 bg-secondary-subtle rounded mb-2"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
                                   </span>
                                 </span>
                                 <span className="flex-grow-1">
@@ -909,10 +909,10 @@ const RightSidebar = (props) => {
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
                                   <span className="bg-light d-flex h-100 flex-column gap-1">
-                                    <span className="d-block p-1 bg-primary-subtle mb-2"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                    <span className="d-block p-1 bg-secondary-subtle mb-2"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
                                   </span>
                                 </span>
                                 <span className="flex-grow-1">
@@ -956,10 +956,10 @@ const RightSidebar = (props) => {
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
                                   <span className="bg-light d-flex h-100 flex-column gap-1">
-                                    <span className="d-block p-1 bg-primary-subtle mb-2"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 pb-0 bg-primary-subtle"></span>
+                                    <span className="d-block p-1 bg-secondary-subtle mb-2"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 pb-0 bg-secondary-subtle"></span>
                                   </span>
                                 </span>
                                 <span className="flex-grow-1">
@@ -1014,10 +1014,10 @@ const RightSidebar = (props) => {
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
                                   <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                    <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                    <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                   </span>
                                 </span>
                                 <span className="flex-grow-1">
@@ -1057,16 +1057,16 @@ const RightSidebar = (props) => {
                             >
                               <span className="d-flex h-100 flex-column">
                                 <span className="bg-light d-flex p-1 gap-1 align-items-center px-2">
-                                  <span className="d-block p-1 bg-primary-subtle rounded me-1"></span>
-                                  <span className="d-block p-1 pb-0 px-2 bg-primary-subtle ms-auto"></span>
-                                  <span className="d-block p-1 pb-0 px-2 bg-primary-subtle"></span>
+                                  <span className="d-block p-1 bg-secondary-subtle rounded me-1"></span>
+                                  <span className="d-block p-1 pb-0 px-2 bg-secondary-subtle ms-auto"></span>
+                                  <span className="d-block p-1 pb-0 px-2 bg-secondary-subtle"></span>
                                 </span>
                                 <span className="d-flex gap-1 h-100 p-1 px-2">
                                   <span className="flex-shrink-0">
                                     <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                      <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                      <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                     </span>
                                   </span>
                                 </span>
@@ -1120,10 +1120,10 @@ const RightSidebar = (props) => {
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
                                   <span className="bg-white border-end d-flex h-100 flex-column gap-1 p-1">
-                                    <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                    <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                    <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                    <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                                   </span>
                                 </span>
                                 <span className="flex-grow-1">
@@ -1161,7 +1161,7 @@ const RightSidebar = (props) => {
                             >
                               <span className="d-flex gap-1 h-100">
                                 <span className="flex-shrink-0">
-                                  <span className="bg-primary d-flex h-100 flex-column gap-1 p-1">
+                                  <span className="bg-secondary d-flex h-100 flex-column gap-1 p-1">
                                     <span className="d-block p-1 px-2 bg-white bg-opacity-10 rounded mb-2"></span>
                                     <span className="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
                                     <span className="d-block p-1 px-2 pb-0 bg-white bg-opacity-10"></span>
@@ -1504,10 +1504,10 @@ const RightSidebar = (props) => {
                           <span className="d-flex gap-1 h-100">
                             <span className="flex-shrink-0">
                               <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                               </span>
                             </span>
                             <span className="flex-grow-1">
@@ -1558,10 +1558,10 @@ const RightSidebar = (props) => {
                           <span className="d-flex gap-1 h-100">
                             <span className="flex-shrink-0">
                               <span className="bg-light d-flex h-100 flex-column gap-1 p-1">
-                                <span className="d-block p-1 px-2 bg-primary-subtle rounded mb-2"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
-                                <span className="d-block p-1 px-2 pb-0 bg-primary-subtle"></span>
+                                <span className="d-block p-1 px-2 bg-secondary-subtle rounded mb-2"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
+                                <span className="d-block p-1 px-2 pb-0 bg-secondary-subtle"></span>
                               </span>
                             </span>
                             <span className="flex-grow-1">
@@ -1587,3 +1587,5 @@ const RightSidebar = (props) => {
 };
 
 export default withRouter(RightSidebar);
+
+

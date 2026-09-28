@@ -80,7 +80,7 @@ const MyPortfolio = ({ wallets, walletData, walletAnalytics, networth }) => {
               <UncontrolledDropdown direction="start">
                 <DropdownToggle
                   tag="button"
-                  className="btn btn-soft-primary btn-sm"
+                  className="btn btn-soft-secondary btn-sm"
                 >
                   <span className="text-uppercase">
                     {selectedWallet}

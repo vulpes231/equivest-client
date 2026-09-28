@@ -43,7 +43,7 @@ const Logout = (props) => {
       </Toast>
     );
   }
-  document.title = "Logout | Itrust Investments";
+  document.title = "Logout | Equivest";
   return <></>;
 };
 
@@ -52,3 +52,5 @@ Logout.propTypes = {
 };
 
 export default withRouter(Logout);
+
+

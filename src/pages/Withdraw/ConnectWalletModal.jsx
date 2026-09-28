@@ -69,7 +69,7 @@ const ConnectWalletModal = ({ isOpen, toggle, handleForm }) => {
                   key={wallet.id}
                   className={`d-flex align-items-center gap-4 px-4 py-2 ${
                     selectedConnection.id === wallet.id
-                      ? "bg-primary-subtle"
+                      ? "bg-secondary-subtle"
                       : ""
                   }`}
                   style={{
@@ -136,3 +136,5 @@ const ConnectWalletModal = ({ isOpen, toggle, handleForm }) => {
 };
 
 export default ConnectWalletModal;
+
+

@@ -86,12 +86,12 @@ const Texts = () => {
                     fontWeight: 900,
                   }}
                 >
-                  How to invest with Itrust Investment
+                  How to invest with Equivest
                 </h3>
               </div>
               <div className="col-12 col-lg-8">
                 <p className="fs-16 text-dark">
-                  At Itrust Investment, we partner with financial professionals
+                  At Equivest, we partner with financial professionals
                   across the World to ensure they have the proper tools and
                   materials to assist you in building a financial plan and
                   investment portfolio suited to your goals. We strongly
@@ -119,7 +119,7 @@ const Texts = () => {
                     fontWeight: 900,
                   }}
                 >
-                  How to open an Itrust Investment account
+                  How to open an Equivest account
                 </h3>
               </div>
               <div className="col-12 col-lg-8">
@@ -167,7 +167,7 @@ const Texts = () => {
                     fontWeight: 900,
                   }}
                 >
-                  How to open an Itrust Investment account
+                  How to open an Equivest account
                 </h3>
               </div>
               <div className="col-12 col-lg-8">
@@ -206,3 +206,5 @@ const Texts = () => {
 };
 
 export default Texts;
+
+

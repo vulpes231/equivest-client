@@ -62,3 +62,5 @@ const BottomStats = ({ walletAnalytics, walletData }) => {
 };
 
 export default BottomStats;
+
+

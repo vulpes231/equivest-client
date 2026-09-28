@@ -118,7 +118,7 @@ const ClosedPlans = ({ plans, style }) => {
                       <span
                         className={`d-flex align-items-center p-1 rounded justify-content-center fs-10 fw-semibold  ${
                           plan.type === "conservative"
-                            ? "bg-primary-subtle"
+                            ? "bg-secondary-subtle"
                             : plan.type === "aggressive"
                             ? "bg-danger-subtle"
                             : plan.type === "moderate"
@@ -172,3 +172,5 @@ const ClosedPlans = ({ plans, style }) => {
 };
 
 export default ClosedPlans;
+
+

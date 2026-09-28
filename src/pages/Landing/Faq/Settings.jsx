@@ -60,3 +60,5 @@ const Settings = ({ currentQue, setCurrentQue }) => {
 };
 
 export default Settings;
+
+

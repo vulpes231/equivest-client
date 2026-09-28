@@ -150,3 +150,5 @@ const TradeCard = ({ walletData, tradingAccounts }) => {
 };
 
 export default TradeCard;
+
+

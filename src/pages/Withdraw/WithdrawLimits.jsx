@@ -77,3 +77,5 @@ const WithdrawalLimits = ({ userSettings, globalSettings, active }) => {
 };
 
 export default WithdrawalLimits;
+
+

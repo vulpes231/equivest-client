@@ -4,7 +4,7 @@ import { IoAlertCircleOutline } from "react-icons/io5";
 
 const Finc = () => {
   return (
-    <Col className="d-flex align-items-start gap-2 justify-content-between bg-primary-subtle p-3 rounded">
+    <Col className="d-flex align-items-start gap-2 justify-content-between bg-secondary-subtle p-3 rounded">
       <div className="d-flex align-items-start gap-4 text-primary">
         <IoAlertCircleOutline />
         <span>
@@ -20,3 +20,5 @@ const Finc = () => {
 };
 
 export default Finc;
+
+

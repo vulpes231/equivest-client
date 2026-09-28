@@ -241,3 +241,5 @@ const Retirements = ({ analytics, accts, cashAcct }) => {
 };
 
 export default Retirements;
+
+

@@ -57,3 +57,4 @@ $gradients: map-merge((primary: linear-gradient(135deg, $primary 0%, $success 10
 $value in $gradients {
     @include badge-gradient(".badge-gradient-#{$gradient}", $value);
 }
+

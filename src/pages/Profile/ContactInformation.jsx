@@ -214,3 +214,5 @@ const ContactInformation = ({ user }) => {
 };
 
 export default ContactInformation;
+
+

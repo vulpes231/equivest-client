@@ -8,7 +8,7 @@ const Footer = () => {
         <Container fluid>
           <Row>
             <Col sm={6}>
-              {new Date().getFullYear()} &copy; Itrust Investment. All Rights
+              {new Date().getFullYear()} &copy; Equivest. All Rights
               Reserved.
             </Col>
           </Row>
@@ -19,3 +19,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

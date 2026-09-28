@@ -35,7 +35,7 @@ const CashFeatures = () => {
     {
       id: 5,
       title: "Automated savings and transfers",
-      info: "Create your own automated plans and set recurring transfers to move money to your savings goals and investments with Itrust Investment.",
+      info: "Create your own automated plans and set recurring transfers to move money to your savings goals and investments with Equivest.",
       img: keep,
     },
     {
@@ -227,3 +227,5 @@ const CashFeatures = () => {
 };
 
 export default CashFeatures;
+
+

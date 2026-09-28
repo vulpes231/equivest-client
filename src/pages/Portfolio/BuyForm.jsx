@@ -612,3 +612,5 @@ const BuyForm = ({ tradeType, wallets, activeTab }) => {
 };
 
 export default BuyForm;
+
+

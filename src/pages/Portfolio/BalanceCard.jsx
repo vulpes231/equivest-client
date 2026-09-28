@@ -95,3 +95,5 @@ const BalanceCard = ({ activeWallet, handleChange, wallets, walletData }) => {
 };
 
 export default BalanceCard;
+
+

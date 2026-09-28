@@ -34,7 +34,7 @@ const Conditions = () => {
               Terms &amp; Conditions
             </h3>
             <p className="text-dark fs-15">
-              Itrust Investment LLC (“Itrust Investment ”), a wholly-owned
+              Equivest LLC (“Equivest ”), a wholly-owned
               subsidiary of Itrust Asset Management a member of the Financial
               Industry Regulatory Authority (FINRA). With FINRA number is
               164193, and the SEC number is 801-115048, that provides online and
@@ -43,7 +43,7 @@ const Conditions = () => {
             </p>
             <p className="text-dark fs-15">
               These Terms and Conditions are in addition to any other agreements
-              between you and Itrust Investment (collectively, “Itrust”),
+              between you and Equivest (collectively, “Itrust”),
               including any customer or account agreements and any other
               agreements that govern your use of software, products, goods,
               services, content, tools, and information provided by Itrust.
@@ -141,7 +141,7 @@ const Conditions = () => {
                 No Recommendations or Investment Advice
               </h4>
               <p className="text-dark fs-15">
-                Itrust Investment provides self-directed investors with discount
+                Equivest provides self-directed investors with discount
                 brokerage services, and does not make recommendations or offer
                 investment advice of any kind. You are solely responsible for
                 evaluating the merits and risks associated with the use of any
@@ -170,3 +170,5 @@ const Conditions = () => {
 };
 
 export default Conditions;
+
+

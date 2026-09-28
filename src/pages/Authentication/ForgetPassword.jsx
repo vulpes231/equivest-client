@@ -31,7 +31,7 @@ import ForgetPassOtp from "./ForgetPassOtp";
 import ChangePass from "./ChangePass";
 
 const ForgetPasswordPage = (props) => {
-  document.title = "Reset Password | Itrust Investments";
+  document.title = "Reset Password | Equivest";
 
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
@@ -203,3 +203,5 @@ ForgetPasswordPage.propTypes = {
 };
 
 export default withRouter(ForgetPasswordPage);
+
+

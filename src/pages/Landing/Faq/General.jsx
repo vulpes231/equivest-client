@@ -60,3 +60,5 @@ const General = ({ currentQue, setCurrentQue }) => {
 };
 
 export default General;
+
+

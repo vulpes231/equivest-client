@@ -24,3 +24,5 @@ const ErrorToast = ({ errorMsg, isOpen = true, onClose }) => {
 };
 
 export default ErrorToast;
+
+

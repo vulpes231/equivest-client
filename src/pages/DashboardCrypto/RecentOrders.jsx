@@ -130,3 +130,5 @@ const RecentOrders = ({ trades }) => {
 };
 
 export default RecentOrders;
+
+

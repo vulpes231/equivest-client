@@ -96,3 +96,5 @@ const Histories = () => {
 };
 
 export default Histories;
+
+

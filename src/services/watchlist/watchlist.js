@@ -35,3 +35,5 @@ const checkWatchlistStatus = async (assetId) => {
 };
 
 export { addToWatchList, getUserWatchList, checkWatchlistStatus };
+
+

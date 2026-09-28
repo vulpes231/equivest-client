@@ -65,3 +65,5 @@ const HistoryManager = ({ activeHistoryTab, setActiveHistoryTab }) => {
 };
 
 export default HistoryManager;
+
+

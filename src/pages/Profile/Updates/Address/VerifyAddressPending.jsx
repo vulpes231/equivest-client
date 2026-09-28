@@ -26,3 +26,5 @@ const VerifyAddressPending = () => {
 };
 
 export default VerifyAddressPending;
+
+

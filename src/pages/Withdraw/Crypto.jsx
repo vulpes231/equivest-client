@@ -151,7 +151,7 @@ const Crypto = ({ settings }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -238,7 +238,7 @@ const Crypto = ({ settings }) => {
                   key={mtd.id}
                   className={`d-flex align-items-center gap-3 py-1 px-2 border border-2 ${
                     selectedMode.id === mtd.id
-                      ? "bg-primary-subtle border-secondary "
+                      ? "bg-secondary-subtle border-secondary "
                       : ""
                   }`}
                   onClick={() => handleMode(mtd)}
@@ -464,7 +464,7 @@ const Crypto = ({ settings }) => {
       </Col>
 
       <Col lg={12}>
-        <div className="d-flex align-items-start bg-primary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
+        <div className="d-flex align-items-start bg-secondary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
           <span>
             <IoAlertCircleOutline className="text-primary" />
           </span>
@@ -553,3 +553,5 @@ const Crypto = ({ settings }) => {
 };
 
 export default Crypto;
+
+

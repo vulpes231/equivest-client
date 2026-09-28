@@ -28,3 +28,5 @@ const NonAuthLayout = ({ children }) => {
 };
 
 export default withRouter(NonAuthLayout);
+
+

@@ -223,3 +223,4 @@ const invoiceTable = [
 ];
 
 export { invoiceWidgets, invoiceTable };
+

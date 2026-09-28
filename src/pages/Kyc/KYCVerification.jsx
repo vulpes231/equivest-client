@@ -362,7 +362,7 @@ const KYCVerification = ({ isKycVerification, setIsKycVerification }) => {
             </Col>
 
             <Col>
-              <Col className="d-flex align-items-start gap-2 justify-content-between bg-primary-subtle p-3 rounded">
+              <Col className="d-flex align-items-start gap-2 justify-content-between bg-secondary-subtle p-3 rounded">
                 <div className="d-flex align-items-start gap-4 text-primary fs-11 fw-light">
                   <IoAlertCircleOutline />
                   <div>
@@ -427,3 +427,5 @@ const KYCVerification = ({ isKycVerification, setIsKycVerification }) => {
 };
 
 export default KYCVerification;
+
+

@@ -25,3 +25,5 @@ const ResetPasswordModal = ({ isOpen, handleToggle }) => {
 };
 
 export default ResetPasswordModal;
+
+

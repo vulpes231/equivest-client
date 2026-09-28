@@ -21,7 +21,7 @@ import AssetPreview from "./AssetPreview";
 import { getUserPositions } from "../../services/user/position";
 
 const BuySell = () => {
-  document.title = "Market - Itrust Investments";
+  document.title = "Market - Equivest";
 
   const tk = getAccessToken();
   const { assetId } = useParams();
@@ -152,3 +152,5 @@ const BuySell = () => {
 };
 
 export default BuySell;
+
+

@@ -60,3 +60,5 @@ const Investing = ({ currentQue, setCurrentQue }) => {
 };
 
 export default Investing;
+
+

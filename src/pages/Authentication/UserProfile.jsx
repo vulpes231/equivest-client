@@ -21,7 +21,7 @@ import { getLoggedinUser } from "../../helpers/apiHelper";
 import { useMutation } from "@tanstack/react-query";
 
 const UserProfile = () => {
-  document.title = "User Profile | Itrust Investments";
+  document.title = "User Profile | Equivest";
   const user = getLoggedinUser();
 
   const mutation = useMutation();
@@ -144,3 +144,5 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
+

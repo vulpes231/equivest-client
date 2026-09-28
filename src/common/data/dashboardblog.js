@@ -146,3 +146,4 @@ const recentTable = [
 ]
 
 export { blogwidget, socialShares, comments, recentTable }
+

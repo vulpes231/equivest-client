@@ -43,3 +43,5 @@ async function searchAsset(formData) {
 }
 
 export { getAssetInfo, getAssets, searchAsset };
+
+

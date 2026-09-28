@@ -6,7 +6,7 @@ import BreadCrumb from "../../components/Common/BreadCrumb";
 import VerifyAccountNotify from "../VerifyAccountNotify";
 
 const Wallet = () => {
-  document.title = "Cash Account - Itrust Investments";
+  document.title = "Cash Account - Equivest";
 
   return (
     <React.Fragment>
@@ -25,3 +25,5 @@ const Wallet = () => {
 };
 
 export default Wallet;
+
+

@@ -152,3 +152,5 @@ const MobileTransaction = ({ data }) => {
 };
 
 export default MobileTransaction;
+
+

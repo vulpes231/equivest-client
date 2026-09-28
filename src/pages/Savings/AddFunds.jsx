@@ -246,3 +246,5 @@ const AddFunds = ({ accts, handleIcon, cash }) => {
 };
 
 export default AddFunds;
+
+

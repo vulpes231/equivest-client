@@ -115,7 +115,7 @@ const Plans = ({ status = "all", risk = "all" }) => {
             key={tb.id}
             className={`btn ${
               activeTab === tb.id
-                ? "bg-primary-subtle text-primary"
+                ? "bg-secondary-subtle text-primary"
                 : "btn-light"
             }`}
             onClick={() => handleTabChange(tb.id)}
@@ -143,3 +143,5 @@ const Plans = ({ status = "all", risk = "all" }) => {
 };
 
 export default Plans;
+
+

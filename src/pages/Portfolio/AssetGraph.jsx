@@ -57,3 +57,5 @@ const AssetGraph = ({ count, walletAnalytics, walletData }) => {
 };
 
 export default AssetGraph;
+
+

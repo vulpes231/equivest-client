@@ -50,3 +50,5 @@ const TermContent = () => {
 };
 
 export default TermContent;
+
+

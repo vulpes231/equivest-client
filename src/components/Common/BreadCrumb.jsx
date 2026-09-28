@@ -25,3 +25,4 @@ const BreadCrumb = ({ title, pageTitle }) => {
 };
 
 export default BreadCrumb;
+

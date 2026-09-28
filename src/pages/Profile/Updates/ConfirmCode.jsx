@@ -132,7 +132,7 @@ const ConfirmCode = ({ email, onClose }) => {
       >
         <div className="card-body p-4 p-md-5 text-center">
           <div
-            className="d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle bg-primary bg-opacity-10"
+            className="d-flex align-items-center justify-content-center mx-auto mb-4 rounded-circle bg-secondary bg-opacity-10"
             style={{
               width: "64px",
               height: "64px",
@@ -223,3 +223,5 @@ const ConfirmCode = ({ email, onClose }) => {
 };
 
 export default ConfirmCode;
+
+

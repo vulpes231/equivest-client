@@ -17,3 +17,4 @@ const Spinners = ({ setLoading }) => {
 }
 
 export default Spinners;
+

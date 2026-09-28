@@ -14,7 +14,7 @@ import { getUserInfo } from "../../services/user/user";
 import { getAccessToken } from "../../constants";
 
 const Profile = () => {
-  document.title = "Profile - Itrust Investments";
+  document.title = "Profile - Equivest";
 
   const [activeTab, setActiveTab] = useState(() => {
     return sessionStorage.getItem("profileActiveTab") || "profile";
@@ -64,3 +64,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
+

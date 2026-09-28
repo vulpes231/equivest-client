@@ -15,7 +15,7 @@ const OtherAccounts = ({ otherAccts, setToAccount, toAccount }) => {
           <div
             className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1  ${
               toAccount._id === wallet._id
-                ? "bg-primary-subtle border-secondary"
+                ? "bg-secondary-subtle border-secondary"
                 : ""
             }`}
             key={wallet._id}
@@ -94,3 +94,5 @@ const OtherAccounts = ({ otherAccts, setToAccount, toAccount }) => {
 };
 
 export default OtherAccounts;
+
+

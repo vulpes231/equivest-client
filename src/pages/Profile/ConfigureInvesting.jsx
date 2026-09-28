@@ -329,3 +329,5 @@ const ConfigureInvesting = ({ user }) => {
 };
 
 export default ConfigureInvesting;
+
+

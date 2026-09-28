@@ -232,3 +232,5 @@ const ActivatePlanModal = ({ handleToggle, isOpen, plan }) => {
 };
 
 export default ActivatePlanModal;
+
+

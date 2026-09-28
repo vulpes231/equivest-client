@@ -71,3 +71,5 @@ const DepositLimit = ({ userSettings, globalSettings, active }) => {
 };
 
 export default DepositLimit;
+
+

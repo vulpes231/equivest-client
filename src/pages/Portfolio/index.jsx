@@ -23,7 +23,7 @@ import Positions from "./Positions";
 import { getUserPositions } from "../../services/user/position";
 
 const Portfolio = () => {
-  document.title = "Portfolio - Itrust Investments";
+  document.title = "Portfolio - Equivest";
 
   const tk = getAccessToken();
 
@@ -194,3 +194,5 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+

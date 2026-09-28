@@ -37,7 +37,7 @@ const NotificationDropdown = () => {
                             className="visually-hidden">unread messages</span></span>
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-menu-lg dropdown-menu-end p-0">
-                    <div className="dropdown-head bg-primary bg-pattern rounded-top">
+                    <div className="dropdown-head bg-secondary bg-pattern rounded-top">
                         <div className="p-3">
                             <Row className="align-items-center">
                                 <Col>
@@ -302,3 +302,5 @@ const NotificationDropdown = () => {
 };
 
 export default NotificationDropdown;
+
+

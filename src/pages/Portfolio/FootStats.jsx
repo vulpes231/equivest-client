@@ -163,3 +163,5 @@ const FootStats = ({ activeWallet, cashAccount }) => {
 };
 
 export default FootStats;
+
+

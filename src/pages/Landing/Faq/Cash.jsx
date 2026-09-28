@@ -60,3 +60,5 @@ const Cash = ({ currentQue, setCurrentQue }) => {
 };
 
 export default Cash;
+
+

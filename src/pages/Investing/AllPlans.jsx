@@ -110,7 +110,7 @@ const AllPlans = ({ plans, style }) => {
                     <span
                       className={`d-flex align-items-center p-1 rounded justify-content-center fs-10 fw-semibold  ${
                         plan?.planType === "conservative"
-                          ? "bg-primary-subtle"
+                          ? "bg-secondary-subtle"
                           : plan?.planType === "aggressive"
                             ? "bg-danger-subtle"
                             : plan?.planType === "moderate"
@@ -188,3 +188,5 @@ const AllPlans = ({ plans, style }) => {
 };
 
 export default AllPlans;
+
+

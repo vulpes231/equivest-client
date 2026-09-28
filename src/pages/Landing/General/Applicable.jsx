@@ -25,3 +25,5 @@ const Applicable = () => {
 };
 
 export default Applicable;
+
+

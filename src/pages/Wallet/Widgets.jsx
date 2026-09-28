@@ -201,11 +201,11 @@ const Widgets = () => {
             </div>
           </div>
           <div md={6} className="d-flex gap-2">
-            <Link className="btn btn-primary" to={"/deposit"}>
+            <Link className="btn btn-secondary" to={"/deposit"}>
               Deposit
             </Link>
             <Link
-              className="btn bg-none border border-secondary text-primary"
+              className="btn bg-none border border-secondary text-secondary"
               to={"/transfer"}
             >
               Transfer

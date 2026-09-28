@@ -69,3 +69,4 @@ const Pagination = ({ data, currentPage, setCurrentPage, perPageData, className 
 }
 
 export default Pagination;
+

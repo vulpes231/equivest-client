@@ -353,3 +353,4 @@ const yearMarketplaceData = [{
 }];
 
 export { topartWork, featuredNFTData, popularityData, recentNFTsData, topCollectionData, popularCreatorsData, allMarketplaceData, monthMarketplaceData, halfyearMarketplaceData, yearMarketplaceData };
+

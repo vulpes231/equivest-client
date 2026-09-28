@@ -14,7 +14,7 @@ import { getAccessToken } from "../../constants";
 import { getUserInfo } from "../../services/user/user";
 
 const Investing = () => {
-  document.title = "Automated Investing | Itrust Investments";
+  document.title = "Automated Investing | Equivest";
 
   const tk = getAccessToken();
 
@@ -55,3 +55,5 @@ const Investing = () => {
 };
 
 export default Investing;
+
+

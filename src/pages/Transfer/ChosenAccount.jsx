@@ -22,7 +22,7 @@ const ChoseAccount = ({
           <div
             className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1 ${
               selectedAccount._id === wallet._id
-                ? "bg-primary-subtle border-secondary"
+                ? "bg-secondary-subtle border-secondary"
                 : ""
             }`}
             key={wallet._id}
@@ -105,3 +105,5 @@ const ChoseAccount = ({
 };
 
 export default ChoseAccount;
+
+
