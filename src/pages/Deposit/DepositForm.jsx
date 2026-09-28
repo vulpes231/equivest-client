@@ -1,0 +1,118 @@
+import React, { useEffect, useState } from "react";
+import { Col, Row, Card } from "reactstrap";
+import BalanceCard from "./BalanceCard";
+import PendingDeposit from "./PendingDeposit";
+import AccountStat from "./AccountStat";
+import DepositLimit from "./DepositLimit";
+import Form from "./Form";
+import Crypto from "./Crypto";
+import Bank from "./Bank";
+import TrxCrumb from "../../components/Common/TrxCrumb";
+import { useQuery } from "@tanstack/react-query";
+import { getSettings } from "../../services/user/settings";
+import { getAccessToken } from "../../constants";
+import { getTransactionAnalytics } from "../../services/user/transactions";
+import { getUserInfo } from "../../services/user/user";
+
+const DepositForm = () => {
+  const token = getAccessToken();
+  const [activeView, setActiveView] = useState("default");
+
+  function handleView(view) {
+    setActiveView(view);
+  }
+
+  const { data: settings } = useQuery({
+    queryKey: ["settings"],
+    queryFn: getSettings,
+    enabled: !!token,
+  });
+
+  const { data: analytics } = useQuery({
+    queryKey: ["trxAnalytics"],
+    queryFn: getTransactionAnalytics,
+    enabled: !!token,
+  });
+
+  const { data: user } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUserInfo,
+    enabled: !!token,
+  });
+
+  // useEffect(() => {
+  //   if (analytics) console.log(analytics);
+  // }, [analytics]);
+
+  return (
+    <React.Fragment>
+      <TrxCrumb
+        title="Deposit"
+        handleMove={
+          activeView === "default"
+            ? () => window.history.back()
+            : () => handleView("default")
+        }
+      />
+      <Row className="d-flex flex-column flex-md-row">
+        <Col lg={9}>
+          <div className="d-flex d-md-none flex-column">
+            <Card>
+              <BalanceCard />
+            </Card>
+            <Card
+              className={`bg-warning-subtle ${analytics?.pendingDeposit > 0 ? "d-flex" : "d-none"}`}
+            >
+              <PendingDeposit analytics={analytics} />
+            </Card>
+          </div>
+
+          <Card>
+            {activeView === "default" ? (
+              <Form
+                handleView={handleView}
+                settings={settings?.depositLimits}
+                analytics={analytics}
+                limits={user?.settings?.limits?.deposit}
+                currency={user?.currency}
+                addressVerified={user?.contactInfo?.status}
+              />
+            ) : activeView === "crypto" ? (
+              <Crypto settings={settings} user={user} />
+            ) : activeView === "bank" ? (
+              <Bank
+                settings={settings}
+                userBank={user?.settings?.bankDetails}
+              />
+            ) : null}
+          </Card>
+        </Col>
+        <Col lg={3}>
+          <div className="d-none d-md-flex flex-column">
+            <Card>
+              <BalanceCard />
+            </Card>
+            <Card
+              className={`bg-warning-subtle ${analytics?.pendingDeposit > 0 ? "d-flex" : "d-none"}`}
+            >
+              <PendingDeposit analytics={analytics} />
+            </Card>
+          </div>
+
+          <Card>
+            <AccountStat analytics={analytics} />
+          </Card>
+          <Card>
+            <DepositLimit
+              userSettings={user?.settings}
+              globalSettings={settings}
+              active={activeView}
+            />
+          </Card>
+        </Col>
+      </Row>
+    </React.Fragment>
+  );
+};
+
+export default DepositForm;

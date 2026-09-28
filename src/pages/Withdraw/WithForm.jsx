@@ -1,0 +1,269 @@
+import React, { useEffect, useState } from "react";
+import { Col, Input, Label, Row } from "reactstrap";
+import { PiCoin } from "react-icons/pi";
+import { RiBankLine } from "react-icons/ri";
+import { GoDotFill } from "react-icons/go";
+import { FaDollarSign } from "react-icons/fa";
+import { CenterSpan, CustomSpan, FlexRow } from "../Deposit/DepositUtils";
+import ErrorToast from "../../components/Common/ErrorToast";
+
+const buttons = [
+  "100",
+  "1000",
+  "2000",
+  "5000",
+  "10000",
+  "20000",
+  "50000",
+  "100000",
+];
+
+const paymentMethods = [
+  {
+    id: "crypto",
+    comment: "In few minutes",
+    title: "Cryptocurrencies",
+    icon: <PiCoin className="text-warning" size={24} />,
+  },
+  {
+    id: "bank",
+    comment: "2 - 5 Business Days",
+    title: "Bank Transfer (Wire Transfers)",
+    icon: <RiBankLine className="text-info" size={24} />,
+  },
+];
+
+const WithForm = ({ handleView, limits, settings, currency }) => {
+  const [selectedMethod, setSelectedMethod] = useState("crypto");
+
+  const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
+
+  const minCryptoWithdrawLimit = limits?.crypto?.min || settings?.crypto?.min;
+  const maxCryptoWithdrawLimit = limits?.crypto?.max || settings?.crypto?.max;
+  const minBankWithdrawLimit = limits?.bank?.min || settings?.bank?.min;
+  const maxBankWithdrawLimit = limits?.bank?.max || settings?.bank?.max;
+
+  function handleConfirm(e) {
+    e.preventDefault();
+
+    if (!amount) {
+      setError("Amount required!");
+      return;
+    }
+
+    if (selectedMethod === "crypto" && amount < minCryptoWithdrawLimit) {
+      setError(
+        `Minimum crypto withdrawal is ${currency?.sign}${minCryptoWithdrawLimit}`,
+      );
+      return;
+    }
+    if (selectedMethod === "crypto" && amount > maxCryptoWithdrawLimit) {
+      setError(
+        `Maximum crypto withdrawal is ${currency?.sign}${maxCryptoWithdrawLimit}`,
+      );
+      return;
+    }
+
+    if (selectedMethod === "bank" && amount < minBankWithdrawLimit) {
+      setError(
+        `Minimum bank withdrawal is ${currency?.sign}${minBankWithdrawLimit}`,
+      );
+      return;
+    }
+    if (selectedMethod === "bank" && amount > maxBankWithdrawLimit) {
+      setError(
+        `Maximum bank withdrawal is ${currency?.sign}${maxBankWithdrawLimit}`,
+      );
+      return;
+    }
+
+    const data = { method: selectedMethod, amount: amount };
+    sessionStorage.setItem("withdraw", JSON.stringify(data));
+    handleView(data.method);
+  }
+
+  useEffect(() => {
+    if (error) {
+      const timeout = setTimeout(() => {
+        setError("");
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [error]);
+
+  return (
+    <React.Fragment>
+      <div className="px-4 py-2">
+        <div className="pb-4">
+          <FlexRow>
+            <span
+              className="bg-primary d-flex align-items-center justify-content-center"
+              style={{
+                fontSize: "25px",
+                fontWeight: 600,
+                color: "#fff",
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+              }}
+            >
+              <FaDollarSign />
+            </span>
+            <CustomSpan>
+              <span
+                style={{
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  // color: "#495057",
+                  lineHeight: 2,
+                }}
+              >
+                Request a Withdrawal
+              </span>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: 300,
+                  // color: "#878A99",
+                  // lineHeight: 2,
+                }}
+                className="text-muted"
+              >
+                Transfer money from your Cash Account
+              </span>
+            </CustomSpan>
+          </FlexRow>
+        </div>
+        <Col>
+          <div className="pb-4">
+            <Label>Withdrawal Amount</Label>
+            <Input
+              name="amount"
+              onChange={(e) => {
+                setAmount(e.target.value);
+              }}
+              value={amount}
+            />
+            <div className="d-flex flex-wrap gap-2">
+              {buttons.map((btn, idx) => {
+                return (
+                  <button
+                    style={{
+                      fontSize: "10.5px",
+                      color: "#878A99",
+                      width: "90px",
+                    }}
+                    key={idx}
+                    type="button"
+                    className="btn bg-light mt-2"
+                    onClick={() => {
+                      setAmount(btn);
+                    }}
+                  >
+                    ${btn}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </Col>
+        <Col>
+          <div className="pb-4 px-2">
+            <Label
+              className="pb-2"
+              style={{ fontSize: "17.5", fontWeight: 600 }}
+            >
+              Payment Method
+            </Label>
+            <div className="pb-4 d-flex flex-column gap-2">
+              {paymentMethods.map((method, idx) => {
+                return (
+                  <div
+                    key={method.id}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "10px",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => setSelectedMethod(method.id)}
+                    className={`p-3 border border-2 ${selectedMethod === method.id ? "bg-secondary-subtle border-secondary" : ""}`}
+                  >
+                    <FlexRow>
+                      <span
+                        style={{
+                          borderRadius: "5px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyItems: "center",
+                        }}
+                        className={`p-2 ${idx === 0 ? "bg-warning-subtle text-warning" : "bg-info-subtle text-info"}`}
+                      >
+                        {method.icon}
+                      </span>
+                      <CustomSpan>
+                        <span style={{ fontSize: "16.8", fontWeight: 600 }}>
+                          {method.title}
+                        </span>
+                        <small style={{ fontSize: "14px", fontWeight: 300 }}>
+                          {method.comment}
+                        </small>
+                      </CustomSpan>
+                    </FlexRow>
+                    <span
+                      style={{
+                        border: "3px solid #5b71b9",
+                        width: "13px",
+                        height: "13px",
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyItems: "center",
+                      }}
+                    >
+                      {selectedMethod === method.id && (
+                        <GoDotFill className="text-primary" />
+                      )}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Col>
+        <Col>
+          <CenterSpan className="pt-4 px-2">
+            <button
+              onClick={handleConfirm}
+              style={{ width: "100%" }}
+              className="btn btn-primary"
+            >
+              Continue
+            </button>
+            <small
+              className="pb-3"
+              style={{ fontSize: "14px", fontWeight: 300 }}
+            >
+              Withdrawals are processed securely. Processing times vary by
+              payment method.
+            </small>
+          </CenterSpan>
+        </Col>
+      </div>
+      {error && (
+        <ErrorToast
+          isOpen={error}
+          onClose={() => setError("")}
+          errorMsg={error}
+        />
+      )}
+    </React.Fragment>
+  );
+};
+
+export default WithForm;

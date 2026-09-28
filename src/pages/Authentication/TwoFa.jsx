@@ -1,0 +1,219 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Card,
+  CardBody,
+  Col,
+  Container,
+  Row,
+  Button,
+  Spinner,
+} from "reactstrap";
+import ParticlesAuth from "../AuthenticationInner/ParticlesAuth";
+import { logo } from "../../assets";
+
+import { useMutation } from "@tanstack/react-query";
+import { sendAuthCode } from "../../services/otp/requestOtp";
+import { verifyEmail, verifyTwoFa } from "../../services/user/verification";
+import ErrorToast from "../../components/Common/ErrorToast";
+import SuccessToast from "../../components/Common/SuccessToast";
+import { Loader } from "feather-icons-react";
+import { CiMail } from "react-icons/ci";
+
+const TwoFa = () => {
+  document.title = "Two Factor - Itrust Investments";
+
+  const [disableResend, setDisableResend] = useState(true);
+  const [error, setError] = useState("");
+  const [otp, setOtp] = useState(["", "", "", ""]);
+
+  const sessionUser = JSON.parse(sessionStorage.getItem("user"));
+
+  const sessionEmail = sessionUser ? sessionUser.credentials?.email : "";
+
+  const resendMutation = useMutation({
+    mutationFn: sendAuthCode,
+    onError: (err) => setError(err.message),
+    onSuccess: () => {
+      setDisableResend(true);
+    },
+  });
+
+  const verifyTwoFaMutation = useMutation({
+    mutationFn: verifyTwoFa,
+    onError: (err) => setError(err.message),
+    onSuccess: () => {
+      // sessionStorage.removeItem("email_registered");
+      window.location.href = "/dashboard";
+    },
+  });
+
+  const handleChange = (value, index) => {
+    if (!/^[0-9]?$/.test(value)) return;
+
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+
+    if (value && index < 3) {
+      document.getElementById(`digit${index + 2}-input`).focus();
+    }
+  };
+
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
+      document.getElementById(`digit${index}-input`).focus();
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const code = otp.join("");
+
+    // console.log("clicked", sessionEmail, code);
+
+    if (!sessionEmail) {
+      setError("Problem re-sending OTP. Try again later");
+      sessionStorage.clear();
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 1000);
+    }
+
+    if (code.length !== 4) {
+      setError("Enter the complete 4-digit OTP!");
+      return;
+    }
+
+    verifyTwoFaMutation.mutate({ email: sessionEmail, code });
+  };
+
+  const handleCodeResend = (e) => {
+    e.preventDefault();
+
+    if (!sessionEmail) {
+      setError("Problem re-sending OTP. Try again later");
+      return;
+    }
+
+    resendMutation.mutate({ email: sessionEmail });
+  };
+
+  useEffect(() => {
+    if (error) {
+      const t = setTimeout(() => setError(""), 3000);
+      return () => clearTimeout(t);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (disableResend) {
+      const t = setTimeout(() => setDisableResend(false), 120000);
+      return () => clearTimeout(t);
+    }
+  }, [disableResend]);
+
+  return (
+    <div className="auth-page-wrapper">
+      {/* <ParticlesAuth> */}
+      <div className="auth-page-content">
+        <Container>
+          <Row>
+            <Col lg={12}>
+              <div className="text-center mt-sm-5 mb-4 text-white-50">
+                <h3 className="fw-bold">Two Factor Authentication</h3>
+                <p className="mt-3 fs-16 fw-semibold">Authenticate Login</p>
+              </div>
+            </Col>
+          </Row>
+
+          <Row className="justify-content-center">
+            <Col md={8} lg={6} xl={5}>
+              <Card className="mt-4">
+                <CardBody className="p-4">
+                  <div className="text-center mb-4 d-flex align-items-center justify-content-center flex-column gap-2">
+                    <div
+                      className="bg-secondary-subtle d-flex align-items-center justify-content-center"
+                      style={{
+                        height: "80px",
+                        width: "80px",
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <CiMail size={50} className="text-secondary" />
+                    </div>
+                    <h4>2FA</h4>
+                    <p className="d-flex align-items-center gap-2 text-muted fw-light">
+                      Please enter the 4 digit code sent to
+                      <strong>
+                        {`${sessionEmail.split("@")[0].slice(0, 3)}****@${sessionEmail.split("@")[1]}` ||
+                          "email@email.com"}
+                      </strong>
+                    </p>
+                  </div>
+
+                  <form onSubmit={handleSubmit}>
+                    <Row>
+                      {otp.map((digit, index) => (
+                        <Col key={index} className="col-3">
+                          <input
+                            id={`digit${index + 1}-input`}
+                            type="text"
+                            value={digit}
+                            maxLength="1"
+                            className="form-control text-center border-0 bg-light"
+                            onChange={(e) =>
+                              handleChange(e.target.value, index)
+                            }
+                            onKeyDown={(e) => handleKeyDown(e, index)}
+                          />
+                        </Col>
+                      ))}
+                    </Row>
+
+                    <button
+                      type="submit"
+                      className="w-100 mt-3 btn btn-secondary"
+                      disabled={verifyTwoFaMutation.isPending}
+                    >
+                      {verifyTwoFaMutation.isPending && <Spinner size="sm" />}{" "}
+                      Confirm
+                    </button>
+                  </form>
+                </CardBody>
+              </Card>
+
+              <div className="mt-4 text-center d-flex align-items-center gap-2 justify-content-center">
+                <span>Didn't receive a code?</span>
+                <button
+                  disabled={disableResend || resendMutation.isPending}
+                  onClick={handleCodeResend}
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    textDecoration: "underline",
+                  }}
+                  className="text-secondary"
+                >
+                  {resendMutation.isPending ? "Sending..." : "Resend Code"}
+                </button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      {/* </ParticlesAuth> */}
+      {error && <ErrorToast errorMsg={error} onClose={() => setError("")} />}
+      {verifyTwoFaMutation.isSuccess && (
+        <SuccessToast
+          successMsg={"Login Authenticated."}
+          onClose={() => verifyTwoFaMutation.reset()}
+        />
+      )}
+      {resendMutation.isPending && <Loader />}
+    </div>
+  );
+};
+
+export default TwoFa;

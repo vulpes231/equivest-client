@@ -1,0 +1,145 @@
+import React, { useEffect, useState } from "react";
+import { TabContent, TabPane } from "reactstrap";
+import AllPlans from "./AllPlans";
+import ActivePlans from "./ActivePlans";
+import ClosedPlans from "./ClosedPlans";
+import { useQuery } from "@tanstack/react-query";
+import { getAutoPlans } from "../../services/user/invest";
+import { getUserInfo } from "../../services/user/user";
+
+const tabs = [
+  {
+    id: "active",
+    label: "Active Plans",
+  },
+  {
+    id: "plans",
+    label: "All Plans",
+  },
+
+  {
+    id: "closed",
+    label: "Closed Plans",
+  },
+];
+
+const style = {
+  bold: "fs-16 fw-bold",
+  medium: "fs-15 fw-semibold",
+  large: "fs-32 fw-semibold",
+  slim: "fs-14 fw-regular",
+  dark: "#495057",
+  light: "#878A99",
+  green: "#67B173",
+};
+
+const Plans = ({ status = "all", risk = "all" }) => {
+  const [activeTab, setActiveTab] = useState(() => {
+    return sessionStorage.getItem("investTab") || "plans";
+  });
+
+  const { data: plans = [] } = useQuery({
+    queryKey: ["autoplans"],
+    queryFn: getAutoPlans,
+  });
+
+  const { data: user, isSuccess: isUserLoaded } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUserInfo,
+  });
+
+  const userActivePlans = user?.activePlans || [];
+
+  const userClosedPlans = userActivePlans.filter(
+    (plan) => plan?.status === "closed",
+  );
+
+  const userActivePlanLength = userActivePlans.length;
+  const userClosedPlanLength = userClosedPlans.length;
+
+  const activeAll = tabs.filter((tb) => tb.id !== "closed");
+  const all = tabs.filter((tb) => tb.id === "plans");
+
+  const tabsToShow =
+    userActivePlanLength > 0 && userClosedPlanLength > 0
+      ? tabs
+      : userActivePlanLength > 0
+        ? activeAll
+        : all;
+
+  // Only validate the saved tab AFTER user data has loaded.
+  useEffect(() => {
+    if (!isUserLoaded) return;
+
+    const isValidTab = tabsToShow.some((tab) => tab.id === activeTab);
+
+    if (!isValidTab) {
+      const fallbackTab = tabsToShow[0]?.id || "plans";
+
+      setActiveTab(fallbackTab);
+      sessionStorage.setItem("investTab", fallbackTab);
+    }
+  }, [isUserLoaded, activeTab, tabsToShow]);
+
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    sessionStorage.setItem("investTab", tabId);
+  };
+
+  const getFilteredPlans = () => {
+    if (status === "all") return userActivePlans;
+    if (status === "active") return userActivePlans;
+    if (status === "closed") return userClosedPlans;
+
+    return [];
+  };
+
+  const filteredPlans = getFilteredPlans();
+
+  const getFilteredByRiskPlans = () => {
+    if (!plans || plans.length === 0) return [];
+
+    if (risk === "all") return plans;
+
+    return plans.filter((plan) => plan?.planType === risk);
+  };
+
+  const filteredByRiskPlans = getFilteredByRiskPlans();
+
+  return (
+    <React.Fragment>
+      <div className="d-flex align-items-center gap-2">
+        {tabsToShow.map((tb) => (
+          <button
+            type="button"
+            key={tb.id}
+            className={`btn ${
+              activeTab === tb.id
+                ? "bg-primary-subtle text-primary"
+                : "btn-light"
+            }`}
+            onClick={() => handleTabChange(tb.id)}
+          >
+            {tb.label}
+          </button>
+        ))}
+      </div>
+
+      <TabContent activeTab={activeTab}>
+        <TabPane tabId="plans">
+          <AllPlans style={style} plans={filteredByRiskPlans} />
+        </TabPane>
+
+        <TabPane tabId="active">
+          <ActivePlans style={style} plans={filteredPlans} />
+        </TabPane>
+
+        <TabPane tabId="closed">
+          <ClosedPlans style={style} plans={filteredPlans} />
+        </TabPane>
+      </TabContent>
+    </React.Fragment>
+  );
+};
+
+export default Plans;

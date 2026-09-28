@@ -1,0 +1,105 @@
+import React from "react";
+import { Label } from "reactstrap";
+import { IoTrendingUpSharp } from "react-icons/io5";
+import { formatCurrency } from "../../constants";
+import { CiCalendar } from "react-icons/ci";
+
+const CustomSpan = ({ children }) => {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+      {children}
+    </div>
+  );
+};
+const Title = ({ children }) => {
+  return (
+    <b className="text-muted" style={{ fontWeight: 300 }}>
+      {children}
+    </b>
+  );
+};
+const Small = ({ children }) => {
+  return <small style={{ fontWeight: 500 }}>{children}</small>;
+};
+
+const CustomRow = ({ children }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        gap: "10px",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const WithdrawStat = ({ analytics }) => {
+  return (
+    <div>
+      <Label
+        className="pt-3 px-3"
+        style={{
+          fontSize: "16px",
+          fontWeight: "600",
+          // lineHeight: "0",
+          // backgroundColor: "red",
+        }}
+      >
+        Account Stats
+      </Label>
+      <hr
+        // className="p-0"
+        style={{ border: "0.5px solid gray", padding: "0px" }}
+      />
+      <div
+        className="pb-3 px-3"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          fontSize: "14px",
+        }}
+      >
+        <CustomRow>
+          <span
+            style={{
+              borderRadius: "5px",
+              display: "flex",
+              alignItems: "center",
+              justifyItems: "center",
+            }}
+            className="p-2 bg-success-subtle"
+          >
+            <IoTrendingUpSharp className="text-success" size={22} />
+          </span>
+          <CustomSpan>
+            <Title>Total Payout</Title>
+            <Small>{formatCurrency(analytics?.totalWithdrawal)}</Small>
+          </CustomSpan>
+        </CustomRow>
+        <CustomRow>
+          <span
+            style={{
+              borderRadius: "5px",
+              display: "flex",
+              alignItems: "center",
+              justifyItems: "center",
+            }}
+            className="p-2 bg-info-subtle"
+          >
+            <CiCalendar className="text-info" size={22} />
+          </span>
+          <CustomSpan>
+            <Title>This Month</Title>
+            <Small>{formatCurrency(analytics?.monthlyWithdrawal)}</Small>
+          </CustomSpan>
+        </CustomRow>
+      </div>
+    </div>
+  );
+};
+
+export default WithdrawStat;

@@ -1,0 +1,66 @@
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Alert, Card, Row } from "reactstrap";
+import { getAccessToken } from "../constants";
+import { getUserInfo } from "../services/user/user";
+import KYCVerification from "./Kyc/KYCVerification";
+
+const VerifyAccountNotify = () => {
+  const token = getAccessToken();
+
+  const [showKYCModal, setShowKYCModal] = useState(false);
+
+  const { data: user } = useQuery({
+    queryFn: getUserInfo,
+    queryKey: ["user"],
+    enabled: !!token,
+  });
+  return (
+    <Row style={{ padding: "0 10px" }}>
+      <Alert
+        color="danger"
+        isOpen={user?.identityVerification?.kycStatus === "not verified"}
+        // toggle={onDismiss}
+        className="d-flex flex-column flex-md-row gap-4 justify-content-start"
+      >
+        <span>
+          To start trading, complete your profile verification and access
+          multiple accounts and tools to help you manage your money.
+        </span>
+        <button
+          onClick={() => setShowKYCModal(true)}
+          style={{
+            textDecoration: "underline",
+            color: "inherit",
+            fontWeight: "500",
+            backgroundColor: "transparent",
+            border: "none",
+          }}
+          // to={"/verifyaccount"}
+        >
+          Verify your account
+        </button>
+      </Alert>
+      <Alert
+        color="warning"
+        isOpen={user?.identityVerification?.kycStatus === "pending"}
+        // toggle={onDismiss}
+        style={{ display: "flex", gap: "2px" }}
+      >
+        <span style={{ color: "#D9AA40" }}>
+          Your Documents are being reviewed, Most verifications are completed
+          within 24 hours and you'll receive an email notification.
+        </span>
+      </Alert>
+      {showKYCModal && (
+        <KYCVerification
+          isKycVerification={showKYCModal}
+          setIsKycVerification={setShowKYCModal}
+        />
+      )}
+    </Row>
+  );
+};
+
+export default VerifyAccountNotify;

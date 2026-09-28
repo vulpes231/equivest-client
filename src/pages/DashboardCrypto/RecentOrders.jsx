@@ -1,0 +1,132 @@
+import React from "react";
+import { Card, CardBody, CardHeader, Col } from "reactstrap";
+import { capitalize } from "lodash";
+import { formatCurrency } from "../../constants";
+import { format } from "date-fns";
+import { GoArrowRight } from "react-icons/go";
+import numeral from "numeral";
+import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
+
+const RecentOrders = ({ trades }) => {
+  const filteredTrades = trades && trades.length && trades.slice(0, 5);
+
+  // console.log(trades);
+  return (
+    <React.Fragment>
+      <Col>
+        <Card className="card-height-100">
+          <CardHeader className="card-header align-items-center d-flex">
+            <h4 className="card-title mb-0 flex-grow-1">Recent Orders</h4>
+          </CardHeader>
+          <CardBody className="p-0">
+            <div className="p-3">
+              {filteredTrades && filteredTrades.length > 0 ? (
+                filteredTrades.map((trade) => {
+                  const value = Number(trade?.performance?.totalReturn) || 0;
+
+                  const safeValue = Math.abs(value) < 0.005 ? 0 : value;
+                  return (
+                    <div
+                      key={trade._id}
+                      className="d-flex align-items-start mb-3"
+                    >
+                      <div
+                        className={`${
+                          trade.orderType === "buy"
+                            ? "bg-success-subtle text-success"
+                            : trade.orderType === "sell"
+                              ? "bg-danger-subtle text-danger"
+                              : null
+                        } bg-success-subtle rounded-circle d-flex align-items-center justify-content-center`}
+                        style={{ width: "30px", height: "30px" }}
+                      >
+                        {trade.orderType === "buy" ? (
+                          <FaArrowTrendUp />
+                        ) : trade.orderType === "sell" ? (
+                          <FaArrowTrendDown />
+                        ) : null}
+                      </div>
+
+                      <div className="flex-grow-1 ms-3">
+                        <h6 className="fs-15 mb-1 d-flex align-items-center gap-2">
+                          <span>
+                            {" "}
+                            {trade.orderType === "buy"
+                              ? `Buy`
+                              : trade.orderType === "sell"
+                                ? `Sell`
+                                : null}
+                          </span>
+                          <span
+                            className={`fs-10 px-2 py-1 rounded-1 text-capitalize d-flex align-items-center gap-1 ${
+                              trade.status === "open"
+                                ? `bg-success text-light`
+                                : trade.status === "closed"
+                                  ? `bg-danger text-light`
+                                  : null
+                            }`}
+                          >
+                            {trade.status}
+                          </span>
+                        </h6>
+                        <p className=" fs-13 mb-0 d-flex align-items-center gap-2 text-muted">
+                          <span
+                            style={{
+                              whiteSpace: "nowrap",
+                              fontSize:
+                                window.innerWidth > "562px" ? "16px" : "13px",
+                            }}
+                            className="fw-normal"
+                          >
+                            {trade.asset.symbol}
+                          </span>
+                          <span>
+                            <GoArrowRight />
+                          </span>
+                          <span
+                            style={{
+                              whiteSpace: "nowrap",
+                              fontSize:
+                                window.innerWidth > "562px" ? "16px" : "13px",
+                            }}
+                            className="fw-normal text-capitalize"
+                          >
+                            {" "}
+                            {trade.wallet.name}
+                          </span>
+                        </p>
+                        <span className="text-muted fs-11">
+                          {trade.createdAt
+                            ? format(trade.createdAt, "MMM dd, yyyy")
+                            : null}
+                        </span>
+                      </div>
+                      <div className="flex-shrink-0 text-end">
+                        <p className={`fs-15 fw-medium mb-0  `}>
+                          {trade.execution.amount
+                            ? numeral(trade.execution.amount).format("$0,0.00")
+                            : formatCurrency(0)}
+                        </p>
+                        <span
+                          className={`${
+                            safeValue < 0 ? `text-danger` : `text-success`
+                          } d-flex align-items-center gap-1`}
+                        >
+                          {numeral(safeValue).format("$0,0.00")}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div>No records found.</div>
+              )}
+            </div>
+          </CardBody>
+        </Card>
+      </Col>
+    </React.Fragment>
+  );
+};
+
+export default RecentOrders;

@@ -1,0 +1,444 @@
+import React, { useEffect, useState } from "react";
+import {
+  Row,
+  Col,
+  CardBody,
+  Card,
+  Alert,
+  Container,
+  Input,
+  Label,
+  Form,
+  FormFeedback,
+  Button,
+  Spinner,
+} from "reactstrap";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { completeRegister } from "../../services/auth/register";
+import { logo } from "../../assets";
+import ParticlesAuth from "../AuthenticationInner/ParticlesAuth";
+import { getCurrencies, getNations } from "../../services/location/geo";
+import { RiContactsBookLine } from "react-icons/ri";
+import { AiOutlineUser } from "react-icons/ai";
+
+const Personal = () => {
+  const history = useNavigate();
+  const [error, setError] = useState("");
+
+  const { data: currencies, isLoading: getCurrenciesLoading } = useQuery({
+    queryFn: getCurrencies,
+    queryKey: ["currencies"],
+  });
+  const { data: nations, isLoading: getNationsLoading } = useQuery({
+    queryFn: getNations,
+    queryKey: ["nations"],
+  });
+
+  const mutation = useMutation({
+    mutationFn: completeRegister,
+    onError: (err) => setError(err.message),
+  });
+
+  const validation = useFormik({
+    enableReinitialize: true,
+
+    initialValues: {
+      dob: "",
+      experience: "",
+      employment: "",
+      nationalityId: "",
+      currencyId: "",
+    },
+    validationSchema: Yup.object({
+      dob: Yup.string().required("Please Enter Your DOB"),
+      employment: Yup.string().required("Please Select Your Employment"),
+      experience: Yup.string().required("Please Select Your Experience"),
+      nationalityId: Yup.string().required("Please Select Your Nationality"),
+      currencyId: Yup.string().required("Please Select Your Currency"),
+    }),
+    onSubmit: (values) => {
+      const contactForm = JSON.parse(sessionStorage.getItem("contact"));
+      const formData = { ...contactForm, ...values };
+      mutation.mutate(formData);
+    },
+  });
+
+  useEffect(() => {
+    if (mutation.isSuccess) {
+      const timeout = setTimeout(() => {
+        sessionStorage.setItem("user", JSON.stringify(mutation.data.user));
+        sessionStorage.removeItem("contact");
+        mutation.reset();
+        window.location.href = "/dashboard";
+        return () => clearTimeout(timeout);
+      }, 3000);
+    }
+  }, [mutation.isSuccess]);
+
+  useEffect(() => {
+    if (error) {
+      const timeout = setTimeout(() => {
+        mutation.reset();
+        setError("");
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [error]);
+
+  document.title = "Complete Profile - Personal Information";
+
+  const location = useLocation();
+
+  return (
+    <React.Fragment>
+      {/* <ParticlesAuth> */}
+
+      <Container style={{ marginTop: "100px", marginBottom: "100px" }}>
+        <Row className="justify-content-center">
+          <Col md={8} lg={7} xl={6}>
+            <Card className="mt-4">
+              <CardBody className="p-4">
+                <div className="d-flex flex-column gap-2 align-items-center justify-content-center mt-2">
+                  <div className="d-flex flex-column align-items-center justify-content-center">
+                    <h5 className="text-primary">Complete Your Account</h5>
+                    <p className="text-muted">Enter Other Information</p>
+                  </div>
+
+                  <div className="d-flex align-items-center justify-content-evenly text-muted">
+                    <span
+                      style={{
+                        border: location.pathname.includes("/personal")
+                          ? "1px solid #5162BE"
+                          : "1px solid #E9EBEC",
+                        borderRadius: "50%",
+                      }}
+                      className="p-2"
+                    >
+                      <RiContactsBookLine
+                        size={20}
+                        style={{
+                          color: location.pathname.includes("/personal")
+                            ? "#5162BE"
+                            : "#E9EBEC",
+                        }}
+                      />
+                    </span>
+                    <div
+                      style={{
+                        height: "1px",
+                        backgroundColor: location.pathname.includes("/personal")
+                          ? "#5162BE"
+                          : "#E9EBEC",
+                        width: "250px",
+                      }}
+                    ></div>
+                    <span
+                      style={{
+                        border: location.pathname.includes("/personal")
+                          ? "1px solid #5162BE"
+                          : "1px solid #E9EBEC",
+                        borderRadius: "50%",
+                      }}
+                      className="p-2"
+                    >
+                      <AiOutlineUser
+                        size={20}
+                        style={{
+                          color: location.pathname.includes("/personal")
+                            ? "#5162BE"
+                            : "#E9EBEC",
+                        }}
+                      />
+                    </span>
+                  </div>
+                </div>
+                <div className="p-2 mt-4">
+                  <Form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      validation.handleSubmit();
+                      return false;
+                    }}
+                    className="needs-validation"
+                    action="#"
+                  >
+                    {mutation.isSuccess && mutation.isSuccess ? (
+                      <>
+                        {toast("Your Redirect To Dashboard...", {
+                          position: "top-right",
+                          hideProgressBar: false,
+                          progress: undefined,
+                          toastId: "",
+                        })}
+                        <ToastContainer autoClose={2000} limit={1} />
+                        <Alert color="success">
+                          Profile Updated Redirecting to Dashboard...
+                        </Alert>
+                      </>
+                    ) : null}
+
+                    {error && error ? (
+                      <Alert color="danger">
+                        <div>{error}</div>
+                      </Alert>
+                    ) : null}
+
+                    <div className="mb-3">
+                      <Label htmlFor="dob" className="form-label">
+                        Date of Birth <span className="text-danger">*</span>
+                      </Label>
+                      <Input
+                        id="dob"
+                        name="dob"
+                        className="form-control text-uppercase"
+                        placeholder="Enter date of birth"
+                        type="date"
+                        onChange={validation.handleChange}
+                        onBlur={validation.handleBlur}
+                        value={validation.values.dob || ""}
+                        invalid={
+                          validation.touched.dob && validation.errors.dob
+                            ? true
+                            : false
+                        }
+                      />
+                      {validation.touched.dob && validation.errors.dob ? (
+                        <FormFeedback type="invalid">
+                          <div>{validation.errors.dob}</div>
+                        </FormFeedback>
+                      ) : null}
+                    </div>
+
+                    <div className="mb-3">
+                      <Label htmlFor="nationality" className="form-label">
+                        Nationality <span className="text-danger">*</span>
+                      </Label>
+                      <Input
+                        id="nationality"
+                        name="nationalityId"
+                        className="form-control text-capitalize"
+                        type="select"
+                        onChange={validation.handleChange}
+                        onBlur={validation.handleBlur}
+                        value={validation.values.nationalityId || ""}
+                        invalid={
+                          validation.touched.nationalityId &&
+                          validation.errors.nationalityId
+                            ? true
+                            : false
+                        }
+                      >
+                        <option value="">Select Nationality</option>
+                        {nations &&
+                          nations.length > 0 &&
+                          nations.map((nation) => {
+                            return (
+                              <option
+                                key={nation._id}
+                                value={nation._id}
+                                className={
+                                  validation.values.nationalityId === nation._id
+                                    ? "active"
+                                    : ""
+                                }
+                              >
+                                {nation.name}
+                              </option>
+                            );
+                          })}
+                      </Input>
+                      {validation.touched.nationalityId &&
+                      validation.errors.nationalityId ? (
+                        <FormFeedback type="invalid">
+                          <div>{validation.errors.nationalityId}</div>
+                        </FormFeedback>
+                      ) : null}
+                    </div>
+                    <div className="mb-3">
+                      <Label htmlFor="currency" className="form-label">
+                        Currency <span className="text-danger">*</span>
+                      </Label>
+                      <Input
+                        id="currency"
+                        name="currencyId"
+                        className="form-control"
+                        type="select"
+                        onChange={validation.handleChange}
+                        onBlur={validation.handleBlur}
+                        value={validation.values.currencyId || ""}
+                        invalid={
+                          validation.touched.currencyId &&
+                          validation.errors.currencyId
+                            ? true
+                            : false
+                        }
+                      >
+                        <option value="">Select Currency</option>
+                        {currencies &&
+                          currencies.length > 0 &&
+                          currencies.map((currency) => {
+                            return (
+                              <option
+                                key={currency._id}
+                                value={currency._id}
+                                className={
+                                  validation.values.currencyId === currency._id
+                                    ? "active"
+                                    : ""
+                                }
+                              >
+                                {currency.name}
+                              </option>
+                            );
+                          })}
+                      </Input>
+                      {validation.touched.currencyId &&
+                      validation.errors.currencyId ? (
+                        <FormFeedback type="invalid">
+                          <div>{validation.errors.currencyId}</div>
+                        </FormFeedback>
+                      ) : null}
+                    </div>
+
+                    <div className="mb-3">
+                      <Label htmlFor="employment" className="form-label">
+                        Employment Status <span className="text-danger">*</span>
+                      </Label>
+                      <Input
+                        id="employment"
+                        name="employment"
+                        className="form-control text-capitalize"
+                        type="select"
+                        onChange={validation.handleChange}
+                        onBlur={validation.handleBlur}
+                        value={validation.values.employment || ""}
+                        invalid={
+                          validation.touched.employment &&
+                          validation.errors.employment
+                            ? true
+                            : false
+                        }
+                      >
+                        <option value="">Select Employment Status</option>
+                        {[
+                          { _id: "employed", name: "employed" },
+                          { _id: "unemployed", name: "unemployed" },
+                          { _id: "student", name: "student" },
+                          { _id: "retired", name: "retired" },
+                        ].map((post) => {
+                          return (
+                            <option
+                              key={post._id}
+                              value={post._id}
+                              className={
+                                validation.values.employment === post._id
+                                  ? "active"
+                                  : ""
+                              }
+                            >
+                              {post.name}
+                            </option>
+                          );
+                        })}
+                      </Input>
+                      {validation.touched.employment &&
+                      validation.errors.employment ? (
+                        <FormFeedback type="invalid">
+                          <div>{validation.errors.employment}</div>
+                        </FormFeedback>
+                      ) : null}
+                    </div>
+
+                    <div className="mb-3">
+                      <Label htmlFor="experience" className="form-label">
+                        Investing Experience{" "}
+                        <span className="text-danger">*</span>
+                      </Label>
+                      <Input
+                        id="experience"
+                        name="experience"
+                        className="form-control text-capitalize"
+                        type="select"
+                        onChange={validation.handleChange}
+                        onBlur={validation.handleBlur}
+                        value={validation.values.experience || ""}
+                        invalid={
+                          validation.touched.experience &&
+                          validation.errors.experience
+                            ? true
+                            : false
+                        }
+                      >
+                        <option value="">Select Investing Experience</option>
+                        {[
+                          { _id: "beginner", name: "beginner" },
+                          { _id: "intermediate", name: "intermediate" },
+                          { _id: "expert", name: "expert" },
+                        ].map((exp) => {
+                          return (
+                            <option
+                              key={exp._id}
+                              value={exp._id}
+                              className={
+                                validation.values.experience === exp._id
+                                  ? "active"
+                                  : ""
+                              }
+                            >
+                              {exp.name}
+                            </option>
+                          );
+                        })}
+                      </Input>
+                      {validation.touched.experience &&
+                      validation.errors.experience ? (
+                        <FormFeedback type="invalid">
+                          <div>{validation.errors.experience}</div>
+                        </FormFeedback>
+                      ) : null}
+                    </div>
+
+                    <div className="mt-5 d-flex align-items-center justify-content-between">
+                      <button
+                        className="btn btn-transparent border border-1 text-muted"
+                        type="button"
+                        onClick={() => history("/contact")}
+                      >
+                        Previous
+                      </button>
+                      <Button
+                        disabled={
+                          error ? null : mutation.isPending ? true : false
+                        }
+                        color="primary"
+                        className="btn btn-secondary"
+                        type="submit"
+                      >
+                        {mutation.isPending ? (
+                          <Spinner size="sm" className="me-2">
+                            {" "}
+                            Updating...
+                          </Spinner>
+                        ) : null}
+                        Complete Profile
+                      </Button>
+                    </div>
+                  </Form>
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* </ParticlesAuth> */}
+    </React.Fragment>
+  );
+};
+
+export default Personal;
