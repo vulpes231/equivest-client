@@ -205,5 +205,3 @@ const Ladder = () => {
 };
 
 export default Ladder;
-
-

@@ -60,5 +60,3 @@ const AutomatedInvesting = () => {
 };
 
 export default AutomatedInvesting;
-
-

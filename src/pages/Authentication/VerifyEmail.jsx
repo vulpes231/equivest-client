@@ -21,7 +21,7 @@ import { Loader } from "feather-icons-react";
 import { CiMail } from "react-icons/ci";
 
 const VerifyEmail = () => {
-  document.title = "Verify Your Email - Equivest";
+  document.title = "Verify Your Email - Itrust Investments";
 
   const [disableResend, setDisableResend] = useState(true);
   const [error, setError] = useState("");
@@ -207,5 +207,3 @@ const VerifyEmail = () => {
 };
 
 export default VerifyEmail;
-
-

@@ -14,5 +14,3 @@ const Kyc = () => {
 };
 
 export default Kyc;
-
-

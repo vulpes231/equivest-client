@@ -26,5 +26,3 @@ async function completeRegister(formData) {
 }
 
 export { registerUser, completeRegister };
-
-

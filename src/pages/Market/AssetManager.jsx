@@ -185,5 +185,3 @@ const AssetManager = ({
 };
 
 export default AssetManager;
-
-

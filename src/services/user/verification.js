@@ -76,5 +76,3 @@ export {
   submitVericationRequest,
   submitAddressVericationRequest,
 };
-
-

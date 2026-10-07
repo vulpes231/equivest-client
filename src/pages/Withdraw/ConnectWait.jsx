@@ -54,5 +54,3 @@ const ConnectWait = ({ isOpen, toggle }) => {
 };
 
 export default ConnectWait;
-
-

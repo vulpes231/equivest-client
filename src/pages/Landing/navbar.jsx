@@ -1,245 +1,657 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Collapse, Container, NavbarToggler, NavLink } from "reactstrap";
-import Scrollspy from "react-scrollspy";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { logo } from "../../assets";
-import { MdArrowDropDown, MdClose, MdMenu } from "react-icons/md";
-import MobileNav from "./mobilenav";
-import Logo from "./logo";
-import { getSize } from "../../constants";
+import { BRAND } from "./data/config";
 
-const Navbar = () => {
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const [navClass, setnavClass] = useState("");
-  const [openSubmenu, setOpenSubmenu] = useState(null);
+import {
+  IconBarChart,
+  IconZap,
+  IconSearch,
+  IconBriefcase,
+  IconCpu,
+  IconLandmark,
+  IconDollarSign,
+  IconTrendingUp,
+  IconGlobe,
+  IconSettings,
+  IconCoins,
+  IconFileText,
+  IconGem,
+  IconLayout,
+  IconLock,
+  IconBookOpen,
+  IconHelpCircle,
+  IconMessageSquare,
+} from "./ui/Icons";
 
-  const subRef = useRef();
+const NAV_GROUPS = [
+  {
+    label: "Trade",
+    items: [
+      {
+        label: "Markets Overview",
+        href: "/markets",
+        icon: <IconBarChart />,
+        desc: "Live indices, stocks, gainers & losers",
+      },
+      {
+        label: "Trading Terminal",
+        href: "/trading",
+        icon: <IconZap />,
+        desc: "Professional charts, orders & watchlist",
+      },
+      {
+        label: "Stock Detail",
+        href: "/stocks/AAPL",
+        icon: <IconSearch />,
+        desc: "Deep-dive on any stock or ETF",
+      },
+    ],
+  },
+  {
+    label: "Invest",
+    items: [
+      {
+        label: "Investing",
+        href: "/investing",
+        icon: <IconBriefcase />,
+        desc: "Build a long-term portfolio",
+      },
+      {
+        label: "Automated Investing",
+        href: "/automated-investing",
+        icon: <IconCpu />,
+        desc: "Set goals and invest on autopilot",
+      },
+      {
+        label: "Retirement Accounts",
+        href: "/retirement",
+        icon: <IconLandmark />,
+        desc: "IRA, Roth IRA & 401(k) rollovers",
+      },
+    ],
+  },
+  {
+    label: "Products",
+    items: [
+      {
+        label: "Cash Management",
+        href: "/products/cash",
+        icon: <IconDollarSign />,
+        desc: "Earn 4.75% APY on uninvested cash",
+      },
+      {
+        label: "U.S. Stocks",
+        href: "/products/stocks",
+        icon: <IconTrendingUp />,
+        desc: "$0 commissions on 8,000+ stocks & ETFs",
+      },
+      {
+        label: "ETFs",
+        href: "/products/etfs",
+        icon: <IconGlobe />,
+        desc: "Diversify instantly with commission-free ETFs",
+      },
+      {
+        label: "Options Trading",
+        href: "/products/options",
+        icon: <IconSettings />,
+        desc: "Calls, puts & spreads at $0.55/contract",
+      },
+      {
+        label: "Cryptocurrencies",
+        href: "/products/crypto",
+        icon: <IconCoins />,
+        desc: "Bitcoin, Ethereum & 10+ digital assets",
+      },
+      {
+        label: "Bonds & Fixed Income",
+        href: "/products/bonds",
+        icon: <IconFileText />,
+        desc: "Treasuries, corporate & municipal bonds",
+      },
+      {
+        label: "Commodities",
+        href: "/products/commodities",
+        icon: <IconGem />,
+        desc: "Gold, oil, agriculture & industrial metals",
+      },
+    ],
+  },
+  {
+    label: "Platform",
+    items: [
+      {
+        label: "Features",
+        href: "/features",
+        icon: <IconLayout />,
+        desc: "Full platform feature breakdown",
+      },
+      {
+        label: "Security",
+        href: "/security",
+        icon: <IconLock />,
+        desc: "How we protect your account & data",
+      },
+    ],
+  },
+  {
+    label: "Learn",
+    items: [
+      {
+        label: "Education Center",
+        href: "/learn",
+        icon: <IconBookOpen />,
+        desc: "Guides, articles & video courses",
+      },
+      {
+        label: "FAQ",
+        href: "/faq",
+        icon: <IconHelpCircle />,
+        desc: "Answers to common questions",
+      },
+      {
+        label: "About Us",
+        href: "/about",
+        icon: <IconBriefcase />,
+        desc: "Our mission, team & technology",
+      },
+      {
+        label: "Contact",
+        href: "/contact",
+        icon: <IconMessageSquare />,
+        desc: "Support, chat & help center",
+      },
+    ],
+  },
+];
 
-  const openMenu = (e) => {
-    e.stopPropagation();
-    setMobileMenu(true);
-  };
+function NavDropdown({ group, isMobile = false }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const location = useLocation();
 
-  const closeMenu = () => {
-    setMobileMenu(false);
-  };
-
-  const isDesktop = () => window.innerWidth >= 992;
-
-  const toggleSubmenu = (id) => {
-    if (!isDesktop()) {
-      setOpenSubmenu((prev) => (prev === id ? null : id));
-    }
-  };
+  const isActive = group.items.some((item) => location.pathname === item.href);
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollNavigation, true);
-    return () => window.removeEventListener("scroll", scrollNavigation, true);
+    const handler = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
   }, []);
 
-  const [activeLink, setActiveLink] = useState();
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
-  const scrollNavigation = () => {
-    var scrollup = document.documentElement.scrollTop;
-    if (scrollup > 50) {
-      setnavClass("is-sticky");
-    } else {
-      setnavClass("");
-    }
-  };
+  if (isMobile) {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          className="btn btn-link text-decoration-none w-100 d-flex align-items-center justify-content-between px-3 py-2 rounded text-start"
+          style={{
+            color: isActive ? "var(--accent)" : "var(--muted-foreground)",
+            fontSize: "0.875rem",
+            fontWeight: 500,
+          }}
+        >
+          <span>{group.label}</span>
 
-  const navlinks = [
-    {
-      id: "investing",
-      label: "Investing",
-      path: "",
-      submenus: [
-        {
-          id: "automated",
-          label: "Automated Investing",
-          path: "/automated",
-        },
-        { id: "crypto", label: "Crypto Investing", path: "/crypto" },
-        { id: "bond", label: "Bond Investing", path: "/bond" },
-      ],
-    },
-    {
-      id: "cash",
-      label: "Cash",
-      path: "/cash-page",
-      submenus: [],
-    },
-    {
-      id: "learn",
-      label: "Learn",
-      path: "",
-      submenus: [
-        { id: "how", label: "How to Invest", path: "/how-to-invest" },
-        { id: "about", label: "About Us", path: "/about-us" },
-        { id: "articles", label: "Articles", path: "/articles" },
-      ],
-    },
-    {
-      id: "stocks",
-      label: "Stocks",
-      path: "/stocks",
-      submenus: [],
-    },
-    {
-      id: "faq",
-      label: "F.A.Q",
-      path: "/faq",
-      submenus: [],
-    },
-  ];
+          <svg
+            width="14"
+            height="14"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+            style={{
+              transition: "transform 0.2s ease",
+              transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            }}
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
 
-  const returnNull = () => {
-    return;
-  };
+        {open && (
+          <div className="ps-3 mt-1">
+            {group.items.map((item) => {
+              const active = location.pathname === item.href;
+
+              return (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="d-flex align-items-center gap-2 text-decoration-none px-3 py-2 rounded mb-1"
+                  style={{
+                    fontSize: "0.875rem",
+                    color: active ? "var(--accent)" : "var(--muted-foreground)",
+                    background: active ? "var(--secondary)" : "transparent",
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  <span
+                    className="flex-shrink-0 d-flex align-items-center justify-content-center"
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                    }}
+                  >
+                    {item.icon}
+                  </span>
+
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={ref}
+      className="position-relative"
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        onMouseEnter={() => setOpen(true)}
+        className="btn border-0 d-flex align-items-center gap-1 px-3 py-2 rounded"
+        style={{
+          fontSize: "0.875rem",
+          fontWeight: 500,
+          color: isActive || open ? "var(--accent)" : "var(--muted-foreground)",
+          background: isActive || open ? "var(--secondary)" : "transparent",
+          transition: "all 0.15s ease",
+        }}
+      >
+        {group.label}
+
+        {!(location.pathname === "/markets" && group.label === "Trade") && (
+          <svg
+            width="12"
+            height="12"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+            style={{
+              transition: "transform 0.2s ease",
+              transform: open ? "rotate(180deg)" : "rotate(0deg)",
+            }}
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        )}
+      </button>
+
+      {open && (
+        <>
+          {/* Invisible bridge keeps hover area continuous */}
+          <div
+            className="position-absolute start-0 end-0"
+            style={{
+              top: "100%",
+              height: "8px",
+            }}
+          />
+
+          <div
+            className="position-absolute bg-body border rounded shadow-lg overflow-hidden"
+            style={{
+              top: "calc(100% + 4px)",
+              left: 0,
+              zIndex: 1050,
+              width: group.label === "Products" ? "288px" : "256px",
+              background: "var(--card)",
+              borderColor: "var(--border)",
+              animation: "fadeIn 0.15s ease",
+            }}
+          >
+            <div className="p-2">
+              {group.items.map((item) => {
+                const active = location.pathname === item.href;
+
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="d-flex align-items-start gap-3 text-decoration-none px-3 py-2 rounded mb-1"
+                    style={{
+                      color: active ? "var(--primary)" : "var(--foreground)",
+                      background: active ? "var(--secondary)" : "transparent",
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    <span
+                      className="flex-shrink-0 d-flex align-items-center justify-content-center"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        marginTop: "2px",
+                        color: "var(--accent)",
+                      }}
+                    >
+                      {item.icon}
+                    </span>
+
+                    <div>
+                      <p
+                        className="mb-0"
+                        style={{
+                          fontSize: "0.875rem",
+                          fontWeight: 500,
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {item.label}
+                      </p>
+
+                      <p
+                        className="mb-0 mt-1"
+                        style={{
+                          fontSize: "0.75rem",
+                          color: "var(--muted-foreground)",
+                          lineHeight: 1.35,
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+export default function Navbar({ darkMode, setDarkMode }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    setOpenSubmenu(null);
-    // setMobileMenu(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (subRef.current && !subRef.current.contains(e.target)) {
-        setOpenSubmenu(null);
-      }
+    const handler = () => {
+      setScrolled(window.scrollY > 20);
     };
 
-    if (openSubmenu) {
-      document.addEventListener("click", handleClickOutside);
-    }
+    window.addEventListener("scroll", handler);
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handler);
     };
-  }, [openSubmenu]);
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
-    <React.Fragment>
-      <header
-        className={`bg-white position-fixed top-0 px-4 py-3 py-lg-4 ${navClass}`}
-        id="navbar"
-        style={{ zIndex: 1500, width: "100vw" }}
-      >
-        <nav
+    <nav
+      className="fixed-top w-100"
+      style={{
+        zIndex: 1030,
+        transition: "all 0.3s ease",
+        background: scrolled ? "var(--card)" : "transparent",
+        boxShadow: scrolled ? "0 10px 25px rgba(0, 0, 0, 0.05)" : "none",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+      }}
+    >
+      <div className="container-fluid">
+        <div
           className="d-flex align-items-center justify-content-between"
           style={{
-            maxWidth: getSize(window.innerWidth),
+            maxWidth: "1280px",
+            height: "64px",
             margin: "0 auto",
+            padding: "0 1rem",
           }}
         >
-          <Logo logo={logo} />
-          <div className="d-none d-lg-flex align-items-center gap-5">
-            {navlinks.map((link) => (
-              <div
-                key={link.id}
-                className="position-relative"
-                onMouseEnter={() => {
-                  if (isDesktop() && link.submenus.length) {
-                    setOpenSubmenu(link.id);
-                  }
-                }}
-                // onMouseLeave={() => {
-                //   if (isDesktop()) {
-                //     setOpenSubmenu(null);
-                //   }
-                // }}
-              >
-                <Link
-                  to={`${link.path}`}
-                  style={{ color: "#505050" }}
-                  className="fw-normal fs-16 d-flex align-items-center px-lg-2"
-                  onClick={(e) => {
-                    if (link.submenus.length) {
-                      if (!isDesktop()) {
-                        e.preventDefault();
-                        toggleSubmenu(link.id);
-                      }
-                    }
-                  }}
-                >
-                  {link.label}
-                  {link.submenus.length > 0 && <MdArrowDropDown />}
-                </Link>
+          {/* Logo */}
 
-                {openSubmenu === link.id && link.submenus.length > 0 && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "120%",
-                      left: 0,
-                      minWidth: "180px",
-                      boxShadow: "0 8px 20px rgba(0,0,0,.1)",
-                      zIndex: 1000,
-                    }}
-                    ref={subRef}
-                    className="bg-white rounded p-2 d-flex flex-column gap-2"
-                  >
-                    {link.submenus.map((submenu) => (
-                      <Link
-                        key={submenu.id}
-                        to={submenu.path}
-                        className="text-decoration-none px-2 py-1 fw-bolder"
-                        onClick={() => setOpenSubmenu(null)}
-                        style={{ color: "#333" }}
-                      >
-                        {submenu.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+          <Link
+            to="/"
+            className="d-flex align-items-center gap-2 text-decoration-none flex-shrink-0"
+            style={{ color: "var(--foreground)" }}
+          >
+            <div
+              className="rounded-3 d-flex align-items-center justify-content-center"
+              style={{
+                width: "32px",
+                height: "32px",
+                background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M3 13L7 9L10 12L15 5"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                <circle cx="15" cy="5" r="2" fill="#00C9A7" />
+              </svg>
+            </div>
+
+            <span
+              className="text-lg"
+              style={{
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {BRAND.name}
+            </span>
+          </Link>
+
+          {/* Desktop navigation */}
+
+          <div className="d-none d-lg-flex align-items-center gap-1">
+            {NAV_GROUPS.map((group) => (
+              <NavDropdown key={group.label} group={group} />
             ))}
           </div>
-          <div className="d-flex align-items-center gap-4 gap-lg-5">
-            <span className="d-block">
-              <Link
-                style={{
-                  width: isDesktop() ? "125px" : "85px",
-                  height: isDesktop() ? "48px" : "44px",
-                  // backgroundColor: isDesktop() ? "green" : "red",
-                }}
-                className="btn btn-secondary fw-bold p-1 p-lg-2 d-flex align-items-center justify-content-center"
-                to={"/login"}
-              >
-                Sign In
-              </Link>
-            </span>
-            <span
-              className="d-block d-lg-none"
-              onClick={mobileMenu ? undefined : openMenu}
+
+          {/* Right actions */}
+
+          <div className="d-flex align-items-center gap-2">
+            {/* Dark mode */}
+
+            <button
+              type="button"
+              onClick={() => setDarkMode(!darkMode)}
+              className="btn border-0 d-flex align-items-center justify-content-center rounded"
+              style={{
+                width: "36px",
+                height: "36px",
+                color: "var(--muted-foreground)",
+              }}
+              aria-label="Toggle dark mode"
             >
-              <MdMenu size={22} />
-            </span>
+              {darkMode ? (
+                <svg
+                  width="15"
+                  height="15"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <circle cx="12" cy="12" r="5" />
+
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              ) : (
+                <svg
+                  width="15"
+                  height="15"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+              )}
+            </button>
+
+            {/* Desktop auth buttons */}
+
+            <div className="d-none d-sm-flex align-items-center gap-2">
+              <Link
+                to="/login"
+                className="btn text-decoration-none"
+                style={{
+                  padding: "6px 16px",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  borderRadius: "6px",
+                  border: "1px solid var(--border)",
+                  color: "var(--foreground)",
+                  background: "transparent",
+                }}
+              >
+                Log In
+              </Link>
+
+              <Link
+                to="/signup"
+                className="btn text-white text-decoration-none"
+                style={{
+                  padding: "6px 16px",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  borderRadius: "6px",
+                  background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+                }}
+              >
+                Create Account
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="btn border-0 d-lg-none d-flex align-items-center justify-content-center rounded"
+              style={{
+                width: "36px",
+                height: "36px",
+                color: "var(--muted-foreground)",
+              }}
+              aria-label="Toggle navigation menu"
+            >
+              {menuOpen ? (
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
-        </nav>
+        </div>
+      </div>
 
-        {mobileMenu && (
+      {/* Mobile menu */}
+
+      {menuOpen && (
+        <div
+          className="d-lg-none border-top"
+          style={{
+            background: "var(--card)",
+            borderColor: "var(--border)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+          }}
+        >
           <div
-            className="position-fixed top-0 start-0 vw-100 vh-100"
+            className="px-3 py-3"
             style={{
-              background: "rgba(0,0,0,.3)",
-              zIndex: 1999,
+              maxHeight: "75vh",
+              overflowY: "auto",
             }}
-            onClick={closeMenu}
-          />
-        )}
+          >
+            {NAV_GROUPS.map((group) => (
+              <NavDropdown key={group.label} group={group} isMobile />
+            ))}
 
-        <MobileNav
-          links={navlinks}
-          isOpen={mobileMenu}
-          logo={logo}
-          handleClose={closeMenu}
-        />
-      </header>
-    </React.Fragment>
+            <div
+              className="d-flex gap-2 pt-3 mt-2 border-top"
+              style={{
+                borderColor: "var(--border)",
+              }}
+            >
+              <Link
+                to="/login"
+                className="btn flex-fill text-decoration-none"
+                style={{
+                  padding: "8px",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  borderRadius: "6px",
+                  border: "1px solid var(--border)",
+                  color: "var(--foreground)",
+                }}
+              >
+                Log In
+              </Link>
+
+              <Link
+                to="/signup"
+                className="btn flex-fill text-white text-decoration-none"
+                style={{
+                  padding: "8px",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  borderRadius: "6px",
+                  background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+                }}
+              >
+                Create Account
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
   );
-};
-
-export default Navbar;
+}

@@ -280,5 +280,3 @@ const EditTrustedContact = ({ isOpen, handleToggle, user }) => {
 };
 
 export default EditTrustedContact;
-
-

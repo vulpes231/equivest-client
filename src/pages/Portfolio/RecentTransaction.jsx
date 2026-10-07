@@ -64,5 +64,3 @@ const RecentTransaction = () => {
 };
 
 export default RecentTransaction;
-
-

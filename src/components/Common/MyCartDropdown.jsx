@@ -123,4 +123,3 @@ const MyCartDropdown = () => {
 };
 
 export default MyCartDropdown;
-

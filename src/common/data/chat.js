@@ -456,4 +456,3 @@ const chatContactData = [
 ];
 
 export { direactContact, channelsList, messages, attachements, chatContactData };
-

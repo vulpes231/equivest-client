@@ -204,5 +204,3 @@ const PersonalInformation = ({ user }) => {
 };
 
 export default PersonalInformation;
-
-

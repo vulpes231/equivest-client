@@ -4,46 +4,15 @@ import { Link } from "react-router-dom";
 import { Card, CardBody, Col, Row } from "reactstrap";
 import { useQuery } from "@tanstack/react-query";
 import { getTransactionAnalytics } from "../../services/user/transactions";
-import {
-  formatCurrency,
-  getAccessToken,
-  getWalletColorBySlug,
-  getWalletLogoBySlug,
-} from "../../constants";
-import { getUserWallets, getWalletAnalytics } from "../../services/user/wallet";
+import { formatCurrency, getAccessToken } from "../../constants";
+import { getUserWallets } from "../../services/user/wallet";
 import { brief, cash } from "../../assets";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { format } from "date-fns";
-import { FaArrowUpFromBracket } from "react-icons/fa6";
-import { HiMiniArrowDownTray, HiMiniArrowUpTray } from "react-icons/hi2";
+import { getUserInfo } from "../../services/user/user";
+import numeral from "numeral";
 
-const Widgets = () => {
-  const token = getAccessToken();
-
-  const { data: analytics } = useQuery({
-    queryFn: getTransactionAnalytics,
-    queryKey: ["trnxAnalytics"],
-    enabled: !!token,
-  });
-
-  const { data: walletAnalytics } = useQuery({
-    queryFn: getWalletAnalytics,
-    queryKey: ["walletAnalytics"],
-    enabled: !!token,
-  });
-
-  const { data: wallets } = useQuery({
-    queryFn: getUserWallets,
-    queryKey: ["wallets"],
-    enabled: !!token,
-  });
-
-  const { data: trxAnalytics } = useQuery({
-    queryFn: getTransactionAnalytics,
-    queryKey: ["trxAnalytics"],
-    enabled: !!token,
-  });
-
+const Widgets = ({ wallets, user, trxAnalytics }) => {
   const cashAccount =
     wallets &&
     wallets.length > 0 &&
@@ -87,8 +56,9 @@ const Widgets = () => {
                           fontWeight: 600,
                           // color: "#495057",
                         }}
+                        className="text-nowrap"
                       >
-                        ${" "}
+                        {user?.currency?.sign}
                         <CountUp
                           start={0}
                           end={wholePart}
@@ -159,53 +129,40 @@ const Widgets = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-light text-muted py-2 px-3 rounded-2 d-flex flex-column gap-3 ">
-              <span className="d-flex gap-5 justify-content-between">
-                <span className="fs-13 fs-md-14">
-                  <i
-                    style={
-                      {
-                        // color: getWalletColorBySlug("cash"),
-                      }
-                    }
-                    className={getWalletLogoBySlug("cash")}
-                  />
-                  Total Deposited:
-                </span>
-                <span className="d-flex align-items-center gap-1">
-                  <HiMiniArrowDownTray className="text-success" />
+            {/* total container */}
+            <div className="d-none d-md-flex">
+              <span
+                style={{ border: "1px solid #dedede" }}
+                className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+              >
+                <h5 className="fs-13 fs-md-14 text-muted">Total Deposits</h5>
+                <h4 className="d-flex align-items-center gap-1 fw-normal fw-md-bold">
+                  {user?.currency?.sign}
                   {trxAnalytics
-                    ? formatCurrency(trxAnalytics.totalDeposit)
-                    : formatCurrency(0)}
-                </span>
+                    ? numeral(trxAnalytics.totalDeposit).format("0,0.00")
+                    : numeral(0).format("0,0.00")}
+                </h4>
               </span>
-              <span className="d-flex gap-5 justify-content-between ">
-                <span className="fs-13 fs-md-14">
-                  <i
-                    style={
-                      {
-                        // color: getWalletColorBySlug("cash"),
-                      }
-                    }
-                    className={getWalletLogoBySlug("cash")}
-                  />
-                  Total Withdrawals:
-                </span>
-                <span className="d-flex align-items-center gap-1">
-                  <HiMiniArrowUpTray className="text-danger" />
+              <span
+                style={{ border: "1px solid #dedede" }}
+                className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+              >
+                <h5 className="fs-13 fs-md-14 text-muted">Total Withdrawals</h5>
+                <h4 className="d-flex align-items-center gap-1 fw-normal fw-md-bold">
+                  {user?.currency?.sign}
                   {trxAnalytics
-                    ? formatCurrency(trxAnalytics.totalWithdrawal)
-                    : formatCurrency(0)}
-                </span>
+                    ? numeral(trxAnalytics.totalWithdrawal).format("0,0.00")
+                    : numeral(0).format("0,0.00")}
+                </h4>
               </span>
             </div>
           </div>
           <div md={6} className="d-flex gap-2">
-            <Link className="btn btn-secondary" to={"/deposit"}>
+            <Link className="btn btn-primary" to={"/deposit"}>
               Deposit
             </Link>
             <Link
-              className="btn bg-none border border-secondary text-secondary"
+              className="btn bg-none border border-secondary text-primary"
               to={"/transfer"}
             >
               Transfer
@@ -214,6 +171,39 @@ const Widgets = () => {
               Withdraw
             </Link>
           </div>
+          {/* mobile total container */}
+          <div className="d-flex d-md-none">
+            <span
+              style={{ border: "1px solid #dedede", width: "100%" }}
+              className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+            >
+              <h5 className="fs-13 fs-md-14 text-muted">Total Deposits</h5>
+              <h4
+                className="d-flex align-items-center gap-1 fw-normal fs-18"
+                style={{ fontWeight: 700 }}
+              >
+                {user?.currency?.sign}
+                {trxAnalytics
+                  ? numeral(trxAnalytics.totalDeposit).format("0,0.00")
+                  : numeral(0).format("0,0.00")}
+              </h4>
+            </span>
+            <span
+              style={{ border: "1px solid #dedede", width: "100%" }}
+              className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+            >
+              <h5 className="fs-13 fs-md-18 text-muted">Total Withdrawals</h5>
+              <h4
+                className="d-flex align-items-center gap-1 fw-normal fs-18"
+                style={{ fontWeight: 700 }}
+              >
+                {user?.currency?.sign}
+                {trxAnalytics
+                  ? numeral(trxAnalytics.totalWithdrawal).format("0,0.00")
+                  : numeral(0).format("0,0.00")}
+              </h4>
+            </span>
+          </div>
         </div>
       </Card>
     </React.Fragment>
@@ -221,4 +211,3 @@ const Widgets = () => {
 };
 
 export default Widgets;
-// justify-content-end

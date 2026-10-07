@@ -53,5 +53,3 @@ const Barcode = ({ method, network, amount, address }) => {
 };
 
 export default Barcode;
-
-

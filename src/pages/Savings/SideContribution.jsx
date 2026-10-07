@@ -298,5 +298,3 @@ const SideContribution = ({ accts, cash }) => {
 };
 
 export default SideContribution;
-
-

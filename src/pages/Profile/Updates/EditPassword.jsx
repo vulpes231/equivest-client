@@ -198,5 +198,3 @@ const EditPassword = ({ onClose, forgetPassModal, setForgetPassModal }) => {
 };
 
 export default EditPassword;
-
-

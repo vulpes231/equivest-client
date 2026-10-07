@@ -15,5 +15,3 @@ async function logoutUser() {
 }
 
 export { logoutUser };
-
-

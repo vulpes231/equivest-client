@@ -74,5 +74,3 @@ const Status = (cell) => {
 };
 
 export { FromCol, ToCol, DetailsCol, TransactionID, TypeCol, Status };
-
-

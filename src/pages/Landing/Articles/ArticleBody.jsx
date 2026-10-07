@@ -181,5 +181,3 @@ const ArticleBody = ({ activeTab, setActiveTab }) => {
 };
 
 export default ArticleBody;
-
-

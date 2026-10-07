@@ -23,5 +23,3 @@ export const getArticleInfo = async (articleId) => {
     throw new Error(errMsg);
   }
 };
-
-

@@ -43,5 +43,3 @@ async function getNations() {
 }
 
 export { getCountries, getStatesByCountry, getCurrencies, getNations };
-
-

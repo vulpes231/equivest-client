@@ -7,12 +7,14 @@ import {
 } from "../../constants";
 import { capitalize } from "lodash";
 import { GoDotFill } from "react-icons/go";
+import numeral from "numeral";
 
 const CashAccounts = ({
   cashAccts,
   setToAccount,
   toAccount,
   getWalletIcon,
+  currency,
 }) => {
   return (
     <div>
@@ -21,7 +23,7 @@ const CashAccounts = ({
           <div
             className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1  ${
               toAccount._id === wallet._id
-                ? "bg-secondary-subtle border-secondary"
+                ? "bg-primary-subtle border-secondary"
                 : ""
             }`}
             // style={{
@@ -75,7 +77,8 @@ const CashAccounts = ({
                   }}
                   className="text-muted"
                 >
-                  Balance: {formatCurrency(wallet.balance.available)}
+                  Balance: {currency?.sign}
+                  {numeral(wallet.balance.available).format("0,0.00")}
                 </span>
               </div>
             </div>
@@ -106,5 +109,3 @@ const CashAccounts = ({
 };
 
 export default CashAccounts;
-
-

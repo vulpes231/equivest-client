@@ -187,7 +187,7 @@ const tileBoxs3 = [
     },
     {
         id: 3,
-        bgColor: "bg-secondary",
+        bgColor: "bg-primary",
         label: "Avg. Visit Duration",
         labelClass: "white",
         counterClass: "text-white",
@@ -334,7 +334,7 @@ const tileBoxes5 = [
     {
         id: 3,
         img: image6,
-        class : "bg-secondary-subtle shadow-none bg-opacity-10",
+        class : "bg-primary-subtle shadow-none bg-opacity-10",
         title: "Sr. Web Designer",
         year: "(2+ Yrs Exp.)"
     },
@@ -478,7 +478,7 @@ const widgetsActivities = [
             { id: 1, img: avatar8 },
             { id: 2, img: avatar1 },
             { id: 3, img: avatar2 },
-            { id: 4, imgNumber: "4", bgcolor: "bg-secondary" },
+            { id: 4, imgNumber: "4", bgcolor: "bg-primary" },
         ],
     },
     {
@@ -639,5 +639,3 @@ export {
     widgetsPortfolio,
     otherWidgets2
 };
-
-

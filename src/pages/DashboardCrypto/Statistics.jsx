@@ -13,6 +13,7 @@ const Statistics = ({
   analytics,
   walletData,
   currentNetWorth = 0,
+  currency,
 }) => {
   const [range, setRange] = React.useState("ALL");
   const portfolioStatisticsColors = getChartColorsArray(dataColors);
@@ -165,7 +166,7 @@ const Statistics = ({
           x: item.x,
           y: item.y,
         })),
-        color: "#07A397",
+        color: "#5162be",
       },
     ],
     [filteredData],
@@ -187,23 +188,53 @@ const Statistics = ({
           // tools: { zoom: true, zoomin: true, zoomout: true, reset: true },
         },
       },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            xaxis: {
+              tickAmount:
+                range === "1D"
+                  ? 6
+                  : range === "1W"
+                    ? 5
+                    : range === "1M"
+                      ? 6
+                      : range === "1Y"
+                        ? 6
+                        : 6,
+
+              labels: {
+                rotate: 0,
+                rotateAlways: false,
+                hideOverlappingLabels: true,
+                trim: true,
+                style: {
+                  fontSize: "10px",
+                },
+              },
+            },
+          },
+        },
+      ],
       colors: portfolioStatisticsColors,
       dataLabels: { enabled: false },
       fill: {
         type: "gradient",
         gradient: {
           shadeIntensity: 1,
-          opacityFrom: 0.45,
+          opacityFrom: 0.35,
           opacityTo: 0.05,
           stops: [0, 90],
         },
-        colors: ["#07A397"],
+        colors: ["#5162be"],
       },
 
       stroke: {
-        curve: "stepline",
-        width: 3,
-        colors: ["#07A397"],
+        curve: "smooth",
+        width: 2,
+        lineCap: "round",
+        colors: ["#5162be"],
       },
 
       grid: {
@@ -327,7 +358,11 @@ const Statistics = ({
     <React.Fragment>
       <Col>
         <Card>
-          <TopStats walletAnalytics={analytics} networth={currentNetWorth} />
+          <TopStats
+            walletAnalytics={analytics}
+            networth={currentNetWorth}
+            currency={currency}
+          />
           <CardHeader>
             <div className="d-flex flex-column gap-2 gap-md-0 flex-md-row align-items-md-center">
               <div className="flex-grow-1">
@@ -339,7 +374,7 @@ const Statistics = ({
                     key={r}
                     type="button"
                     className={`${
-                      range === r ? "btn-secondary" : "btn-soft-secondary"
+                      range === r ? "btn-primary" : "btn-soft-primary"
                     } btn timeline-btn btn-sm`}
                     onClick={() => setRange(r)}
                   >
@@ -361,7 +396,11 @@ const Statistics = ({
               />
             </div>
           </CardBody>
-          <BottomStats walletAnalytics={analytics} walletData={walletData} />
+          <BottomStats
+            walletAnalytics={analytics}
+            walletData={walletData}
+            currency={currency}
+          />
         </Card>
       </Col>
     </React.Fragment>

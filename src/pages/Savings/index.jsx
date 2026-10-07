@@ -5,7 +5,7 @@ import Saving from "./Saving";
 import VerifyAccountNotify from "../VerifyAccountNotify";
 
 const Savings = () => {
-  document.title = "Savings | Equivest";
+  document.title = "Savings | Itrust Investments";
 
   return (
     <React.Fragment>
@@ -21,5 +21,3 @@ const Savings = () => {
 };
 
 export default Savings;
-
-

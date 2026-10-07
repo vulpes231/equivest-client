@@ -79,5 +79,3 @@ const SavingsList = ({ accts }) => {
 };
 
 export default SavingsList;
-
-

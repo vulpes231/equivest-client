@@ -205,5 +205,3 @@ export const changeSidebarVisibility =
       dispatch(changeSidebarVisibilityAction(sidebarVisibilitytype));
     } catch (error) {}
   };
-
-

@@ -236,4 +236,3 @@ const AddTeamMember = [
   { id: 8, img: avatar8, name: 'Richard Simpson' }
 ]
 export { headData, tasklist, AddTeamMember }
-

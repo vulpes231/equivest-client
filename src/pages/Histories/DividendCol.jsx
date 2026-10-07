@@ -5,5 +5,3 @@ const DividendCol = () => {
 };
 
 export default DividendCol;
-
-

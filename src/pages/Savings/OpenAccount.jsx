@@ -328,7 +328,7 @@ const OpenAccount = () => {
                     </Col>
                   </div>
 
-                  <div className="d-flex align-items-start bg-secondary-subtle rounded gap-3 mb-3 py-2 px-4">
+                  <div className="d-flex align-items-start bg-primary-subtle rounded gap-3 mb-3 py-2 px-4">
                     <div>
                       <IoAlertCircleOutline className="text-primary" />
                     </div>
@@ -347,7 +347,7 @@ const OpenAccount = () => {
                   <button
                     type="button"
                     disabled={mutation.isPending}
-                    className="text-light bg-secondary btn fw-medium fs-14"
+                    className="text-light bg-primary btn fw-medium fs-14"
                     onClick={handleSubmit}
                   >
                     {!mutation.isPending
@@ -381,5 +381,3 @@ const OpenAccount = () => {
 };
 
 export default OpenAccount;
-
-

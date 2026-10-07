@@ -64,5 +64,3 @@ const VerifyAccountNotify = () => {
 };
 
 export default VerifyAccountNotify;
-
-

@@ -54,4 +54,3 @@ ExportCSVModal.propTypes = {
 };
 
 export default ExportCSVModal;
-

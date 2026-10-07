@@ -25,7 +25,7 @@ const How = () => {
     {
       id: 3,
       title: "Diverse Investing",
-      info: "Crypto can provide diversification as part of your larger investing strategy at Equivest.",
+      info: "Crypto can provide diversification as part of your larger investing strategy at Itrust Investment.",
       img: gift,
     },
   ];
@@ -117,5 +117,3 @@ const How = () => {
 };
 
 export default How;
-
-

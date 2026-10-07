@@ -84,4 +84,3 @@ const WebAppsDropdown = () => {
 };
 
 export default WebAppsDropdown;
-

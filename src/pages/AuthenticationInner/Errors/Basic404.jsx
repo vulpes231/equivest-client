@@ -39,4 +39,3 @@ const Basic404 = () => {
 };
 
 export default Basic404;
-

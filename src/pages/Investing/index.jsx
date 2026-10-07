@@ -14,7 +14,7 @@ import { getAccessToken } from "../../constants";
 import { getUserInfo } from "../../services/user/user";
 
 const Investing = () => {
-  document.title = "Automated Investing | Equivest";
+  document.title = "Automated Investing | Itrust Investments";
 
   const tk = getAccessToken();
 
@@ -46,7 +46,7 @@ const Investing = () => {
             <Widgets user={user} walletData={walletData} wallets={wallets} />
           </Col>
           <Col>
-            <PlanList />
+            <PlanList currency={user?.currency} />
           </Col>
         </Container>
       </div>
@@ -55,5 +55,3 @@ const Investing = () => {
 };
 
 export default Investing;
-
-

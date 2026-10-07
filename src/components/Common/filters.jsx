@@ -56,5 +56,3 @@ export const SelectColumnFilter = ({
     </select>
   );
 };
-
-

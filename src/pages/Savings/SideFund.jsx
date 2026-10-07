@@ -264,5 +264,3 @@ const SideFund = ({ accts, cash }) => {
 };
 
 export default SideFund;
-
-

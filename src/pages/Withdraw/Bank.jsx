@@ -79,7 +79,7 @@ const Bank = ({ settings }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-secondary d-flex align-items-center justify-content-center"
+            className="bg-primary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -415,5 +415,3 @@ const Bank = ({ settings }) => {
 };
 
 export default Bank;
-
-

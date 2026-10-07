@@ -421,5 +421,3 @@ VerticalLayout.propTypes = {
 };
 
 export default withRouter(withTranslation()(VerticalLayout));
-
-

@@ -57,5 +57,3 @@ const CashPage = () => {
 };
 
 export default CashPage;
-
-

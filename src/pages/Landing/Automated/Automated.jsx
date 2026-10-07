@@ -59,5 +59,3 @@ const Automated = () => {
 };
 
 export default Automated;
-
-

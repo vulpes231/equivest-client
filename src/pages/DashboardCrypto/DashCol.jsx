@@ -25,5 +25,3 @@ const MarketVolume = (cell) => {
 };
 
 export { Price, Pairs, HighPrice, LowPrice, MarketVolume };
-
-

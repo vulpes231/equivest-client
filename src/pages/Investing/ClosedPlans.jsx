@@ -12,7 +12,7 @@ const ClosedPlans = ({ plans, style }) => {
           plans.length > 0 &&
           plans.map((plan) => {
             return (
-              <Col lg={4}>
+              <Col key={plan._id} lg={4}>
                 <Card className="d-flex flex-column gap-3 py-3">
                   <div className="d-flex align-items-center gap-3 px-4 py-2">
                     <span className="bg-light">
@@ -118,7 +118,7 @@ const ClosedPlans = ({ plans, style }) => {
                       <span
                         className={`d-flex align-items-center p-1 rounded justify-content-center fs-10 fw-semibold  ${
                           plan.type === "conservative"
-                            ? "bg-secondary-subtle"
+                            ? "bg-primary-subtle"
                             : plan.type === "aggressive"
                             ? "bg-danger-subtle"
                             : plan.type === "moderate"
@@ -172,5 +172,3 @@ const ClosedPlans = ({ plans, style }) => {
 };
 
 export default ClosedPlans;
-
-

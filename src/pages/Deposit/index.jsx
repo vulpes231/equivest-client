@@ -3,7 +3,7 @@ import DepositForm from "./DepositForm";
 import { Container } from "reactstrap";
 
 const Deposit = () => {
-  document.title = "Deposit | Equivest";
+  document.title = "Deposit | Itrust Investments";
   return (
     <React.Fragment>
       <div className="page-content">
@@ -16,5 +16,3 @@ const Deposit = () => {
 };
 
 export default Deposit;
-
-

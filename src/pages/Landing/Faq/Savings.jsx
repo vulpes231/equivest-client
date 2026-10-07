@@ -60,5 +60,3 @@ const Savings = ({ currentQue, setCurrentQue }) => {
 };
 
 export default Savings;
-
-

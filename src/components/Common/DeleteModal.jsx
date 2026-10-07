@@ -50,4 +50,3 @@ DeleteModal.propTypes = {
 };
 
 export default DeleteModal;
-

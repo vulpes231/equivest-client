@@ -25,5 +25,3 @@ async function sendEmailVerificationCode(formData) {
 }
 
 export { sendEmailVerificationCode, sendAuthCode };
-
-

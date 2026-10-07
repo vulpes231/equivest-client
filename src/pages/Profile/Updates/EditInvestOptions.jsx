@@ -133,7 +133,7 @@ const EditInvestOptions = ({ isOpen, handleToggle, user }) => {
                   {validation.values.objectives.map((obj) => (
                     <div
                       key={obj}
-                      className="badge bg-secondary d-flex align-items-center gap-2 px-3 py-2"
+                      className="badge bg-primary d-flex align-items-center gap-2 px-3 py-2"
                     >
                       <span className="text-capitalize">{obj}</span>
                       <span
@@ -228,5 +228,3 @@ const EditInvestOptions = ({ isOpen, handleToggle, user }) => {
 };
 
 export default EditInvestOptions;
-
-

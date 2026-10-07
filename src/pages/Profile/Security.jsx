@@ -156,7 +156,8 @@ const Security = ({ user }) => {
       )}
       {twoFactorMutation.isSuccess && (
         <SuccessToast
-          successMsg={"2FA Updated."}
+          isTwoFa={!user?.accountStatus?.twoFaActivated}
+          successMsg={`You've ${!user?.accountStatus?.twoFaActivated ? "enabled" : "disabled"} 2FA on your account`}
           onClose={() => twoFactorMutation.reset()}
         />
       )}
@@ -166,5 +167,3 @@ const Security = ({ user }) => {
 };
 
 export default Security;
-
-

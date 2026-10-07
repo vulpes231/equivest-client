@@ -181,5 +181,3 @@ const ChangePass = ({ handleStep }) => {
 };
 
 export default ChangePass;
-
-

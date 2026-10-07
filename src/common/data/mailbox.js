@@ -327,4 +327,3 @@ const mailbox = [
 ];
 
 export { mailbox };
-

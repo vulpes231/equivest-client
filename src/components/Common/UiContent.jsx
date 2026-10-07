@@ -25,4 +25,3 @@ const UiContent = () => {
     );
 };
 export default UiContent;
-

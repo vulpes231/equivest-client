@@ -203,5 +203,3 @@ const recentApplicants = [
   },
 ];
 export { jobWidgets, featuredCompany, recentApplicants };
-
-

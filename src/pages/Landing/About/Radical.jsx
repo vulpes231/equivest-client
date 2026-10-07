@@ -96,5 +96,3 @@ const Radical = () => {
 };
 
 export default Radical;
-
-

@@ -272,5 +272,3 @@ const EditEmploymentInfo = ({ isOpen, handleToggle, user }) => {
 };
 
 export default EditEmploymentInfo;
-
-

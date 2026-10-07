@@ -75,5 +75,3 @@ export {
   getTradingAccounts,
   getTotalNetworth,
 };
-
-

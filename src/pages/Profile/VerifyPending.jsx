@@ -25,5 +25,3 @@ const VerifyPending = () => {
 };
 
 export default VerifyPending;
-
-

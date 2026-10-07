@@ -24,5 +24,3 @@ const ArticleTitle = () => {
 };
 
 export default ArticleTitle;
-
-

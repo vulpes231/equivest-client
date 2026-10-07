@@ -4,7 +4,7 @@ import BreadCrumb from "../../components/Common/BreadCrumb";
 import { Container } from "reactstrap";
 
 const Withdraw = () => {
-  document.title = "Withdrawal | Equivest";
+  document.title = "Withdrawal | Itrust Investments";
   return (
     <React.Fragment>
       <div className="page-content">
@@ -17,5 +17,3 @@ const Withdraw = () => {
 };
 
 export default Withdraw;
-
-

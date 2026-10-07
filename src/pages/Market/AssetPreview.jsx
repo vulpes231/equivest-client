@@ -347,5 +347,3 @@ const AssetPreview = ({ asset, handleSubmit }) => {
 };
 
 export default AssetPreview;
-
-

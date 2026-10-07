@@ -96,5 +96,3 @@ const Takeaway = () => {
 };
 
 export default Takeaway;
-
-

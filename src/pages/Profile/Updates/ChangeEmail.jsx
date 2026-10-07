@@ -82,7 +82,7 @@ const ChangeEmail = ({ isOpen, handleToggle }) => {
       >
         <div className="d-flex align-items-center gap-2">
           <div
-            className="d-flex align-items-center justify-content-center rounded-circle bg-secondary bg-opacity-10"
+            className="d-flex align-items-center justify-content-center rounded-circle bg-primary bg-opacity-10"
             style={{
               width: "40px",
               height: "40px",
@@ -174,5 +174,3 @@ const ChangeEmail = ({ isOpen, handleToggle }) => {
 };
 
 export default ChangeEmail;
-
-

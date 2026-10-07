@@ -112,4 +112,3 @@ const gridData = [
 ]
 
 export { listData, gridData }
-

@@ -78,5 +78,3 @@ const Principle = () => {
 };
 
 export default Principle;
-
-

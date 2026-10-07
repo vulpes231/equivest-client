@@ -15,5 +15,3 @@ async function getUserPositions() {
 }
 
 export { getUserPositions };
-
-

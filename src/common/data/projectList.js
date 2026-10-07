@@ -229,4 +229,3 @@ const projectList = [
     },
 ];
 export { projectList };
-

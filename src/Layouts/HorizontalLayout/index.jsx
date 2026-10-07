@@ -386,5 +386,3 @@ HorizontalLayout.propTypes = {
 };
 
 export default withRouter(withTranslation()(HorizontalLayout));
-
-

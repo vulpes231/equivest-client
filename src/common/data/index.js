@@ -197,5 +197,3 @@ export {
   listData,
   gridData
 };
-
-

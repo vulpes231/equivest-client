@@ -65,4 +65,3 @@ const LanguageDropdown = () => {
 };
 
 export default LanguageDropdown;
-

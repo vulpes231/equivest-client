@@ -5,5 +5,3 @@ const SavingsCol = () => {
 };
 
 export default SavingsCol;
-
-

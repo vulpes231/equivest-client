@@ -30,5 +30,3 @@ const VerifyCard = ({ showVerify, setShowVerify }) => {
 };
 
 export default VerifyCard;
-
-

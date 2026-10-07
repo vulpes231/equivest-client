@@ -21,4 +21,3 @@ function withRouter(Component) {
 }
 
 export default withRouter;
-

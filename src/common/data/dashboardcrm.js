@@ -194,7 +194,7 @@ const activities = [
             { id: 2, img: avatar1 },
             { id: 3, img: avatar2 }],
         imgNumber: "4",
-        bgcolor: "bg-secondary"
+        bgcolor: "bg-primary"
     },
     {
         id: 4,
@@ -389,4 +389,3 @@ const janData = [{
 }];
 
 export { crmWidgets, dealsStatus, tasks, activities, closingDeals, todayBalanceData, lastWeekBalanceData, lastMonthBalanceData, currentYearBalanceData, todayDealData, weeklyDealData, monthlyDealData, yealyDealData, octData, novData, decData, janData };
-

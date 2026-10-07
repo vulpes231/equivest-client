@@ -229,5 +229,3 @@ const MarketBuy = ({ accounts, activeOrder, asset, tradeType }) => {
 };
 
 export default MarketBuy;
-
-

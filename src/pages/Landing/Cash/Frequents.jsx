@@ -40,7 +40,7 @@ const Frequents = () => {
     },
     {
       id: 5,
-      question: "Is my money safe with Equivest?",
+      question: "Is my money safe with Itrust Investment?",
       answer: `Exceptionally safe. Your money gets up to $8 million in FDIC insurance (or $16 million for joint accounts). This is possible because we aren’t a bank — we sweep your deposits to up 32 partner banks (each with its own federally-insured $250,000 limit) at any given time. As a result, you get
 
       32x the FDIC insurance in a Itrust Cash Account than you’d get with a regular bank account.Beyond the federal backstop provided by the FDIC, we keep your money secure by complying with the rules of our federal regulators, protecting your data with robust security practices , and conducting annual third-party accounting audits. `,
@@ -170,5 +170,3 @@ const Frequents = () => {
 };
 
 export default Frequents;
-
-

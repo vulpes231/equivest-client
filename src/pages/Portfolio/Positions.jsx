@@ -122,5 +122,3 @@ const Positions = ({ accounts }) => {
 };
 
 export default Positions;
-
-

@@ -147,5 +147,3 @@ const DividendHistory = ({ dividends }) => {
 };
 
 export default DividendHistory;
-
-

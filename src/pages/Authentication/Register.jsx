@@ -24,6 +24,7 @@ import { registerUser } from "../../services/auth/register";
 import SuccessToast from "../../components/Common/SuccessToast";
 import ErrorToast from "../../components/Common/ErrorToast";
 import { Turnstile } from "@marsidev/react-turnstile";
+import AuthNav from "./AuthNav";
 
 const Register = () => {
   const turnstileRef = useRef(null);
@@ -99,15 +100,16 @@ const Register = () => {
     }
   }, [error]);
 
-  document.title = "Register - Equivest";
+  document.title = "Register - Itrust Investments";
 
   return (
     <React.Fragment>
-      {/* <ParticlesAuth>
-       
-      </ParticlesAuth> */}
-      <div className="auth-page-content">
-        <Container style={{ marginBottom: "50px" }}>
+      <div
+        className="auth-page-content d-flex align-items-center justify-content-center"
+        style={{ minHeight: "100vh" }}
+      >
+        <AuthNav />
+        <Container style={{ marginBottom: "50px", marginTop: "100px" }}>
           <Row className="justify-content-center">
             <Col md={8} lg={6} xl={5}>
               <Card className="mt-4">
@@ -120,7 +122,7 @@ const Register = () => {
                       <h3 className="fw-bold">Create Account</h3>
                     </div>
                     <div className="d-flex flex-column align-items-center justify-content-center">
-                      <h5 className="text-secondary">Get Started</h5>
+                      <h5 className="text-primary">Get Started</h5>
                       <p className="text-muted">Create a new account</p>
                     </div>
                   </div>
@@ -360,8 +362,8 @@ const Register = () => {
                         <p className="mb-0 fs-12 text-muted fst-italic d-flex gap-1">
                           By registering you agree to the Itrust
                           <Link
-                            to={"/terms-and-conditions"}
-                            className="text-secondary text-decoration-underline fst-normal fw-medium"
+                            to="/terms-and-conditions"
+                            className="text-primary text-decoration-underline fst-normal fw-medium"
                           >
                             Terms of Use
                           </Link>
@@ -388,20 +390,20 @@ const Register = () => {
                   Already have an account?{" "}
                   <Link
                     to="/login"
-                    className="fw-semibold text-secondary text-decoration-underline"
+                    className="fw-semibold text-primary text-decoration-underline"
                   >
                     {" "}
                     Signin{" "}
                   </Link>{" "}
                 </p>
               </div>
-              {/* <div className="d-flex align-items-center justify-content-center gap-3 mt-4">
+              <div className="d-flex align-items-center justify-content-center gap-3 mt-4">
                 <Link to={"/privacy-policy"}>Privacy</Link>
                 <span>|</span>
                 <Link to={"/terms-and-conditions"}>Terms of Use</Link>
                 <span>|</span>
                 <Link to={"/faq"}>F.A.Q</Link>
-              </div> */}
+              </div>
             </Col>
           </Row>
         </Container>

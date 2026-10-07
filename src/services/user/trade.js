@@ -62,5 +62,3 @@ export {
   closePosition,
   searchTrades,
 };
-
-

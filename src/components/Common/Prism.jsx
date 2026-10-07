@@ -28,5 +28,3 @@ const PrismCode = (props) => {
 
 export default PrismCode;
 
-
-

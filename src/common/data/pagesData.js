@@ -1059,4 +1059,3 @@ const team = [
 
 
 export { gallery, pricing1, pricing2, pricing3, projects, document, SearchGallery, news, video, swiper, team };
-

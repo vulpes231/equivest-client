@@ -59,5 +59,3 @@ const folderList = [
 ];
 
 export { recentFile, folderList };
-
-

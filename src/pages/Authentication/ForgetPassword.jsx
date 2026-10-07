@@ -29,9 +29,10 @@ import {
 } from "../../services/resetAccountPass";
 import ForgetPassOtp from "./ForgetPassOtp";
 import ChangePass from "./ChangePass";
+import AuthNav from "./AuthNav";
 
 const ForgetPasswordPage = (props) => {
-  document.title = "Reset Password | Equivest";
+  document.title = "Reset Password | Itrust Investments";
 
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
@@ -75,13 +76,11 @@ const ForgetPasswordPage = (props) => {
   }, [error]);
 
   return (
-    // <ParticlesAuth>
-
-    // </ParticlesAuth>
     <div
       className="auth-page-content d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
+      <AuthNav />
       <Container style={{ height: "100%" }} className="">
         {step === 1 && (
           <Row className="d-flex align-items-center justify-content-center">
@@ -203,5 +202,3 @@ ForgetPasswordPage.propTypes = {
 };
 
 export default withRouter(ForgetPasswordPage);
-
-

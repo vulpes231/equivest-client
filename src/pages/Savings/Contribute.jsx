@@ -286,5 +286,3 @@ const Contribute = ({ accts, cash }) => {
 };
 
 export default Contribute;
-
-

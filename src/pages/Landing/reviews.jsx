@@ -25,7 +25,7 @@ const Reviews = () => {
     {
       id: 2,
       title:
-        "I LOVE Equivest and have moved almost all of my finances there.",
+        "I LOVE Itrust Investment and have moved almost all of my finances there.",
       info: "– Jan, Itrust User Review on",
       site: "Trustpilot.com",
       ratings: 5,
@@ -149,5 +149,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-
-

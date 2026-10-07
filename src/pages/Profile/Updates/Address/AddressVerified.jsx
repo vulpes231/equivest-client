@@ -15,5 +15,3 @@ const AddressVerified = () => {
 };
 
 export default AddressVerified;
-
-

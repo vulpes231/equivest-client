@@ -1,8 +1,9 @@
 import React from "react";
 import { FiAlertTriangle } from "react-icons/fi";
 import { formatCurrency } from "../../constants";
+import numeral from "numeral";
 
-const PendingDeposit = ({ analytics }) => {
+const PendingDeposit = ({ analytics, currency }) => {
   return (
     <React.Fragment>
       <div
@@ -26,8 +27,12 @@ const PendingDeposit = ({ analytics }) => {
           >
             Pending Deposits
           </span>
-          <span style={{ fontWeight: "500", fontSize: "24.5px" }}>
-            {formatCurrency(analytics?.pendingDeposit)}
+          <span
+            className="text-body "
+            style={{ fontWeight: "500", fontSize: "24.5px" }}
+          >
+            {currency?.sign}
+            {numeral(analytics?.pendingDeposit).format("0,0.00")}
           </span>
           <span
             className="text-warning"
@@ -42,5 +47,3 @@ const PendingDeposit = ({ analytics }) => {
 };
 
 export default PendingDeposit;
-
-

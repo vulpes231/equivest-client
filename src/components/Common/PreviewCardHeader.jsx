@@ -18,4 +18,3 @@ const PreviewCardHeader = ({ title }) => {
 }
 
 export default PreviewCardHeader;
-

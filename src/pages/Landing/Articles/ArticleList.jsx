@@ -100,5 +100,3 @@ const ArticleList = ({ activeTab }) => {
 };
 
 export default ArticleList;
-
-

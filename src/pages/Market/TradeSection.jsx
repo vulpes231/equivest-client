@@ -258,5 +258,3 @@ const TradeSection = ({ asset, accounts, walletData }) => {
 };
 
 export default TradeSection;
-
-

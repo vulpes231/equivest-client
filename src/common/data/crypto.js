@@ -1705,5 +1705,3 @@ export {
   MarketGraphWeek,
   MarketGraphHour,
 };
-
-

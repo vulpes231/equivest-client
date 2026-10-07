@@ -827,4 +827,3 @@ const productsReview = [
 ];
 
 export { productsData, productDetailsWidgets, reviews, orders, productDetails, customerList, shoppingCart, orderSummary, sellersList, revenueWidgets, productsReview };
-

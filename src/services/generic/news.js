@@ -16,5 +16,3 @@ const getLatestNews = async () => {
 };
 
 export { getLatestNews };
-
-

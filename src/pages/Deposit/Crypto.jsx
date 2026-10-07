@@ -15,6 +15,7 @@ import Loader from "../../components/Common/Loader";
 import { PiCopyLight } from "react-icons/pi";
 import Barcode from "./Barcode";
 import { useNavigate } from "react-router-dom";
+import numeral from "numeral";
 
 const methods = [
   { id: "btc", label: "Bitcoin", network: "BTC", img: btc, symbol: "BTC" },
@@ -140,7 +141,7 @@ const Crypto = ({ settings, user }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-secondary d-flex align-items-center justify-content-center"
+            className="bg-primary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -236,7 +237,7 @@ const Crypto = ({ settings, user }) => {
       {selectedMode && (
         <div>
           <Col lg={12}>
-            <div className="d-flex align-items-center bg-secondary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
+            <div className="d-flex align-items-center bg-primary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
               <div>
                 <IoAlertCircleOutline className="text-primary" />
               </div>
@@ -245,8 +246,12 @@ const Crypto = ({ settings, user }) => {
                 className="d-flex flex-column text-primary"
               >
                 <span>
-                  Send <b>{formatCurrency(data?.amount)}</b> in{" "}
-                  <b>{selectedMode?.symbol}</b> to the address below{" "}
+                  Send{" "}
+                  <b>
+                    {user?.currency?.sign}
+                    {numeral(data?.amount).format("0,0.00")}
+                  </b>{" "}
+                  in <b>{selectedMode?.symbol}</b> to the address below{" "}
                 </span>
                 <span>
                   Processing time: 1-30 minutes after network confirmation
@@ -371,7 +376,8 @@ const Crypto = ({ settings, user }) => {
                       fontWeight: 600,
                     }}
                   >
-                    {formatCurrency(data?.amount)}
+                    {user?.currency?.sign}
+                    {numeral(data?.amount).format("0,0.00")}
                   </span>
                 </span>
                 <span className="d-flex align-items-center justify-content-between">
@@ -407,7 +413,8 @@ const Crypto = ({ settings, user }) => {
                     className="text-success"
                     style={{ fontSize: "14px", fontWeight: 600 }}
                   >
-                    {formatCurrency(0)}
+                    {user?.currency?.sign}
+                    {numeral(0).format("0,0.00")}
                   </span>
                 </span>
                 <span className="d-flex align-items-center justify-content-between">
@@ -425,7 +432,8 @@ const Crypto = ({ settings, user }) => {
                       fontWeight: 600,
                     }}
                   >
-                    {formatCurrency(data?.amount)}
+                    {user?.currency?.sign}
+                    {numeral(data?.amount).format("0,0.00")}
                   </span>
                 </span>
               </div>
@@ -504,5 +512,3 @@ const Crypto = ({ settings, user }) => {
 };
 
 export default Crypto;
-
-

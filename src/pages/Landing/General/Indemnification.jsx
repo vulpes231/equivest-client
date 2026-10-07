@@ -29,5 +29,3 @@ const Indemnification = () => {
 };
 
 export default Indemnification;
-
-

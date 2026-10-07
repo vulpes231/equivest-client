@@ -199,5 +199,3 @@ const TradeHistory = ({ trades }) => {
 };
 
 export default TradeHistory;
-
-

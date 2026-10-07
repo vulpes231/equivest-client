@@ -36,5 +36,3 @@ async function changeAccountPassword(formData) {
 }
 
 export { changeAccountPassword, sendResetCode, confirmResetCode };
-
-

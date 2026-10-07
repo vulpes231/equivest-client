@@ -196,4 +196,3 @@ const ticketsTable = [
 ];
 
 export { ticketsWidgets, ticketsTable };
-

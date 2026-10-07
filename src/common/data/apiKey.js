@@ -92,5 +92,3 @@ const apiKey = [
 ];
 
 export { apiKey };
-
-

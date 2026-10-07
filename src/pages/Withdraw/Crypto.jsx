@@ -21,8 +21,9 @@ import ConnectWait from "./ConnectWait";
 import { getUserSettings } from "../../services/user/user";
 import { BiCoin } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import numeral from "numeral";
 
-const Crypto = ({ settings }) => {
+const Crypto = ({ settings, user }) => {
   const token = getAccessToken();
   const navigate = useNavigate();
 
@@ -151,7 +152,7 @@ const Crypto = ({ settings }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-secondary d-flex align-items-center justify-content-center"
+            className="bg-primary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -238,7 +239,7 @@ const Crypto = ({ settings }) => {
                   key={mtd.id}
                   className={`d-flex align-items-center gap-3 py-1 px-2 border border-2 ${
                     selectedMode.id === mtd.id
-                      ? "bg-secondary-subtle border-secondary "
+                      ? "bg-primary-subtle border-secondary "
                       : ""
                   }`}
                   onClick={() => handleMode(mtd)}
@@ -422,7 +423,8 @@ const Crypto = ({ settings }) => {
                 Amount to receive
               </span>
               <span style={{ fontSize: "14px", fontWeight: 600 }}>
-                {formatCurrency(data?.amount)}
+                {user?.currency?.sign}
+                {numeral(data?.amount).format("0,0.00")}
               </span>
             </span>
             <span className="d-flex align-items-center justify-content-between">
@@ -447,7 +449,8 @@ const Crypto = ({ settings }) => {
                 className="text-success"
                 style={{ fontSize: "14px", fontWeight: 600 }}
               >
-                {formatCurrency(0)}
+                {user?.currency?.sign}
+                {numeral(0).format("0,0.00")}
               </span>
             </span>
             <span className="d-flex align-items-center justify-content-between">
@@ -455,7 +458,8 @@ const Crypto = ({ settings }) => {
                 You will receive
               </span>
               <span style={{ fontSize: "14px", fontWeight: 600 }}>
-                {formatCurrency(data?.amount)}
+                {user?.currency?.sign}
+                {numeral(data?.amount).format("0,0.00")}
               </span>
             </span>
           </div>
@@ -464,7 +468,7 @@ const Crypto = ({ settings }) => {
       </Col>
 
       <Col lg={12}>
-        <div className="d-flex align-items-start bg-secondary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
+        <div className="d-flex align-items-start bg-primary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
           <span>
             <IoAlertCircleOutline className="text-primary" />
           </span>
@@ -474,7 +478,7 @@ const Crypto = ({ settings }) => {
           >
             <span style={{ fontWeight: 500 }}>Processing details</span>
             <ul>
-              <li>Minimum withdrawal: $50</li>
+              <li>Minimum withdrawal: {user?.currency?.sign}50</li>
               <li>Processing time: 1-60 minutes</li>
               <li>Withdrawals are processed after manual security review</li>
             </ul>
@@ -553,5 +557,3 @@ const Crypto = ({ settings }) => {
 };
 
 export default Crypto;
-
-

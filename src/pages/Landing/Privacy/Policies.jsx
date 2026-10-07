@@ -303,7 +303,7 @@ const Policies = () => {
                 No Recommendations or Investment Advice{" "}
               </h4>
               <p className="text-dark fs-15">
-                Equivest provides self-directed investors with discount
+                Itrust Investment provides self-directed investors with discount
                 brokerage services, and does not make recommendations or offer
                 investment advice of any kind. You are solely responsible for
                 evaluating the merits and risks associated with the use of any
@@ -332,5 +332,3 @@ const Policies = () => {
 };
 
 export default Policies;
-
-

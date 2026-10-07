@@ -322,5 +322,3 @@ const EditContactInfo = ({ isOpen, handleToggle, user }) => {
 };
 
 export default EditContactInfo;
-
-

@@ -1183,5 +1183,3 @@ export {
   jobApplication,
   jobCompanies,
 };
-
-
