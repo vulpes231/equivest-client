@@ -58,7 +58,7 @@ const NAV_GROUPS = [
       },
       {
         label: "Automated Investing",
-        href: "/automated-investing",
+        href: "/auto-investing",
         icon: <IconCpu />,
         desc: "Set goals and invest on autopilot",
       },
@@ -157,7 +157,7 @@ const NAV_GROUPS = [
       },
       {
         label: "Contact",
-        href: "/contact",
+        href: "/contact-us",
         icon: <IconMessageSquare />,
         desc: "Support, chat & help center",
       },

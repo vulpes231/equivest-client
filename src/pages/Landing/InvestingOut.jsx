@@ -141,7 +141,7 @@ const mutedTextStyle = {
   color: "var(--muted-foreground)",
 };
 
-export default function Investing() {
+export default function InvestingOut() {
   return (
     <div>
       {/* Hero */}

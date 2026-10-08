@@ -3,7 +3,7 @@ import Card from "./ui/Card";
 import { BRAND } from "./data/config";
 import { IconMail, IconPhone, IconMessageSquare, IconMapPin } from "./ui/Icons";
 
-export default function Contact() {
+export default function ContactUs() {
   const [form, setForm] = useState({
     name: "",
     email: "",

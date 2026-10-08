@@ -21,24 +21,25 @@ import {
   Investing,
   Profile,
   Histories,
-  Landing,
   TwoFa,
-  ArticleDetail,
   Tiers,
 } from "../pages";
 
-import AutomatedInvesting from "../pages/Landing/Automated";
-import BondInvesting from "../pages/Landing/Bond";
-import CryptoInvesting from "../pages/Landing/Crypto";
-import CashPage from "../pages/Landing/Cash";
-import Stocks from "../pages/Landing/Stocks";
-import Faq from "../pages/Landing/Faq";
-import GeneralQuestions from "../pages/Landing/Faq";
-import Invest from "../pages/Landing/Invest";
+import Markets from "../pages/Landing/Markets";
+import Home from "../pages/Landing/Home";
+import Trading from "../pages/Landing/Trading";
+import InvestingOut from "../pages/Landing/InvestingOut";
+import AutomatedInvesting from "../pages/Landing/AutomatedInvesting";
+import Retirement from "../pages/Landing/Retirement";
+import StockDetail from "../pages/Landing/StockDetail";
+import Features from "../pages/Landing/Features";
 import About from "../pages/Landing/About";
-import Articles from "../pages/Landing/Articles";
-import Terms from "../pages/Landing/Terms";
-import Privacy from "../pages/Landing/Privacy";
+import Security from "../pages/Landing/Security";
+import Learn from "../pages/Landing/Learn";
+import FAQ from "../pages/Landing/FAQ";
+import ApiDocs from "../pages/Landing/ApiDocs";
+import Blog from "../pages/Landing/Blog";
+import ContactUs from "../pages/Landing/ContactUs";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <DashboardCrypto /> },
@@ -70,24 +71,40 @@ const authProtectedRoutes = [
 
 const publicRoutes = [
   // Authentication Page
-  { path: "/", component: <Landing /> },
+  { path: "/", component: <Home /> },
   { path: "/logout", component: <Logout /> },
   { path: "/login", component: <Login /> },
   { path: "/forgot-password", component: <ForgetPassword /> },
   { path: "/register", component: <Register /> },
   { path: "/verifyemail", component: <VerifyEmail /> },
-  { path: "/automated", component: <AutomatedInvesting /> },
-  { path: "/bond", component: <BondInvesting /> },
-  { path: "/crypto", component: <CryptoInvesting /> },
-  { path: "/cash-page", component: <CashPage /> },
-  { path: "/stocks", component: <Stocks /> },
-  { path: "/faq", component: <GeneralQuestions /> },
-  { path: "/how-to-invest", component: <Invest /> },
-  { path: "/about-us", component: <About /> },
-  { path: "/articles", component: <Articles /> },
-  { path: "/terms-and-conditions", component: <Terms /> },
-  { path: "/privacy-policy", component: <Privacy /> },
-  { path: "/article/:articleId", component: <ArticleDetail /> },
+
+  { path: "/markets", component: <Markets /> },
+  { path: "/trading", component: <Trading /> },
+  { path: "/investing", component: <InvestingOut /> },
+  { path: "/auto-investing", component: <AutomatedInvesting /> },
+  { path: "/retirement", component: <Retirement /> },
+  { path: "/stocks/:symbol", component: <StockDetail /> },
+  { path: "/features", component: <Features /> },
+  { path: "/about", component: <About /> },
+  { path: "/security", component: <Security /> },
+  { path: "/learn", component: <Learn /> },
+  { path: "/faq", component: <FAQ /> },
+  { path: "/contact-us", component: <ContactUs /> },
+  { path: "/blog", component: <Blog /> },
+  { path: "/api-docs", component: <ApiDocs /> },
+
+  // <Route path="/products/cash" element={<Cash />} />
+  // <Route path="/products/stocks" element={<Stocks />} />
+  // <Route path="/products/etfs" element={<ETFs />} />
+  // <Route path="/products/options" element={<Options />} />
+  // <Route path="/products/crypto" element={<Crypto />} />
+  // <Route path="/products/bonds" element={<Bonds />} />
+  // <Route path="/products/commodities" element={<Commodities />} />
+  // <Route path="/legal/privacy" element={<Privacy />} />
+  // <Route path="/legal/terms" element={<Terms />} />
+  // <Route path="/legal/cookies" element={<Cookies />} />
+  // <Route path="/legal/disclosures" element={<Disclosures />} />
+  // <Route path="/legal/sipc" element={<SIPCProtection />} />
 ];
 
 export { authProtectedRoutes, publicRoutes };

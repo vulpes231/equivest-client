@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-//Layouts
+// Layouts
 import NonAuthLayout from "../Layouts/NonAuthLayout";
 import VerticalLayout from "../Layouts/index";
+import PublicLayout from "./PublicLayout";
 
-//routes
+// Routes
 import { authProtectedRoutes, publicRoutes } from "./allRoutes";
 import { AuthProtected } from "./AuthProtected";
 
@@ -15,34 +16,35 @@ const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
   return (
     <React.Fragment>
       <Routes>
-        <Route>
-          {publicRoutes.map((route, idx) => (
-            <Route
-              path={route.path}
-              element={<NonAuthLayout>{route.component}</NonAuthLayout>}
-              key={idx}
-              exact={true}
-            />
-          ))}
-        </Route>
+        {/* PUBLIC ROUTES */}
+        {publicRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={
+              <PublicLayout>
+                <NonAuthLayout>{route.component}</NonAuthLayout>
+              </PublicLayout>
+            }
+          />
+        ))}
 
-        <Route>
-          {authProtectedRoutes.map((route, idx) => (
-            <Route
-              path={route.path}
-              element={
-                <AuthProtected>
-                  <VerticalLayout>{route.component}</VerticalLayout>
-                </AuthProtected>
-              }
-              key={idx}
-              exact={true}
-            />
-          ))}
-        </Route>
+        {/* PROTECTED ROUTES */}
+        {authProtectedRoutes.map((route, idx) => (
+          <Route
+            key={idx}
+            path={route.path}
+            element={
+              <AuthProtected>
+                <VerticalLayout>{route.component}</VerticalLayout>
+              </AuthProtected>
+            }
+          />
+        ))}
       </Routes>
     </React.Fragment>
   );

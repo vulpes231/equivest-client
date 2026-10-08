@@ -19,14 +19,14 @@ import Withdraw from "./Withdraw";
 import Investing from "./Investing";
 import Profile from "./Profile";
 import Histories from "./Histories";
-import Landing from "./Landing";
+// import Landing from "./Landing";
 import TwoFa from "./Authentication/TwoFa";
-import ArticleDetail from "./Landing/ArticleDetail";
+// import ArticleDetail from "./Landing/ArticleDetail";
 import Tiers from "./Tiers";
 
 export {
   Contact,
-  ArticleDetail,
+  // ArticleDetail,
   TwoFa,
   Deposit,
   Withdraw,
@@ -48,6 +48,6 @@ export {
   Investing,
   Profile,
   Histories,
-  Landing,
+  // Landing,
   Tiers,
 };

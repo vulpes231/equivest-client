@@ -1,16 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
-
-// import Navbar from "./navbar";
-// import Home from "./home";
-// import Client from "./client";
-// import Services from "./services";
-// import Features from "./features";
-// import Plans from "./plans";
-// import Reviews from "./reviews";
-// import Counter from "./counter";
-// import WorkProcess from "./workProcess";
-// import Footer from "./footer";
+import Home from "./Home";
+import Footer from "./Footer";
 
 const Landing = () => {
   document.title = "Welcome - ItrustInvestment";
@@ -40,19 +31,10 @@ const Landing = () => {
 
   return (
     <React.Fragment>
+      {/* <Navbar /> */}
       <div className="layout-wrapper landing">
-        <Navbar />
         <Home />
-        <Client />
-        <Services />
-        <Features />
-        <Plans />
-        <Reviews />
 
-        <Counter />
-        <WorkProcess />
-
-        <Footer />
         <button
           onClick={() => toTop()}
           className="btn btn-danger btn-icon landing-back-top"

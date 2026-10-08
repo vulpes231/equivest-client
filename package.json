@@ -57,6 +57,7 @@
     "react-switch": "^7.1.0",
     "react-toastify": "^11.0.5",
     "reactstrap": "^9.2.3",
+    "recharts": "^3.10.1",
     "redux": "^5.0.1",
     "remixicon-react": "^1.0.0",
     "reselect": "^5.1.1",
