@@ -1,15 +1,16 @@
 import React from "react";
+import Navbar from "./Navbar";
 
-import Navbar from "./navbar";
-import Home from "./home";
-import Client from "./client";
-import Services from "./services";
-import Features from "./features";
-import Plans from "./plans";
-import Reviews from "./reviews";
-import Counter from "./counter";
-import WorkProcess from "./workProcess";
-import Footer from "./footer";
+// import Navbar from "./navbar";
+// import Home from "./home";
+// import Client from "./client";
+// import Services from "./services";
+// import Features from "./features";
+// import Plans from "./plans";
+// import Reviews from "./reviews";
+// import Counter from "./counter";
+// import WorkProcess from "./workProcess";
+// import Footer from "./footer";
 
 const Landing = () => {
   document.title = "Welcome - ItrustInvestment";
