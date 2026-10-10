@@ -108,7 +108,7 @@ export default function Security() {
     <div
       className="container py-5"
       style={{
-        maxWidth: "1280px",
+        marginTop: "70px",
       }}
     >
       {/* Header */}

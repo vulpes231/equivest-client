@@ -483,8 +483,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
               onClick={() => setDarkMode(!darkMode)}
               className="btn border-0 d-flex align-items-center justify-content-center rounded"
               style={{
-                width: "36px",
-                height: "36px",
+                width: "56px",
+                height: "56px",
                 color: "var(--muted-foreground)",
               }}
               aria-label="Toggle dark mode"
@@ -536,7 +536,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
               </Link>
 
               <Link
-                to="/signup"
+                to="/register"
                 className="btn text-white text-decoration-none"
                 style={{
                   padding: "6px 16px",

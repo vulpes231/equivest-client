@@ -145,7 +145,7 @@ const INTEGRATIONS = [
 
 export default function Features() {
   return (
-    <div className="container py-5" style={{ maxWidth: "1280px" }}>
+    <div className="container py-5" style={{ marginTop: "70px" }}>
       {/* Header */}
       <div className="text-center mx-auto" style={{ maxWidth: "768px" }}>
         <p

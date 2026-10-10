@@ -134,9 +134,12 @@ const STATS = [
 
 export default function StockDetail() {
   return (
-    <div className="container py-5" style={{ maxWidth: "1280px" }}>
+    <div className="container py-5">
       {/* Hero */}
-      <section className="mb-5 pb-4" style={{ maxWidth: "768px" }}>
+      <section
+        className="mb-5 pb-4"
+        style={{ maxWidth: "768px", marginTop: "70px" }}
+      >
         <p
           className="small fw-semibold text-uppercase mb-3"
           style={{

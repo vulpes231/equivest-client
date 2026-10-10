@@ -86,7 +86,7 @@ const VALUES = [
 
 export default function About() {
   return (
-    <div className="container py-4 py-lg-5">
+    <div className="container py-4 py-lg-5" style={{ marginTop: "70px" }}>
       {/* Mission */}
       <div
         className="text-center mx-auto mb-5 pb-lg-3"

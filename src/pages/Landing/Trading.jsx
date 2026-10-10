@@ -201,7 +201,7 @@ const CheckIcon = () => (
 
 export default function Trading() {
   return (
-    <div className="container py-5" style={{ maxWidth: "1280px" }}>
+    <div className="container py-5" style={{ marginTop: "70px" }}>
       {/* Hero */}
       <section className="mb-5 pb-4" style={{ maxWidth: "768px" }}>
         <p

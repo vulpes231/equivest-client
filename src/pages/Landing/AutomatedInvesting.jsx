@@ -204,7 +204,10 @@ export default function AutomatedInvesting() {
   return (
     <div className="d-flex flex-column gap-5">
       {/* Hero */}
-      <section className="container pt-4 pt-lg-5 pb-2">
+      <section
+        className="container pt-4 pt-lg-5 pb-2"
+        style={{ marginTop: "70px" }}
+      >
         <p
           className="text-uppercase mb-3"
           style={{

@@ -338,7 +338,7 @@ export default function FAQ() {
       : FAQ_DATA.filter((item) => item.category === activeCategory);
 
   return (
-    <div className="container py-5" style={{ maxWidth: "960px" }}>
+    <div className="container py-5" style={{ marginTop: "70px" }}>
       {/* Header */}
       <div className="text-center mb-5">
         <p

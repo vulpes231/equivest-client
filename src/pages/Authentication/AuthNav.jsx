@@ -1,199 +1,268 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Collapse, Container, NavbarToggler, NavLink } from "reactstrap";
-import Scrollspy from "react-scrollspy";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { logo } from "../../assets";
-import { MdArrowDropDown, MdClose, MdMenu } from "react-icons/md";
-import { getSize } from "../../constants";
-import MobileAuth from "./MobileAuth";
-import Logo from "../Landing/logo";
+import { BRAND } from "../Landing/data/config";
 
-const AuthNav = () => {
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const [navClass, setnavClass] = useState("");
-  const [openSubmenu, setOpenSubmenu] = useState(null);
-
-  const subRef = useRef();
-
-  const openMenu = (e) => {
-    e.stopPropagation();
-    setMobileMenu(true);
-  };
-
-  const closeMenu = () => {
-    setMobileMenu(false);
-  };
-
-  const isDesktop = () => window.innerWidth >= 992;
-
-  const toggleSubmenu = (id) => {
-    if (!isDesktop()) {
-      setOpenSubmenu((prev) => (prev === id ? null : id));
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", scrollNavigation, true);
-    return () => window.removeEventListener("scroll", scrollNavigation, true);
-  }, []);
-
-  const [activeLink, setActiveLink] = useState();
-
-  const scrollNavigation = () => {
-    var scrollup = document.documentElement.scrollTop;
-    if (scrollup > 50) {
-      setnavClass("is-sticky");
-    } else {
-      setnavClass("");
-    }
-  };
-
-  const navlinks = [
-    {
-      id: "investing",
-      label: "Investing",
-      path: "",
-      submenus: [
-        {
-          id: "automated",
-          label: "Automated Investing",
-          path: "/automated",
-        },
-        { id: "crypto", label: "Crypto Investing", path: "/crypto" },
-        { id: "bond", label: "Bond Investing", path: "/bond" },
-      ],
-    },
-    {
-      id: "cash",
-      label: "Cash",
-      path: "/cash-page",
-      submenus: [],
-    },
-    {
-      id: "learn",
-      label: "Learn",
-      path: "",
-      submenus: [
-        { id: "how", label: "How to Invest", path: "/how-to-invest" },
-        { id: "about", label: "About Us", path: "/about-us" },
-        { id: "articles", label: "Articles", path: "/articles" },
-      ],
-    },
-    {
-      id: "stocks",
-      label: "Stocks",
-      path: "/stocks",
-      submenus: [],
-    },
-    {
-      id: "faq",
-      label: "F.A.Q",
-      path: "/faq",
-      submenus: [],
-    },
-  ];
-
-  const returnNull = () => {
-    return;
-  };
+export default function AuthNav({ darkMode, setDarkMode }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    setOpenSubmenu(null);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (subRef.current && !subRef.current.contains(e.target)) {
-        setOpenSubmenu(null);
-      }
+    const handler = () => {
+      setScrolled(window.scrollY > 20);
     };
 
-    if (openSubmenu) {
-      document.addEventListener("click", handleClickOutside);
-    }
+    window.addEventListener("scroll", handler);
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handler);
     };
-  }, [openSubmenu]);
+  }, []);
 
-  //   console.log(location.pathname);
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   return (
-    <React.Fragment>
-      <header
-        className={`bg-white position-fixed top-0 px-4 py-3 py-lg-4 ${navClass}`}
-        id="navbar"
-        style={{ zIndex: 1500, width: "100vw" }}
-      >
-        <nav
+    <nav
+      className="fixed-top w-100 bg-body"
+      style={{
+        zIndex: 1030,
+        transition: "all 0.3s ease",
+        background: scrolled ? "var(--card)" : "transparent",
+        boxShadow: scrolled ? "0 10px 25px rgba(0, 0, 0, 0.05)" : "none",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+      }}
+    >
+      <div className="container-fluid">
+        <div
           className="d-flex align-items-center justify-content-between"
           style={{
-            maxWidth: getSize(window.innerWidth),
+            maxWidth: "1280px",
+            height: "64px",
             margin: "0 auto",
+            padding: "0 1rem",
           }}
         >
-          <Logo logo={logo} />
+          {/* Logo */}
 
-          <div className="d-flex align-items-center gap-4 gap-lg-5">
-            <span className="d-block">
-              <Link
-                style={{
-                  width: isDesktop() ? "125px" : "85px",
-                  height: isDesktop() ? "48px" : "44px",
-                  // backgroundColor: isDesktop() ? "green" : "red",
-                }}
-                className="btn btn-secondary fw-bold p-1 p-lg-2 d-flex align-items-center justify-content-center"
-                to={
-                  location.pathname.includes("/login")
-                    ? "/register"
-                    : location.pathname.includes("/register")
-                      ? "/login"
-                      : location.pathname.includes("/forgot-password")
-                        ? "/login"
-                        : "#"
-                }
-              >
-                {" "}
-                {location.pathname.includes("/login")
-                  ? "Sign Up"
-                  : location.pathname.includes("/register")
-                    ? "Sign In"
-                    : location.pathname.includes("/forgot-password")
-                      ? "Sign In"
-                      : ""}
-              </Link>
-            </span>
-            {/* <span
-              className="d-block d-lg-none"
-              onClick={mobileMenu ? undefined : openMenu}
+          <Link
+            to="/"
+            className="d-flex align-items-center gap-2 text-decoration-none flex-shrink-0"
+            style={{ color: "var(--foreground)" }}
+          >
+            <div
+              className="rounded-3 d-flex align-items-center justify-content-center"
+              style={{
+                width: "32px",
+                height: "32px",
+                background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+              }}
             >
-              <MdMenu size={22} />
-            </span> */}
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M3 13L7 9L10 12L15 5"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                <circle cx="15" cy="5" r="2" fill="#00C9A7" />
+              </svg>
+            </div>
+
+            <span
+              className="text-lg"
+              style={{
+                fontFamily: "'Nunito', sans-serif",
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {BRAND.name}
+            </span>
+          </Link>
+
+          <div className="d-flex align-items-center gap-2">
+            {/* Dark mode */}
+
+            <button
+              type="button"
+              onClick={() => setDarkMode(!darkMode)}
+              className="btn border-0 d-flex align-items-center justify-content-center rounded"
+              style={{
+                width: "56px",
+                height: "56px",
+                color: "var(--muted-foreground)",
+              }}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? (
+                <svg
+                  width="15"
+                  height="15"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <circle cx="12" cy="12" r="5" />
+
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              ) : (
+                <svg
+                  width="15"
+                  height="15"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+              )}
+            </button>
+
+            {/* Desktop auth buttons */}
+
+            <div className="d-none d-sm-flex align-items-center gap-2">
+              <Link
+                to="/login"
+                className="btn text-decoration-none"
+                style={{
+                  padding: "6px 16px",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  borderRadius: "6px",
+                  border: "1px solid var(--border)",
+                  color: "var(--foreground)",
+                  background: "transparent",
+                }}
+              >
+                Log In
+              </Link>
+
+              <Link
+                to="/register"
+                className="btn text-white text-decoration-none"
+                style={{
+                  padding: "6px 16px",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  borderRadius: "6px",
+                  background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+                }}
+              >
+                Create Account
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+
+            <button
+              type="button"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="btn border-0 d-lg-none d-flex align-items-center justify-content-center rounded"
+              style={{
+                width: "36px",
+                height: "36px",
+                color: "var(--muted-foreground)",
+              }}
+              aria-label="Toggle navigation menu"
+            >
+              {menuOpen ? (
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
-        </nav>
+        </div>
+      </div>
 
-        {mobileMenu && (
+      {/* Mobile menu */}
+
+      {menuOpen && (
+        <div
+          className="d-lg-none border-top"
+          style={{
+            background: "var(--card)",
+            borderColor: "var(--border)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+          }}
+        >
           <div
-            className="position-fixed top-0 start-0 vw-100 vh-100"
+            className="px-3 py-3"
             style={{
-              background: "rgba(0,0,0,.3)",
-              zIndex: 1999,
+              maxHeight: "75vh",
+              overflowY: "auto",
             }}
-            onClick={closeMenu}
-          />
-        )}
+          >
+            {/* {NAV_GROUPS.map((group) => (
+              <NavDropdown key={group.label} group={group} isMobile />
+            ))} */}
 
-        <MobileAuth
-          links={navlinks}
-          isOpen={mobileMenu}
-          logo={logo}
-          handleClose={closeMenu}
-        />
-      </header>
-    </React.Fragment>
+            <div
+              className="d-flex gap-2 pt-3 mt-2 border-top"
+              style={{
+                borderColor: "var(--border)",
+              }}
+            >
+              <Link
+                to="/login"
+                className="btn flex-fill text-decoration-none"
+                style={{
+                  padding: "8px",
+                  fontSize: "0.875rem",
+                  fontWeight: 500,
+                  borderRadius: "6px",
+                  border: "1px solid var(--border)",
+                  color: "var(--foreground)",
+                }}
+              >
+                Log In
+              </Link>
+
+              <Link
+                to="/register"
+                className="btn flex-fill text-white text-decoration-none"
+                style={{
+                  padding: "8px",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  borderRadius: "6px",
+                  background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+                }}
+              >
+                Create Account
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
   );
-};
-
-export default AuthNav;
+}

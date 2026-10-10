@@ -38,6 +38,7 @@ import {
   IconPhone,
   IconLayout,
 } from "./ui/Icons";
+import { HOME_STYLES } from "../../constants";
 
 const FEATURE_CARDS = [
   {
@@ -578,56 +579,6 @@ function TradingMockup() {
   );
 }
 
-const HOME_STYLES = `
-.home-page .theme-card { background-color: var(--card); }
-.home-page .theme-secondary { background-color: var(--secondary); }
-.home-page .theme-muted-bg { background-color: var(--muted); }
-.home-page .theme-border { border-color: var(--border) !important; }
-.home-page .theme-foreground { color: var(--foreground); }
-.home-page .theme-muted { color: var(--muted-foreground); }
-.home-page .theme-accent { color: var(--accent); }
-.home-page .theme-gain { color: var(--gain); }
-.home-page .theme-loss { color: var(--loss); }
-.home-page .theme-gain-bg { background-color: var(--gain); }
-.home-page .theme-loss-bg { background-color: var(--loss); }
-.home-page .theme-accent-bg { background-color: var(--accent); }
-.home-page .theme-border-bg { background-color: var(--border); }
-.home-page .theme-foreground-bg { background-color: var(--foreground); }
-.home-page .theme-border-text { color: var(--border); }
-.home-page .theme-primary { color: var(--primary); }
-.home-page .theme-divide > * + * { border-color: var(--border) !important; }
-.home-page .home-accent-soft { background-color: rgba(0,201,167,.1); }
-.home-page .shadow-soft { box-shadow: 0 1rem 3rem rgba(26,58,107,.15); }
-.home-page .shadow-accent { box-shadow: 0 1rem 3rem rgba(0,201,167,.1); }
-.home-page .border-accent { border-color: var(--accent) !important; }
-.home-page .border-start-accent { border-left-color: var(--accent) !important; }
-.home-page .home-hover-muted:hover { background-color: var(--muted); }
-.home-page .home-text-10 { font-size: 10px; }
-.home-page .home-text-9 { font-size: 9px; }
-.home-page .home-text-8 { font-size: 8px; }
-.home-page .home-text-7 { font-size: 7px; }
-.home-page .home-hover { transition: all .2s ease; }
-.home-page .home-hover:hover { box-shadow: 0 .125rem .25rem rgba(0,0,0,.075); }
-.home-page .home-card-hover { transition: all .2s ease; }
-.home-page .home-card-hover:hover { transform: translateY(-2px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.08); }
-.home-page .home-grid > * { padding: .75rem; }
-@media (min-width:576px) { .home-page .home-grid-2 > * { width:50%; } .home-page .home-grid-3 > * { width:33.333333%; } }
-@media (min-width:992px) { .home-page .home-grid-2-lg > * { width:50%; } .home-page .home-grid-4-lg > * { width:25%; } }
-
-.home-page .home-icon-5 { width:20px; height:20px; }
-.home-page .home-icon-4 { width:16px; height:16px; }
-.home-page .home-icon-35 { width:14px; height:14px; }
-.home-page .home-icon-6 { width:24px; height:24px; }
-.home-page .home-icon-9 { width:36px; height:36px; }
-.home-page .home-h-28 { height:112px; }
-.home-page .home-h-56 { height:224px; }
-.home-page .home-h-48 { height:192px; }
-.home-page .home-h-24 { height:96px; }
-.home-page .home-h-16 { height:64px; }
-.home-page .home-w-36 { width:144px; }
-.home-page .home-h-2 { height:8px; }
-`;
-
 export default function Home() {
   return (
     <div className="home-page">
@@ -825,10 +776,10 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="row home-grid home-grid-2 home-grid-4-lg gap-3">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
           {FEATURE_CARDS.map((f) => (
-            <Link key={f.title} to={f.href}>
-              <div className="theme-card border theme-border rounded p-4 home-hover home-card-hover transition  h-100">
+            <Link key={f.title} to={f.href} className="">
+              <div className="theme-card border theme-border rounded p-4 home-hover home-card-hover transition h-100">
                 <div
                   className="home-icon-9 rounded mb-3 d-flex align-items-center justify-content-center theme-accent"
                   style={{ background: "rgba(0,201,167,0.1)" }}
@@ -849,8 +800,8 @@ export default function Home() {
 
       <section className="py-5 theme-card border-top border-bottom theme-border">
         <div className="container mx-auto px-3 px-4 px-4">
-          <div className="row home-grid home-grid-2 gap-4 align-items-center">
-            <div>
+          <div className="d-flex flex-column flex-lg-row align-items-md-center gap-4 ">
+            <div style={{ width: "100%" }}>
               <p className="small fw-semibold theme-accent text-uppercase text-uppercase mb-3">
                 Why {BRAND.name}
               </p>
@@ -883,22 +834,21 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="row home-grid home-grid-2 gap-3">
+            <div style={{ width: "100%" }} className="row row-cols-2 gx-2 gy-2">
               {WHY_US.map((item) => (
-                <div
-                  key={item.title}
-                  className="p-3 rounded border theme-border home-hover-accent home-hover transition"
-                >
-                  <span
-                    className="w-8 h-8 rounded mb-2 d-flex align-items-center justify-content-center theme-accent"
-                    style={{ background: "rgba(0,201,167,0.1)" }}
-                  >
-                    {item.icon}
-                  </span>
+                <div key={item.title} className="col">
+                  <div className="p-3 rounded border theme-border home-hover-accent home-hover transition h-100">
+                    <span
+                      className="w-8 h-8 rounded mb-2 d-flex align-items-center justify-content-center theme-accent"
+                      style={{ background: "rgba(0,201,167,0.1)" }}
+                    >
+                      {item.icon}
+                    </span>
 
-                  <h3 className="fw-semibold small mb-2">{item.title}</h3>
+                    <h3 className="fw-semibold small mb-2">{item.title}</h3>
 
-                  <p className="small theme-muted lh-lg">{item.desc}</p>
+                    <p className="small theme-muted lh-lg mb-0">{item.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -909,8 +859,8 @@ export default function Home() {
       {/* ── Trading terminal section ──────────────────────────────────────── */}
 
       <section className="py-5 container mx-auto px-3 px-4 px-4">
-        <div className="row home-grid home-grid-2 gap-4 align-items-center">
-          <div>
+        <div className="d-flex flex-column flex-lg-row align-items-md-center gap-4">
+          <div style={{ width: "100%" }}>
             <p className="small fw-semibold theme-accent text-uppercase text-uppercase mb-3">
               Advanced Trading
             </p>
@@ -966,7 +916,7 @@ export default function Home() {
             <Button href="/trading">Open Trading Terminal</Button>
           </div>
 
-          <div>
+          <div style={{ width: "100%" }}>
             <TradingMockup />
           </div>
         </div>
@@ -976,74 +926,77 @@ export default function Home() {
 
       <section className="py-5 theme-card border-top border-bottom theme-border">
         <div className="container mx-auto px-3 px-4 px-4">
-          <div className="row home-grid home-grid-2 gap-4 align-items-center">
-            <div className="d-flex flex-column gap-3">
-              <Card className="border-start border-4 border-start-accent">
-                <div className="d-flex align-items-center justify-content-between mb-4">
-                  <div>
-                    <p className="small theme-muted text-uppercase text-uppercase fw-medium">
-                      Goal Progress
-                    </p>
+          <div className="d-flex flex-column">
+            <div className="d-flex flex-column flex-md-row gap-3">
+              <div style={{ width: "100%" }}>
+                <Card className="border-start border-4 border-start-accent">
+                  <div className="d-flex align-items-center justify-content-between mb-4">
+                    <div>
+                      <p className="small theme-muted text-uppercase text-uppercase fw-medium">
+                        Goal Progress
+                      </p>
 
-                    <p
-                      className="fs-4 fw-bold mt-1"
-                      style={{
-                        fontFamily: "'Nunito',sans-serif",
-                        fontWeight: 700,
-                      }}
-                    >
-                      Retirement 2050
-                    </p>
+                      <p
+                        className="fs-4 fw-bold mt-1"
+                        style={{
+                          fontFamily: "'Nunito',sans-serif",
+                          fontWeight: 700,
+                        }}
+                      >
+                        Retirement 2050
+                      </p>
+                    </div>
+
+                    <span className="small px-2 py-1 rounded home-accent-soft theme-accent fw-medium">
+                      On Track
+                    </span>
                   </div>
 
-                  <span className="small px-2 py-1 rounded home-accent-soft theme-accent fw-medium">
-                    On Track
-                  </span>
-                </div>
+                  <div className="d-flex align-items-center justify-content-between small mb-2">
+                    <span className="theme-muted">$124,800 saved</span>
 
-                <div className="d-flex align-items-center justify-content-between small mb-2">
-                  <span className="theme-muted">$124,800 saved</span>
+                    <span className="fw-medium">$1,500,000 goal</span>
+                  </div>
 
-                  <span className="fw-medium">$1,500,000 goal</span>
-                </div>
+                  <div className="w-100 home-h-2 theme-muted-bg rounded-pill">
+                    <div
+                      className="home-h-2 rounded-pill"
+                      style={{
+                        width: "42%",
+                        background: "linear-gradient(90deg,#1A3A6B,#00C9A7)",
+                      }}
+                    />
+                  </div>
 
-                <div className="w-100 home-h-2 theme-muted-bg rounded-pill">
-                  <div
-                    className="home-h-2 rounded-pill"
-                    style={{
-                      width: "42%",
-                      background: "linear-gradient(90deg,#1A3A6B,#00C9A7)",
-                    }}
-                  />
-                </div>
-
-                <p className="small theme-muted mt-2">
-                  42% of goal · 24 years to target · 0.20% annual management fee
-                </p>
-              </Card>
-
-              <div className="row home-grid home-grid-2 gap-3">
-                {[
-                  { label: "Monthly Deposit", value: "$500 / mo" },
-
-                  { label: "Historical Return\*", value: "8.4% avg" },
-
-                  { label: "Risk Profile", value: "Moderate Growth" },
-
-                  { label: "Next Rebalance", value: "Oct 1, 2026" },
-                ].map((item) => (
-                  <Card key={item.label} className="text-center">
-                    <p className="small theme-muted mb-1">{item.label}</p>
-
-                    <p className="fw-semibold small">{item.value}</p>
-                  </Card>
-                ))}
+                  <p className="small theme-muted mt-2">
+                    42% of goal · 24 years to target · 0.20% annual management
+                    fee
+                  </p>
+                </Card>
               </div>
 
-              <p className="small theme-muted">
-                \* Past performance does not guarantee future results. Equivest
-                portfolios are not FDIC insured.
-              </p>
+              <div style={{ width: "100%" }}>
+                <div className="row row-cols-2 gx-3 gy-3">
+                  {[
+                    { label: "Monthly Deposit", value: "$500 / mo" },
+                    { label: "Historical Return*", value: "8.4% avg" },
+                    { label: "Risk Profile", value: "Moderate Growth" },
+                    { label: "Next Rebalance", value: "Oct 1, 2026" },
+                  ].map((item) => (
+                    <div key={item.label} className="col">
+                      <Card className="h-100 text-center p-3">
+                        <p className="small theme-muted mb-1">{item.label}</p>
+                        <p className="fw-semibold small mb-0">{item.value}</p>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="small theme-muted mt-3">
+                  \* Past performance does not guarantee future results.
+                  Equivest portfolios are not FDIC insured.
+                </p>
+              </div>
             </div>
 
             <div>
@@ -1139,7 +1092,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="row home-grid home-grid-3 gap-3 container mx-auto mb-5">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-3 gy-3 mb-5">
           {[
             {
               type: "Tax-Deferred Account",
@@ -1163,28 +1116,33 @@ export default function Home() {
               desc: "Transfer balances from existing pension schemes, workplace plans, or retirement accounts into Equivest. We coordinate with your existing provider and handle the paperwork at no charge.",
             },
           ].map((acct) => (
-            <div
-              key={acct.type}
-              className={`rounded p-6 border text-left ${acct.featured ? "border-accent shadow-lg shadow-accent" : "theme-border bg-[var(--card)]"}`}
-            >
-              {acct.featured && (
-                <span className="small fw-semibold theme-accent text-uppercase text-uppercase d-block mb-3">
-                  Most Popular
-                </span>
-              )}
-
-              <h3
-                className="fs-5 fw-bold mb-1"
-                style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 700 }}
+            <div key={acct.type} className="col">
+              <div
+                className={`h-100 rounded p-4 border text-left ${
+                  acct.featured
+                    ? "border-accent shadow-lg shadow-accent"
+                    : "theme-border bg-[var(--card)]"
+                }`}
               >
-                {acct.type}
-              </h3>
+                {acct.featured && (
+                  <span className="small fw-semibold theme-accent text-uppercase text-uppercase d-block mb-3">
+                    Most Popular
+                  </span>
+                )}
 
-              <p className="small theme-accent fw-medium mb-2">
-                {acct.benefit}
-              </p>
+                <h3
+                  className="fs-5 fw-bold mb-1"
+                  style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 700 }}
+                >
+                  {acct.type}
+                </h3>
 
-              <p className="small theme-muted lh-lg">{acct.desc}</p>
+                <p className="small theme-accent fw-medium mb-2">
+                  {acct.benefit}
+                </p>
+
+                <p className="small theme-muted lh-lg">{acct.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -1217,32 +1175,33 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="row home-grid home-grid-3 gap-3">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-3 gy-3">
             {TESTIMONIALS.map((t, i) => (
-              <Card key={i}>
-                <div className="d-flex gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, s) => (
-                    <svg
-                      key={s}
-                      className="home-icon-4 text-amber-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
+              <div className="col" key={i}>
+                <Card className="h-100 p-4">
+                  <div className="d-flex gap-1 mb-4">
+                    {Array.from({ length: t.rating }).map((_, s) => (
+                      <svg
+                        key={s}
+                        className="home-icon-4 text-amber-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
 
-                <p className="small theme-muted lh-lg mb-4 fst-italic">
-                  "{t.quote}"
-                </p>
+                  <p className="small theme-muted lh-lg mb-4 fst-italic">
+                    "{t.quote}"
+                  </p>
 
-                <div>
-                  <p className="small fw-semibold">{t.name}</p>
-
-                  <p className="small theme-muted">{t.role}</p>
-                </div>
-              </Card>
+                  <div>
+                    <p className="small fw-semibold mb-1">{t.name}</p>
+                    <p className="small theme-muted mb-0">{t.role}</p>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
@@ -1270,7 +1229,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="row home-grid home-grid-2 home-grid-4-lg gap-3 mb-5">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 gx-3 gy-4 mb-5">
           {[
             {
               step: "01",
@@ -1296,25 +1255,24 @@ export default function Home() {
               desc: "Buy your first stock or ETF commission-free, set up automated recurring investments, or let our robo-advisor build and manage a diversified portfolio for you.",
             },
           ].map((s) => (
-            <div
-              key={s.step}
-              className="position-relative ps-4 border-start border-2 theme-border"
-            >
-              <span
-                className="display-5 fw-bolder theme-border-text lh-1 d-block mb-3"
-                style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 900 }}
-              >
-                {s.step}
-              </span>
+            <div key={s.step} className="col">
+              <div className="position-relative ps-4 border-start border-2 theme-border h-100">
+                <span
+                  className="display-5 fw-bolder theme-border-text lh-1 d-block mb-3"
+                  style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 900 }}
+                >
+                  {s.step}
+                </span>
 
-              <h3
-                className="fw-bold mb-2"
-                style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 700 }}
-              >
-                {s.title}
-              </h3>
+                <h3
+                  className="fw-bold mb-2"
+                  style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 700 }}
+                >
+                  {s.title}
+                </h3>
 
-              <p className="small theme-muted lh-lg">{s.desc}</p>
+                <p className="small theme-muted lh-lg">{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -1362,7 +1320,7 @@ export default function Home() {
 
       <section className="py-5 theme-card border-top border-bottom theme-border">
         <div className="container mx-auto px-3 px-4 px-4">
-          <div className="row home-grid home-grid-2 gap-4 align-items-center">
+          <div className="d-flex flex-column flex-lg-row gap-4 align-items-md-center">
             <div>
               <p className="small fw-semibold theme-accent text-uppercase text-uppercase mb-3">
                 Built for the World
@@ -1401,47 +1359,43 @@ export default function Home() {
               <Button href="/signup">Open a Global Account</Button>
             </div>
 
-            <div className="row home-grid home-grid-2 gap-3">
+            <div className="row row-cols-1 row-cols-md-2 gx-3 gy-3">
               {[
                 {
                   region: "North America",
                   flag: "🇺🇸🇨🇦",
                   desc: "Full platform access including IRA accounts, automated investing, and all asset classes with bank transfer funding.",
                 },
-
                 {
                   region: "Europe",
                   flag: "🇬🇧🇩🇪🇫🇷",
                   desc: "Access global equities, ETFs, and crypto markets. International bank transfer funding supported.",
                 },
-
                 {
                   region: "Asia Pacific",
                   flag: "🇯🇵🇦🇺🇸🇬",
                   desc: "Trade global markets during your daytime hours. Pre-market and after-hours sessions extend your trading window.",
                 },
-
                 {
                   region: "Latin America & Others",
                   flag: "🇧🇷🇲🇽🌍",
                   desc: "Open an account from most countries. Wire transfer funding available globally. Multi-currency support.",
                 },
               ].map((r) => (
-                <div
-                  key={r.region}
-                  className="border theme-border rounded p-3 d-flex flex-column gap-2 home-hover-accent transition"
-                >
-                  <p className="fs-5">{r.flag}</p>
+                <div key={r.region} className="col">
+                  <div className="border theme-border rounded p-3 d-flex flex-column gap-2 home-hover-accent transition h-100">
+                    <p className="fs-5 mb-0">{r.flag}</p>
 
-                  <p className="fw-semibold small">{r.region}</p>
+                    <p className="fw-semibold small mb-0">{r.region}</p>
 
-                  <p className="small theme-muted lh-lg">{r.desc}</p>
+                    <p className="small theme-muted lh-lg mb-0">{r.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-5 row home-grid home-grid-3 gap-3">
+          <div className="mt-5 row row-cols-1 row-cols-md-3 gx-3 gy-3">
             {[
               {
                 label: "190+ Countries Supported",
@@ -1458,10 +1412,12 @@ export default function Home() {
                 desc: "Equivest Securities is a registered, licensed broker-dealer. All client accounts benefit from regulatory oversight and investor protections.",
               },
             ].map((item) => (
-              <div key={item.label} className="theme-muted-bg rounded p-3">
-                <p className="fw-semibold small mb-2">{item.label}</p>
+              <div key={item.label} className=" col">
+                <div className="theme-muted-bg rounded p-3">
+                  <p className="fw-semibold small mb-2">{item.label}</p>
 
-                <p className="small theme-muted lh-lg">{item.desc}</p>
+                  <p className="small theme-muted lh-lg">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>

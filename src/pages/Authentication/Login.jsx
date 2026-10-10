@@ -112,7 +112,7 @@ const Login = (props) => {
     <React.Fragment>
       <div
         className="auth-page-content d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100vh", marginTop: "50px" }}
       >
         <AuthNav />
         <Container style={{ height: "100%" }} className="">
@@ -227,7 +227,7 @@ const Login = (props) => {
                         disabled={
                           error ? null : mutation.isPending ? true : false
                         }
-                        color="primary"
+                        // color="secondary"
                         className="btn btn-secondary w-100"
                         type="submit"
                       >

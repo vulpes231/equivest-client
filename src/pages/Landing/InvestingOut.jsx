@@ -121,7 +121,8 @@ const MOCK_HOLDINGS = [
 ];
 
 const sectionContainer = {
-  maxWidth: "1280px",
+  // maxWidth: "1280px",
+  marginTop: "70px",
 };
 
 const sectionLabelStyle = {

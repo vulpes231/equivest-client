@@ -143,12 +143,17 @@ export default function Markets() {
   return (
     <div
       className="container py-5"
-      style={{
-        maxWidth: "1280px",
-      }}
+      style={
+        {
+          // maxWidth: "1280px",
+        }
+      }
     >
       {/* Hero */}
-      <section className="mb-5 pb-4" style={{ maxWidth: "768px" }}>
+      <section
+        className="mb-5 pb-4"
+        style={{ maxWidth: "768px", marginTop: "70px" }}
+      >
         <p
           className="small fw-semibold text-uppercase mb-3"
           style={{

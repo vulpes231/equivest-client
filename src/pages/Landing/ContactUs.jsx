@@ -99,7 +99,7 @@ export default function ContactUs() {
   ];
 
   return (
-    <div className="container py-5">
+    <div className="container py-5" style={{ marginTop: "70px" }}>
       {/* Header */}
       <div className="text-center mx-auto mb-5" style={{ maxWidth: "672px" }}>
         <p
