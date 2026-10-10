@@ -476,8 +476,8 @@ function TradingMockup() {
   const sparkData = generatePriceHistory(40, 212);
 
   return (
-    <div className="theme-card rounded border theme-border shadow-lg overflow-hidden">
-      <div className="border-bottom theme-border px-4 py-3 d-flex align-items-center justify-content-between theme-muted-bg">
+    <div className="card rounded border shadow-lg overflow-hidden">
+      <div className="border px-4 py-3 d-flex align-items-center justify-content-between text-muted-bg">
         <div className="d-flex align-items-center gap-3">
           <div className="w-7 h-7 rounded theme-secondary d-flex align-items-center justify-content-center small fw-bold theme-primary">
             A
@@ -500,7 +500,7 @@ function TradingMockup() {
             $212.45
           </p>
 
-          <p className="small theme-gain">▲ +$1.14 (+0.54%)</p>
+          <p className="small text-success">▲ +$1.14 (+0.54%)</p>
         </div>
       </div>
 
@@ -559,7 +559,7 @@ function TradingMockup() {
               ["Price", "$212.45"],
               ["Est. Value", "$5,311.25"],
             ].map(([label, value]) => (
-              <div key={label} className="theme-muted-bg rounded px-3 py-2">
+              <div key={label} className="card border rounded px-3 py-2">
                 <p className="home-text-10 theme-muted">{label}</p>
 
                 <p className="small fw-semibold font-mono mt-1">{value}</p>
@@ -598,7 +598,7 @@ export default function Home() {
         <div className="container mx-auto px-3 px-4 px-4 py-5 w-100">
           <div className="row home-grid home-grid-2 gap-4 gap-4 align-items-center">
             <div className="animate-fade-up">
-              <div className="d-inline-d-flex align-items-center gap-2 px-3 py-2 rounded-pill theme-secondary border theme-border small fw-medium theme-accent mb-4">
+              <div className="d-inline-d-flex align-items-center gap-2 px-3 py-2 rounded-pill border small fw-medium theme-accent mb-4">
                 <span className="w-1.5 h-1.5 rounded-pill theme-accent-bg animate-pulse" />
                 Live Markets · Real-Time Data · 2026
               </div>
@@ -649,7 +649,12 @@ export default function Home() {
                   </svg>
                 </Button>
 
-                <Button href="/features" variant="outline" size="lg">
+                <Button
+                  href="/features"
+                  variant="outline"
+                  size="lg"
+                  className="border text-body"
+                >
                   Explore Features
                 </Button>
               </div>
@@ -694,7 +699,7 @@ export default function Home() {
 
       {/* ── Market ticker ─────────────────────────────────────────────────── */}
 
-      <div className="theme-card border-top border-bottom theme-border overflow-hidden py-3">
+      <div className="card border overflow-hidden py-3">
         <div className="d-flex ticker-scroll text-nowrap">
           {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => {
             return (
@@ -702,16 +707,14 @@ export default function Home() {
                 key={i}
                 className="d-inline-d-flex align-items-center gap-2 px-4 flex-shrink-0 border-r theme-border"
               >
-                <span className="small fw-semibold theme-foreground">
+                <span className="small fw-semibold text-body">
                   {item.symbol}
                 </span>
 
-                <span className="small font-mono theme-foreground">
-                  {item.price}
-                </span>
+                <span className="small font-mono text-body">{item.price}</span>
 
                 <span
-                  className={`text-xs font-mono font-medium ${item.up ? "text-[var(--gain)]" : "text-[var(--loss)]"}`}
+                  className={`text-xs font-mono font-medium ${item.up ? "text-success" : "text-danger"}`}
                 >
                   {item.up ? "▲" : "▼"} {item.change}
                 </span>
@@ -723,7 +726,7 @@ export default function Home() {
 
       {/* ── Stats bar ─────────────────────────────────────────────────────── */}
 
-      <section className="theme-secondary border-bottom theme-border">
+      <section className="card border">
         <div className="container mx-auto px-3 px-4 px-4">
           <div className="row home-grid home-grid-2 home-grid-4-lg border-start theme-divide">
             {STATS.map((stat) => (
@@ -779,7 +782,7 @@ export default function Home() {
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
           {FEATURE_CARDS.map((f) => (
             <Link key={f.title} to={f.href} className="">
-              <div className="theme-card border theme-border rounded p-4 home-hover home-card-hover transition h-100">
+              <div className="card border rounded p-4 home-hover home-card-hover transition h-100">
                 <div
                   className="home-icon-9 rounded mb-3 d-flex align-items-center justify-content-center theme-accent"
                   style={{ background: "rgba(0,201,167,0.1)" }}
@@ -787,7 +790,7 @@ export default function Home() {
                   {f.icon}
                 </div>
 
-                <h3 className="fw-semibold theme-foreground mb-2">{f.title}</h3>
+                <h3 className="fw-semibold text-body mb-2">{f.title}</h3>
 
                 <p className="small theme-muted lh-lg">{f.desc}</p>
               </div>
@@ -798,7 +801,7 @@ export default function Home() {
 
       {/* ── Why choose us ─────────────────────────────────────────────────── */}
 
-      <section className="py-5 theme-card border-top border-bottom theme-border">
+      <section className="py-5 card border">
         <div className="container mx-auto px-3 px-4 px-4">
           <div className="d-flex flex-column flex-lg-row align-items-md-center gap-4 ">
             <div style={{ width: "100%" }}>
@@ -837,7 +840,7 @@ export default function Home() {
             <div style={{ width: "100%" }} className="row row-cols-2 gx-2 gy-2">
               {WHY_US.map((item) => (
                 <div key={item.title} className="col">
-                  <div className="p-3 rounded border theme-border home-hover-accent home-hover transition h-100">
+                  <div className="p-3 rounded border card transition h-100">
                     <span
                       className="w-8 h-8 rounded mb-2 d-flex align-items-center justify-content-center theme-accent"
                       style={{ background: "rgba(0,201,167,0.1)" }}
@@ -924,12 +927,12 @@ export default function Home() {
 
       {/* ── Automated Investing ───────────────────────────────────────────── */}
 
-      <section className="py-5 theme-card border-top border-bottom theme-border">
+      <section className="py-5 card border">
         <div className="container mx-auto px-3 px-4 px-4">
           <div className="d-flex flex-column">
             <div className="d-flex flex-column flex-md-row gap-3">
               <div style={{ width: "100%" }}>
-                <Card className="border-start border-4 border-start-accent">
+                <div className="card p-4 border">
                   <div className="d-flex align-items-center justify-content-between mb-4">
                     <div>
                       <p className="small theme-muted text-uppercase text-uppercase fw-medium">
@@ -972,7 +975,7 @@ export default function Home() {
                     42% of goal · 24 years to target · 0.20% annual management
                     fee
                   </p>
-                </Card>
+                </div>
               </div>
 
               <div style={{ width: "100%" }}>
@@ -984,10 +987,10 @@ export default function Home() {
                     { label: "Next Rebalance", value: "Oct 1, 2026" },
                   ].map((item) => (
                     <div key={item.label} className="col">
-                      <Card className="h-100 text-center p-3">
+                      <div className="h-100 text-center p-3 card border">
                         <p className="small theme-muted mb-1">{item.label}</p>
                         <p className="fw-semibold small mb-0">{item.value}</p>
-                      </Card>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1118,10 +1121,10 @@ export default function Home() {
           ].map((acct) => (
             <div key={acct.type} className="col">
               <div
-                className={`h-100 rounded p-4 border text-left ${
+                className={`h-100 rounded p-4 border text-left card ${
                   acct.featured
                     ? "border-accent shadow-lg shadow-accent"
-                    : "theme-border bg-[var(--card)]"
+                    : "border bg-[var(--card)]"
                 }`}
               >
                 {acct.featured && (
@@ -1154,7 +1157,7 @@ export default function Home() {
 
       {/* ── Testimonials ─────────────────────────────────────────────────── */}
 
-      <section className="py-5 theme-card border-top border-bottom theme-border">
+      <section className="py-5 card border">
         <div className="container mx-auto px-3 px-4 px-4">
           <div className="text-center mb-5">
             <p className="small fw-semibold theme-accent text-uppercase text-uppercase mb-3">
@@ -1178,7 +1181,7 @@ export default function Home() {
           <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gx-3 gy-3">
             {TESTIMONIALS.map((t, i) => (
               <div className="col" key={i}>
-                <Card className="h-100 p-4">
+                <div className="h-100 p-4 card border">
                   <div className="d-flex gap-1 mb-4">
                     {Array.from({ length: t.rating }).map((_, s) => (
                       <svg
@@ -1200,7 +1203,7 @@ export default function Home() {
                     <p className="small fw-semibold mb-1">{t.name}</p>
                     <p className="small theme-muted mb-0">{t.role}</p>
                   </div>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -1277,7 +1280,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="theme-card border theme-border rounded p-4 container mx-auto">
+        <div className="card border rounded p-4 container mx-auto">
           <p className="small fw-semibold mb-3">
             What you'll need to open an account:
           </p>
@@ -1306,7 +1309,7 @@ export default function Home() {
                 </svg>
 
                 <div>
-                  <p className="fw-medium theme-foreground">{label}</p>
+                  <p className="fw-medium text-body">{label}</p>
 
                   <p className="small mt-1">{detail}</p>
                 </div>
@@ -1318,7 +1321,7 @@ export default function Home() {
 
       {/* ── Global Access ─────────────────────────────────────────────────── */}
 
-      <section className="py-5 theme-card border-top border-bottom theme-border">
+      <section className="py-5 card border">
         <div className="container mx-auto px-3 px-4 px-4">
           <div className="d-flex flex-column flex-lg-row gap-4 align-items-md-center">
             <div>
@@ -1383,7 +1386,7 @@ export default function Home() {
                 },
               ].map((r) => (
                 <div key={r.region} className="col">
-                  <div className="border theme-border rounded p-3 d-flex flex-column gap-2 home-hover-accent transition h-100">
+                  <div className="border card rounded p-3 d-flex flex-column gap-2 home-hover-accent transition h-100">
                     <p className="fs-5 mb-0">{r.flag}</p>
 
                     <p className="fw-semibold small mb-0">{r.region}</p>
@@ -1412,11 +1415,11 @@ export default function Home() {
                 desc: "Equivest Securities is a registered, licensed broker-dealer. All client accounts benefit from regulatory oversight and investor protections.",
               },
             ].map((item) => (
-              <div key={item.label} className=" col">
-                <div className="theme-muted-bg rounded p-3">
+              <div key={item.label} className="col">
+                <div className=" rounded p-3 card border">
                   <p className="fw-semibold small mb-2">{item.label}</p>
 
-                  <p className="small theme-muted lh-lg">{item.desc}</p>
+                  <p className="small text-muted lh-lg">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -1439,18 +1442,18 @@ export default function Home() {
             More Features. Lower Fees. One Platform.
           </h2>
 
-          <p className="theme-muted container mx-auto">
+          <p className="text-muted container mx-auto">
             Equivest combines the tools of a professional trading platform with
             the simplicity of a consumer app — at a price point that beats
             nearly every competitor in the market.
           </p>
         </div>
 
-        <div className="table-responsive">
-          <table className="w-100 small border theme-border rounded overflow-hidden">
+        <div className="table-responsive card">
+          <table className="w-100 small border rounded overflow-hidden">
             <thead>
-              <tr className="theme-secondary border-bottom theme-border">
-                <th className="text-start px-4 py-4 fw-semibold theme-foreground">
+              <tr className=" border-bottom border">
+                <th className="text-start px-4 py-4 fw-semibold text-body">
                   Feature
                 </th>
 
@@ -1458,17 +1461,17 @@ export default function Home() {
                   Equivest
                 </th>
 
-                <th className="px-4 py-4 fw-medium theme-muted text-center">
+                <th className="px-4 py-4 fw-medium text-muted text-center">
                   Typical Robo-Advisor
                 </th>
 
-                <th className="px-4 py-4 fw-medium theme-muted text-center">
+                <th className="px-4 py-4 fw-medium text-muted text-center">
                   Traditional Broker
                 </th>
               </tr>
             </thead>
 
-            <tbody className="border-top theme-divide theme-card">
+            <tbody className="border-top theme-divide">
               {[
                 [
                   "Stock & ETF Trading",
@@ -1520,24 +1523,22 @@ export default function Home() {
                 ],
               ].map(([feature, equivest, robo, trad]) => (
                 <tr key={feature} className="home-hover-muted transition">
-                  <td className="px-4 py-3 fw-medium theme-foreground">
-                    {feature}
-                  </td>
+                  <td className="px-4 py-3 fw-medium text-body">{feature}</td>
 
-                  <td className="px-4 py-3 text-center theme-gain fw-semibold">
+                  <td className="px-4 py-3 text-center text-success fw-semibold">
                     {equivest}
                   </td>
 
-                  <td className="px-4 py-3 text-center theme-muted">{robo}</td>
+                  <td className="px-4 py-3 text-center text-muted">{robo}</td>
 
-                  <td className="px-4 py-3 text-center theme-muted">{trad}</td>
+                  <td className="px-4 py-3 text-center text-muted">{trad}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <p className="small theme-muted mt-4 text-center">
+        <p className="small text-muted mt-4 text-center">
           Competitor figures are estimates based on publicly available pricing
           as of 2026. Features and fees may vary. Not financial advice.
         </p>

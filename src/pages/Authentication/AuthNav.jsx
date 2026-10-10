@@ -1,12 +1,42 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BRAND } from "../Landing/data/config";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLayoutMode } from "../../features/layouts/thunk";
+import { createSelector } from "reselect";
+import LightDark from "../../components/Common/LightDark";
+
+const selectLayoutState = (state) => state.Layout;
+
+const selectLayoutProperties = createSelector(
+  [selectLayoutState],
+  (layout) => ({
+    layoutModeType: layout.layoutModeType,
+  }),
+);
 
 export default function AuthNav({ darkMode, setDarkMode }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const location = useLocation();
+
+  const dispatch = useDispatch();
+
+  const { layoutModeType } = useSelector(selectLayoutProperties);
+
+  const showAuth = ["/verifyemail", "/login", "/register", "/forgot-password"];
+
+  const onChangeLayoutMode = useCallback(
+    (value) => {
+      dispatch(changeLayoutMode(value));
+    },
+    [dispatch],
+  );
+
+  useEffect(() => {
+    window.dispatchEvent(new Event("resize"));
+  }, [layoutModeType]);
 
   useEffect(() => {
     const handler = () => {
@@ -89,56 +119,23 @@ export default function AuthNav({ darkMode, setDarkMode }) {
           <div className="d-flex align-items-center gap-2">
             {/* Dark mode */}
 
-            <button
-              type="button"
-              onClick={() => setDarkMode(!darkMode)}
-              className="btn border-0 d-flex align-items-center justify-content-center rounded"
-              style={{
-                width: "56px",
-                height: "56px",
-                color: "var(--muted-foreground)",
-              }}
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? (
-                <svg
-                  width="15"
-                  height="15"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <circle cx="12" cy="12" r="5" />
-
-                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                </svg>
-              ) : (
-                <svg
-                  width="15"
-                  height="15"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-                </svg>
-              )}
-            </button>
+            <LightDark
+              layoutMode={layoutModeType}
+              onChangeLayoutMode={onChangeLayoutMode}
+            />
 
             {/* Desktop auth buttons */}
 
             <div className="d-none d-sm-flex align-items-center gap-2">
               <Link
                 to="/login"
-                className="btn text-decoration-none"
+                className="btn text-decoration-none text-body border"
                 style={{
                   padding: "6px 16px",
                   fontSize: "0.875rem",
                   fontWeight: 500,
                   borderRadius: "6px",
-                  border: "1px solid var(--border)",
+                  // border: "1px solid var(--border)",
                   color: "var(--foreground)",
                   background: "transparent",
                 }}

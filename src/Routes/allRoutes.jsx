@@ -40,6 +40,18 @@ import FAQ from "../pages/Landing/FAQ";
 import ApiDocs from "../pages/Landing/ApiDocs";
 import Blog from "../pages/Landing/Blog";
 import ContactUs from "../pages/Landing/ContactUs";
+import Cash from "../pages/Landing/products/Cash";
+import Stocks from "../pages/Landing/products/Stocks";
+import ETFs from "../pages/Landing/products/ETFs";
+import Options from "../pages/Landing/products/Options";
+import Crypto from "../pages/Landing/products/Crypto";
+import Bonds from "../pages/Landing/products/Bonds";
+import Commodities from "../pages/Landing/products/Commodities";
+import Privacy from "../pages/Landing/legal/Privacy";
+import Terms from "../pages/Landing/legal/Terms";
+import Cookies from "../pages/Landing/legal/Cookies";
+import Disclosures from "../pages/Landing/legal/Disclosures";
+import SIPCProtection from "../pages/Landing/legal/SIPCProtection";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: <DashboardCrypto /> },
@@ -92,19 +104,18 @@ const publicRoutes = [
   { path: "/contact-us", component: <ContactUs /> },
   { path: "/blog", component: <Blog /> },
   { path: "/api-docs", component: <ApiDocs /> },
-
-  // <Route path="/products/cash" element={<Cash />} />
-  // <Route path="/products/stocks" element={<Stocks />} />
-  // <Route path="/products/etfs" element={<ETFs />} />
-  // <Route path="/products/options" element={<Options />} />
-  // <Route path="/products/crypto" element={<Crypto />} />
-  // <Route path="/products/bonds" element={<Bonds />} />
-  // <Route path="/products/commodities" element={<Commodities />} />
-  // <Route path="/legal/privacy" element={<Privacy />} />
-  // <Route path="/legal/terms" element={<Terms />} />
-  // <Route path="/legal/cookies" element={<Cookies />} />
-  // <Route path="/legal/disclosures" element={<Disclosures />} />
-  // <Route path="/legal/sipc" element={<SIPCProtection />} />
+  { path: "/products/cash", component: <Cash /> },
+  { path: "/products/stocks", component: <Stocks /> },
+  { path: "/products/etfs", component: <ETFs /> },
+  { path: "/products/options", component: <Options /> },
+  { path: "/products/crypto", component: <Crypto /> },
+  { path: "/products/bonds", component: <Bonds /> },
+  { path: "/products/commodities", component: <Commodities /> },
+  { path: "/legal/privacy", component: <Privacy /> },
+  { path: "/legal/terms", component: <Terms /> },
+  { path: "/legal/cookies", component: <Cookies /> },
+  { path: "/legal/disclosures", component: <Disclosures /> },
+  { path: "/legal/sipc", component: <SIPCProtection /> },
 ];
 
 export { authProtectedRoutes, publicRoutes };

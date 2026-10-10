@@ -34,9 +34,9 @@ const FOOTER_LINKS = {
 export default function Footer() {
   return (
     <footer
-      className="border-top"
+      className="border-top theme-bg"
       style={{
-        backgroundColor: "var(--card)",
+        // backgroundColor: "var(--card)",
         borderColor: "var(--border)",
       }}
     >
@@ -99,7 +99,7 @@ export default function Footer() {
                 style={{
                   width: "32px",
                   height: "32px",
-                  backgroundColor: "var(--muted)",
+                  // backgroundColor: "var(--muted)",
                   color: "var(--muted-foreground)",
                   transition: "all 0.15s ease",
                 }}
@@ -121,7 +121,7 @@ export default function Footer() {
                 style={{
                   width: "32px",
                   height: "32px",
-                  backgroundColor: "var(--muted)",
+                  // backgroundColor: "var(--muted)",
                   color: "var(--muted-foreground)",
                   transition: "all 0.15s ease",
                 }}

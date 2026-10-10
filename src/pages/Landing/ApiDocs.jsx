@@ -249,7 +249,7 @@ export default function ApiDocs() {
   ];
 
   return (
-    <div className="container py-5">
+    <div className="container py-5" style={{ marginTop: "70px" }}>
       {/* Header */}
       <div className="row g-5 align-items-center mb-5">
         <div className="col-lg-6">
