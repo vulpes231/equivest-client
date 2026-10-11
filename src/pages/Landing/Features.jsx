@@ -165,7 +165,7 @@ export default function Features() {
             fontFamily: "'Nunito', sans-serif",
             fontSize: "clamp(2.25rem, 5vw, 3rem)",
             fontWeight: 700,
-            color: "var(--foreground)",
+            color: "var(--body)",
           }}
         >
           Everything You Need to Invest
@@ -210,10 +210,10 @@ export default function Features() {
           ].map((tag) => (
             <span
               key={tag}
-              className="badge fw-medium px-3 py-2"
+              className="badge fw-medium px-3 py-2 border card"
               style={{
-                backgroundColor: "var(--secondary)",
-                border: "1px solid var(--border)",
+                // backgroundColor: "var(--secondary)",
+                // border: "1px solid var(--border)",
                 color: "var(--muted-foreground)",
                 borderRadius: "999px",
                 fontSize: "0.75rem",
@@ -231,12 +231,12 @@ export default function Features() {
           <div key={section.category}>
             <div className="d-flex align-items-center gap-3 mb-4">
               <div
-                className="d-flex align-items-center justify-content-center rounded"
+                className="d-flex align-items-center justify-content-center rounded text-body bg-light border"
                 style={{
                   width: "40px",
                   height: "40px",
-                  backgroundColor: `${section.color}15`,
-                  color: section.color,
+                  // backgroundColor: `${section.color}15`,
+                  // color: section.color,
                   flexShrink: 0,
                 }}
               >
@@ -249,7 +249,7 @@ export default function Features() {
                   fontFamily: "'Nunito', sans-serif",
                   fontSize: "1.25rem",
                   fontWeight: 700,
-                  color: "var(--foreground)",
+                  color: "var(--body)",
                 }}
               >
                 {section.category}
@@ -259,7 +259,7 @@ export default function Features() {
             <div className="row g-3">
               {section.features.map((feature) => (
                 <div key={feature.title} className="col-12 col-sm-6 col-lg-3">
-                  <Card hover>
+                  <div className="h-100 border card p-4">
                     <div
                       className="d-flex align-items-center justify-content-center rounded mb-3"
                       style={{
@@ -277,7 +277,7 @@ export default function Features() {
                       style={{
                         fontSize: "1rem",
                         fontWeight: 600,
-                        color: "var(--foreground)",
+                        color: "var(--body)",
                       }}
                     >
                       {feature.title}
@@ -293,7 +293,7 @@ export default function Features() {
                     >
                       {feature.desc}
                     </p>
-                  </Card>
+                  </div>
                 </div>
               ))}
             </div>
@@ -341,10 +341,10 @@ export default function Features() {
           {INTEGRATIONS.map((integration) => (
             <div
               key={integration}
-              className="px-4 py-2 rounded"
+              className="px-4 py-2 rounded card border"
               style={{
-                backgroundColor: "var(--card)",
-                border: "1px solid var(--border)",
+                // backgroundColor: "var(--card)",
+                // border: "1px solid var(--border)",
                 color: "var(--muted-foreground)",
                 fontSize: "0.875rem",
                 fontWeight: 500,

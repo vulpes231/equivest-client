@@ -142,7 +142,7 @@ export default function About() {
           { value: "2019", label: "Year Founded" },
         ].map((stat) => (
           <div key={stat.label} className="col-6 col-lg-3">
-            <Card className="text-center h-100">
+            <div className="text-center h-100 border card p-4">
               <p
                 className="fs-4 mb-1"
                 style={{
@@ -158,7 +158,7 @@ export default function About() {
               >
                 {stat.label}
               </p>
-            </Card>
+            </div>
           </div>
         ))}
       </div>
@@ -293,7 +293,7 @@ export default function About() {
         <div className="row g-4">
           {VALUES.map((value) => (
             <div key={value.title} className="col-12 col-sm-6 col-lg-4">
-              <Card className="h-100">
+              <div className="h-100 border card p-4">
                 <div
                   className="rounded mb-3 d-flex align-items-center justify-content-center"
                   style={{
@@ -314,7 +314,7 @@ export default function About() {
                 >
                   {value.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -447,7 +447,7 @@ export default function About() {
         <div className="row g-4">
           {TEAM.map((member) => (
             <div key={member.name} className="col-12 col-sm-6 col-lg-4">
-              <Card className="h-100">
+              <div className="h-100 border card p-4">
                 <div className="d-flex align-items-center gap-3 mb-3">
                   <div
                     className="rounded d-flex align-items-center justify-content-center text-white flex-shrink-0"
@@ -479,7 +479,7 @@ export default function About() {
                 >
                   {member.bio}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -684,11 +684,16 @@ export default function About() {
         </p>
 
         <div className="d-flex flex-wrap justify-content-center gap-3">
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Create Account
           </Button>
 
-          <Button href="/contact" variant="outline" size="lg">
+          <Button
+            href="/contact-us"
+            variant="outline"
+            size="lg"
+            className="text-body"
+          >
             Contact Us
           </Button>
         </div>

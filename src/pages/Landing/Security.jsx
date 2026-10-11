@@ -159,7 +159,7 @@ export default function Security() {
       <div className="row g-4 mb-5">
         {SECURITY_FEATURES.map((f) => (
           <div className="col-12 col-sm-6 col-lg-4" key={f.title}>
-            <Card className="h-100">
+            <div className="h-100 border card p-4">
               <div className="d-flex align-items-start gap-3">
                 <div
                   className="d-flex align-items-center justify-content-center rounded flex-shrink-0"
@@ -191,7 +191,7 @@ export default function Security() {
                   </p>
                 </div>
               </div>
-            </Card>
+            </div>
           </div>
         ))}
       </div>
@@ -199,7 +199,7 @@ export default function Security() {
       {/* Account security tips */}
       <div className="row g-4 mb-5">
         <div className="col-12 col-lg-6">
-          <Card className="h-100">
+          <div className="h-100 border card p-4">
             <h3 className="h6 fw-semibold mb-4">Protect Your Account</h3>
 
             <div className="d-flex flex-column gap-3">
@@ -221,11 +221,11 @@ export default function Security() {
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
         </div>
 
         <div className="col-12 col-lg-6">
-          <Card className="h-100">
+          <div className="h-100 border card p-4">
             <h3 className="h6 fw-semibold mb-4">Our Commitments</h3>
 
             <div className="d-flex flex-column gap-3">
@@ -254,7 +254,7 @@ export default function Security() {
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
         </div>
       </div>
 
@@ -315,11 +315,13 @@ export default function Security() {
           {REGULATORY_BADGES.map((badge) => (
             <div
               key={badge}
-              className="px-3 py-2 border rounded small fw-medium"
-              style={{
-                backgroundColor: "var(--card)",
-                borderColor: "var(--border)",
-              }}
+              className="px-3 py-2 border rounded small fw-medium card"
+              style={
+                {
+                  // backgroundColor: "var(--card)",
+                  // borderColor: "var(--border)",
+                }
+              }
             >
               {badge}
             </div>

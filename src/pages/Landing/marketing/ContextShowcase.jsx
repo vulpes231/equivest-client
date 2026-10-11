@@ -404,11 +404,13 @@ export default function ContextShowcase({
   return (
     <section className={contained ? "container" : ""}>
       <div
-        className="overflow-hidden rounded border"
-        style={{
-          borderColor: "var(--border)",
-          backgroundColor: "var(--card)",
-        }}
+        className="overflow-hidden rounded border card"
+        style={
+          {
+            // borderColor: "var(--border)",
+            // backgroundColor: "var(--card)",
+          }
+        }
       >
         <div className="row g-0">
           {/* Content */}
@@ -429,16 +431,16 @@ export default function ContextShowcase({
               className="fw-bold mb-0"
               style={{
                 fontSize: "clamp(1.5rem, 3vw, 1.875rem)",
-                color: "var(--foreground)",
+                color: "var(--body)",
               }}
             >
               {title}
             </h2>
 
             <p
-              className="mt-3 mb-0 lh-lg"
+              className="mt-3 mb-0 lh-lg text-muted"
               style={{
-                color: "var(--muted-foreground)",
+                // color: "var(--muted-foreground)",
                 maxWidth: "672px",
               }}
             >
@@ -449,19 +451,21 @@ export default function ContextShowcase({
               {points.map((point, index) => (
                 <div key={point.title} className="col-12 col-sm-4">
                   <div
-                    className="h-100 rounded border p-3"
-                    style={{
-                      borderColor: "var(--border)",
-                      backgroundColor: "var(--background)",
-                    }}
+                    className="h-100 card rounded border p-3"
+                    style={
+                      {
+                        // borderColor: "var(--border)",
+                        // backgroundColor: "var(--background)",
+                      }
+                    }
                   >
                     <div
-                      className="d-flex align-items-center justify-content-center rounded mb-3"
+                      className="d-flex align-items-center justify-content-center rounded mb-3 border"
                       style={{
                         width: "32px",
                         height: "32px",
-                        backgroundColor: "var(--secondary)",
-                        color: "var(--primary)",
+                        backgroundColor: "var(--body)",
+                        color: "var(--body)",
                         fontSize: "0.875rem",
                         fontWeight: 700,
                       }}
@@ -474,7 +478,7 @@ export default function ContextShowcase({
                       style={{
                         fontSize: "0.875rem",
                         fontWeight: 700,
-                        color: "var(--foreground)",
+                        color: "var(--body)",
                       }}
                     >
                       {point.title}

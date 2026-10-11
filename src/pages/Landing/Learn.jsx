@@ -131,7 +131,7 @@ export default function Learn() {
             fontFamily: "'Nunito', sans-serif",
             fontSize: "clamp(2.25rem, 5vw, 3rem)",
             fontWeight: 700,
-            color: "var(--foreground)",
+            color: "var(--body)",
           }}
         >
           Learn to Invest with Confidence
@@ -281,15 +281,15 @@ export default function Learn() {
             placeholder="Search articles..."
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            className="form-control"
+            className="form-control border border-dark"
             style={{
               paddingLeft: "38px",
               paddingRight: "16px",
               paddingTop: "10px",
               paddingBottom: "10px",
               fontSize: "0.875rem",
-              backgroundColor: "var(--card)",
-              borderColor: "var(--border)",
+              backgroundColor: "var(--body)",
+              // borderColor: "var(--border)",
               color: "var(--foreground)",
               borderRadius: "4px",
             }}
@@ -307,7 +307,7 @@ export default function Learn() {
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className="btn border-0 px-3 py-2"
+              className="border rounded px-3 py-2"
               style={{
                 fontSize: "0.75rem",
                 fontWeight: 500,
@@ -316,7 +316,7 @@ export default function Learn() {
                 background: isActive
                   ? "linear-gradient(135deg, #1A3A6B, #00C9A7)"
                   : "var(--card)",
-                border: isActive ? "none" : "1px solid var(--border)",
+                // border: isActive ? "none" : "1px solid var(--border)",
                 transition: "all 0.15s ease",
               }}
             >
@@ -330,7 +330,7 @@ export default function Learn() {
       <div className="row g-4 mt-2">
         {filtered.map((article) => (
           <div key={article.title} className="col-12 col-sm-6 col-lg-4">
-            <Card hover className="h-100 d-flex flex-column">
+            <div className="h-100 d-flex flex-column border card p-4">
               <div className="d-flex align-items-center gap-2 mb-3">
                 <span
                   className="px-2 py-1 rounded fw-medium"
@@ -357,7 +357,7 @@ export default function Learn() {
                 style={{
                   fontSize: "1rem",
                   fontWeight: 600,
-                  color: "var(--foreground)",
+                  color: "var(--body)",
                 }}
               >
                 {article.title}
@@ -397,7 +397,7 @@ export default function Learn() {
                   Read article →
                 </button>
               </div>
-            </Card>
+            </div>
           </div>
         ))}
       </div>

@@ -271,7 +271,7 @@ export default function Trading() {
         <div className="row g-4">
           {TERMINAL_FEATURES.map((f) => (
             <div className="col-12 col-sm-6" key={f.title}>
-              <Card className="h-100">
+              <div className="h-100 card border p-4">
                 <div
                   className="d-flex align-items-center justify-content-center rounded-3 mb-3"
                   style={{
@@ -292,7 +292,7 @@ export default function Trading() {
                 >
                   {f.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -324,10 +324,10 @@ export default function Trading() {
           {PROCESS_STEPS.map((step) => (
             <div className="col-12 col-sm-6 col-lg-3" key={step.num}>
               <div
-                className="border rounded p-4 h-100"
+                className="border card rounded p-4 h-100"
                 style={{
-                  backgroundColor: "var(--card)",
-                  borderColor: "var(--border)",
+                  // backgroundColor: "var(--card)",
+                  // borderColor: "var(--border)",
                   borderRadius: "12px",
                 }}
               >
@@ -373,7 +373,7 @@ export default function Trading() {
           Terminal features at a glance
         </h2>
 
-        <Card>
+        <div className="card border p-4">
           <div className="row g-4">
             <div className="col-12 col-sm-6">
               <div className="d-flex flex-column gap-3">
@@ -409,7 +409,7 @@ export default function Trading() {
               </div>
             </div>
           </div>
-        </Card>
+        </div>
       </section>
 
       <ContextShowcase
@@ -435,10 +435,10 @@ export default function Trading() {
 
       {/* CTA */}
       <section
-        className="border rounded p-4 p-md-5 text-center"
+        className="border rounded card p-4 p-md-5 text-center"
         style={{
-          backgroundColor: "var(--card)",
-          borderColor: "var(--border)",
+          // backgroundColor: "var(--card)",
+          // borderColor: "var(--border)",
           borderRadius: "12px",
         }}
       >

@@ -209,7 +209,7 @@ export default function StockDetail() {
         <div className="row g-4">
           {DETAIL_CARDS.map((card) => (
             <div className="col-12 col-sm-6" key={card.title}>
-              <Card className="h-100">
+              <div className="h-100 card border p-4">
                 <div
                   className="d-flex align-items-center justify-content-center rounded mb-3"
                   style={{
@@ -230,7 +230,7 @@ export default function StockDetail() {
                 >
                   {card.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -249,11 +249,11 @@ export default function StockDetail() {
         </h2>
 
         <div
-          className="border rounded overflow-hidden shadow-sm"
+          className="border card rounded overflow-hidden shadow-sm"
           style={{
             maxWidth: "672px",
-            backgroundColor: "var(--card)",
-            borderColor: "var(--border)",
+            // backgroundColor: "var(--card)",
+            // borderColor: "var(--border)",
             borderRadius: "12px",
           }}
         >
@@ -346,10 +346,12 @@ export default function StockDetail() {
             {STATS.map((stat) => (
               <div className="col-4" key={stat.label}>
                 <div
-                  className="p-3 h-100"
-                  style={{
-                    backgroundColor: "var(--card)",
-                  }}
+                  className="p-3 h-100 card"
+                  style={
+                    {
+                      // backgroundColor: "var(--card)",
+                    }
+                  }
                 >
                   <p
                     className="small mb-1"
@@ -471,10 +473,10 @@ export default function StockDetail() {
 
       {/* CTA */}
       <section
-        className="border rounded p-4 p-md-5 text-center"
+        className="border rounded p-4 p-md-5 text-center card"
         style={{
-          backgroundColor: "var(--card)",
-          borderColor: "var(--border)",
+          // backgroundColor: "var(--card)",
+          // borderColor: "var(--border)",
           borderRadius: "12px",
         }}
       >

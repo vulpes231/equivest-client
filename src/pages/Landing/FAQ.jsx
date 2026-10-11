@@ -267,7 +267,7 @@ function CategoryAccordion({ items }) {
               className="w-100 border-0 d-flex align-items-center justify-content-between text-start px-4 py-3"
               style={{
                 backgroundColor: "transparent",
-                color: "var(--foreground)",
+                color: "var(--body)",
                 transition: "background-color 0.15s ease",
               }}
               onMouseEnter={(e) => {
@@ -282,7 +282,7 @@ function CategoryAccordion({ items }) {
                 style={{
                   fontSize: "0.875rem",
                   fontWeight: 500,
-                  color: "var(--foreground)",
+                  color: "var(--body)",
                 }}
               >
                 {item.q}
@@ -461,11 +461,11 @@ export default function FAQ() {
 
       {/* Still Need Help */}
       <div
-        className="rounded p-4 p-md-5 text-center mt-5"
+        className="rounded p-4 p-md-5 text-center mt-5 border"
         style={{
           background:
             "linear-gradient(135deg, rgba(26,58,107,0.05), rgba(0,201,167,0.05))",
-          border: "1px solid var(--border)",
+          // border: "1px solid var(--border)",
         }}
       >
         <h3
@@ -483,9 +483,9 @@ export default function FAQ() {
         </p>
 
         <div className="d-flex flex-wrap justify-content-center gap-3">
-          <Button href="/contact">Contact Support</Button>
+          <Button href="/contact-us">Contact Support</Button>
 
-          <Button href="/contact" variant="outline">
+          <Button href="/contact-us" variant="outline" className="text-body">
             Live Chat
           </Button>
         </div>

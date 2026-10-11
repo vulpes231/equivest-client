@@ -135,7 +135,7 @@ const sectionLabelStyle = {
 const headingStyle = {
   fontFamily: "'Nunito', sans-serif",
   fontWeight: 700,
-  color: "var(--foreground)",
+  color: "var(--body)",
 };
 
 const mutedTextStyle = {
@@ -207,7 +207,7 @@ export default function InvestingOut() {
                 index === 4 ? "offset-lg-0" : ""
               }`}
             >
-              <Card>
+              <div className="p-4 h-100 card border">
                 <div
                   className="d-flex align-items-center justify-content-center rounded mb-4"
                   style={{
@@ -226,7 +226,7 @@ export default function InvestingOut() {
                   style={{
                     fontSize: "1rem",
                     fontWeight: 600,
-                    color: "var(--foreground)",
+                    color: "var(--body)",
                   }}
                 >
                   {feature.title}
@@ -235,7 +235,7 @@ export default function InvestingOut() {
                 <p className="small lh-lg mb-0" style={mutedTextStyle}>
                   {feature.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -262,8 +262,8 @@ export default function InvestingOut() {
           data reflects your live portfolio once you open an account.
         </p>
 
-        <Card
-          className="border-2"
+        <div
+          className="border-2 card"
           padding="none"
           style={{
             maxWidth: "768px",
@@ -292,11 +292,11 @@ export default function InvestingOut() {
 
             <div className="d-flex gap-2">
               <span
-                className="px-2 py-1 rounded"
+                className="px-2 py-1 rounded border"
                 style={{
                   fontSize: "0.75rem",
-                  backgroundColor: "var(--secondary)",
-                  color: "var(--muted-foreground)",
+                  backgroundColor: "var(--body)",
+                  color: "var(--body)",
                 }}
               >
                 1D
@@ -315,11 +315,11 @@ export default function InvestingOut() {
               </span>
 
               <span
-                className="px-2 py-1 rounded"
+                className="px-2 py-1 rounded border"
                 style={{
                   fontSize: "0.75rem",
-                  backgroundColor: "var(--secondary)",
-                  color: "var(--muted-foreground)",
+                  backgroundColor: "var(--body)",
+                  color: "var(--body)",
                 }}
               >
                 1Y
@@ -378,12 +378,12 @@ export default function InvestingOut() {
           </div>
 
           {/* Holdings mock rows */}
-          <div>
+          <div className="">
             {MOCK_HOLDINGS.map((holding) => (
               <div
                 key={holding.ticker}
-                className="px-4 py-3 border-bottom d-flex align-items-center gap-3"
-                style={{ borderColor: "var(--border)" }}
+                className="px-4 py-3 border-bottom d-flex align-items-center gap-3 card"
+                // style={{ borderColor: "var(--border)" }}
               >
                 <div
                   className="d-flex align-items-center justify-content-center rounded fw-bold"
@@ -467,7 +467,7 @@ export default function InvestingOut() {
               Illustrative layout only — not real portfolio data
             </p>
           </div>
-        </Card>
+        </div>
       </section>
 
       {/* How the Dashboard is organized */}
@@ -551,7 +551,7 @@ export default function InvestingOut() {
           total portfolio.
         </p>
 
-        <Card padding="none">
+        <div className="p-4 card border">
           <div
             className="p-4 border-bottom"
             style={{ borderColor: "var(--border)" }}
@@ -582,7 +582,7 @@ export default function InvestingOut() {
               className="table table-borderless align-middle mb-0"
               style={{
                 minWidth: "850px",
-                color: "var(--foreground)",
+                color: "var(--body)",
               }}
             >
               <thead>
@@ -749,7 +749,7 @@ export default function InvestingOut() {
               </tbody>
             </table>
           </div>
-        </Card>
+        </div>
       </section>
 
       {/* ETFs */}
@@ -774,7 +774,7 @@ export default function InvestingOut() {
           and for use within Auto Investing portfolios.
         </p>
 
-        <Card padding="none">
+        <div className="card border">
           <div>
             {ETFS.map((etf) => (
               <div
@@ -845,7 +845,7 @@ export default function InvestingOut() {
               </div>
             ))}
           </div>
-        </Card>
+        </div>
       </section>
 
       <div className="container mt-5" style={sectionContainer}>

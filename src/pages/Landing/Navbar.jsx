@@ -431,7 +431,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           <Link
             to="/"
             className="d-flex align-items-center gap-2 text-decoration-none flex-shrink-0"
-            style={{ color: "var(--foreground)" }}
+            style={{ color: "var(--body)" }}
           >
             <div
               className="rounded-3 d-flex align-items-center justify-content-center"

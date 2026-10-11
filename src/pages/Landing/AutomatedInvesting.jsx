@@ -221,7 +221,7 @@ export default function AutomatedInvesting() {
         </p>
 
         <h1
-          className="mb-4 fw-bold"
+          className="mb-4 fw-bold text-body"
           style={{
             fontFamily: "'Nunito', sans-serif",
             fontSize: "clamp(2.25rem, 5vw, 3rem)",
@@ -390,13 +390,13 @@ export default function AutomatedInvesting() {
         <div className="row g-4">
           {PLANS.map((plan) => (
             <div key={plan.name} className="col-12 col-sm-6 col-lg-3">
-              <Card className="h-100 d-flex flex-column">
+              <div className="h-100 d-flex flex-column card border p-4">
                 <div
                   className="rounded-circle mb-3"
                   style={{
                     width: "12px",
                     height: "12px",
-                    backgroundColor: plan.color,
+                    // backgroundColor: plan.color,
                   }}
                 />
 
@@ -420,9 +420,9 @@ export default function AutomatedInvesting() {
                     .map((allocation) => (
                       <span
                         key={allocation.label}
-                        className="rounded px-2 py-1"
+                        className="rounded px-2 py-1 border"
                         style={{
-                          backgroundColor: "var(--secondary)",
+                          backgroundColor: "var(--body)",
                           color: "var(--muted-foreground)",
                           fontSize: "0.75rem",
                           fontWeight: 500,
@@ -439,7 +439,7 @@ export default function AutomatedInvesting() {
                 >
                   Learn More →
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -472,7 +472,7 @@ export default function AutomatedInvesting() {
         <div className="row g-4">
           {BENEFITS.map((benefit) => (
             <div key={benefit.title} className="col-12 col-sm-4">
-              <Card className="h-100">
+              <div className="h-100 border card p-4">
                 <div
                   className="rounded mb-3 d-flex align-items-center justify-content-center"
                   style={{
@@ -493,7 +493,7 @@ export default function AutomatedInvesting() {
                 >
                   {benefit.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -545,7 +545,7 @@ export default function AutomatedInvesting() {
             },
           ].map((feature) => (
             <div key={feature.title} className="col-12 col-sm-6 col-lg-4">
-              <Card hover className="h-100">
+              <div className="h-100 border card p-4">
                 <div
                   className="rounded mb-3 d-flex align-items-center justify-content-center"
                   style={{
@@ -566,7 +566,7 @@ export default function AutomatedInvesting() {
                 >
                   {feature.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -575,11 +575,11 @@ export default function AutomatedInvesting() {
       {/* Key considerations */}
       <section className="container">
         <div
-          className="rounded border p-4"
+          className="rounded border p-4 card"
           style={{
             maxWidth: "672px",
-            borderColor: "var(--border)",
-            backgroundColor: "var(--muted)",
+            // borderColor: "var(--border)",
+            // backgroundColor: "var(--muted)",
           }}
         >
           <h3 className="fs-6 fw-semibold mb-3">Things to know</h3>

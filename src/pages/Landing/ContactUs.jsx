@@ -148,7 +148,7 @@ export default function ContactUs() {
       <div className="row g-4 g-lg-5">
         {/* Contact Form */}
         <div className="col-lg-8">
-          <Card>
+          <div className=" border card p-4">
             {submitted ? (
               <div className="text-center py-5">
                 <div
@@ -248,8 +248,8 @@ export default function ContactUs() {
                       style={{
                         padding: "10px 12px",
                         fontSize: "0.875rem",
-                        backgroundColor: "var(--muted)",
-                        borderColor: "var(--border)",
+                        backgroundColor: "var(--body)",
+                        // borderColor: "var(--border)",
                         color: "var(--foreground)",
                       }}
                     />
@@ -284,8 +284,8 @@ export default function ContactUs() {
                       style={{
                         padding: "10px 12px",
                         fontSize: "0.875rem",
-                        backgroundColor: "var(--muted)",
-                        borderColor: "var(--border)",
+                        backgroundColor: "var(--body)",
+                        // borderColor: "var(--border)",
                         color: "var(--foreground)",
                       }}
                     />
@@ -318,8 +318,8 @@ export default function ContactUs() {
                     style={{
                       padding: "10px 12px",
                       fontSize: "0.875rem",
-                      backgroundColor: "var(--muted)",
-                      borderColor: "var(--border)",
+                      backgroundColor: "var(--body)",
+                      // borderColor: "var(--border)",
                       color: "var(--foreground)",
                     }}
                   >
@@ -359,8 +359,8 @@ export default function ContactUs() {
                     style={{
                       padding: "10px 12px",
                       fontSize: "0.875rem",
-                      backgroundColor: "var(--muted)",
-                      borderColor: "var(--border)",
+                      backgroundColor: "var(--body)",
+                      // borderColor: "var(--border)",
                       color: "var(--foreground)",
                     }}
                   />
@@ -395,8 +395,8 @@ export default function ContactUs() {
                     style={{
                       padding: "10px 12px",
                       fontSize: "0.875rem",
-                      backgroundColor: "var(--muted)",
-                      borderColor: "var(--border)",
+                      backgroundColor: "var(--body)",
+                      // borderColor: "var(--border)",
                       color: "var(--foreground)",
                       resize: "none",
                     }}
@@ -423,14 +423,14 @@ export default function ContactUs() {
                 </button>
               </form>
             )}
-          </Card>
+          </div>
         </div>
 
         {/* Contact Information */}
         <div className="col-lg-4">
           <div className="d-flex flex-column gap-3">
             {CONTACT_METHODS.map((method) => (
-              <Card key={method.label}>
+              <div key={method.label} className=" border card p-4">
                 <div className="d-flex align-items-start gap-3">
                   <span
                     className="flex-shrink-0 mt-1"
@@ -454,7 +454,7 @@ export default function ContactUs() {
                       className="mb-1"
                       style={{
                         fontSize: "0.875rem",
-                        color: "var(--foreground)",
+                        color: "var(--body)",
                       }}
                     >
                       {method.value}
@@ -471,11 +471,11 @@ export default function ContactUs() {
                     </p>
                   </div>
                 </div>
-              </Card>
+              </div>
             ))}
 
             {/* Social Links */}
-            <Card>
+            <div className=" border card p-4">
               <h3
                 className="mb-3"
                 style={{
@@ -492,11 +492,11 @@ export default function ContactUs() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="rounded d-flex align-items-center justify-content-center text-decoration-none"
+                    className="rounded d-flex align-items-center justify-content-center text-decoration-none card border"
                     style={{
                       width: "36px",
                       height: "36px",
-                      backgroundColor: "var(--muted)",
+                      // backgroundColor: "var(--muted)",
                       color: "var(--muted-foreground)",
                       transition: "all 0.15s ease",
                     }}
@@ -514,10 +514,10 @@ export default function ContactUs() {
                   </a>
                 ))}
               </div>
-            </Card>
+            </div>
 
             {/* Help Center */}
-            <Card>
+            <div className="border card p-4">
               <h3
                 className="mb-2"
                 style={{
@@ -550,7 +550,7 @@ export default function ContactUs() {
               >
                 Browse FAQ →
               </a>
-            </Card>
+            </div>
           </div>
         </div>
       </div>

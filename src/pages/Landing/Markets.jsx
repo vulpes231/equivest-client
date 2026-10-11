@@ -169,7 +169,7 @@ export default function Markets() {
           style={{
             fontFamily: "'Nunito', sans-serif",
             fontWeight: 700,
-            color: "var(--foreground)",
+            color: "var(--body)",
           }}
         >
           Understand the Markets Before You Invest
@@ -224,7 +224,7 @@ export default function Markets() {
         <div className="row g-4">
           {FEATURE_CARDS.map((card, index) => (
             <div className="col-12 col-sm-6 col-lg-4" key={card.title}>
-              <Card className="h-100">
+              <div className="h-100 card p-4 border">
                 {index !== 0 && (
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
@@ -247,7 +247,7 @@ export default function Markets() {
                 >
                   {card.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -299,10 +299,10 @@ export default function Markets() {
         {/* UI mockup */}
         <div className="col-12 col-lg-6">
           <div
-            className="border rounded p-4 shadow-sm"
+            className=" card border rounded p-4 shadow-sm"
             style={{
-              backgroundColor: "var(--card)",
-              borderColor: "var(--border)",
+              // backgroundColor: "var(--card)",
+              // borderColor: "var(--border)",
               borderRadius: "12px",
             }}
           >
@@ -325,10 +325,12 @@ export default function Markets() {
               ].map((idx) => (
                 <div className="col-4" key={idx.name}>
                   <div
-                    className="rounded p-3 h-100"
-                    style={{
-                      backgroundColor: "var(--muted)",
-                    }}
+                    className="rounded p-3 h-100 card border"
+                    style={
+                      {
+                        // backgroundColor: "var(--muted)",
+                      }
+                    }
                   >
                     <p
                       className="small mb-1"
@@ -433,10 +435,10 @@ export default function Markets() {
           {HOW_IT_HELPS.map((item) => (
             <div className="col-12 col-sm-4" key={item.title}>
               <div
-                className="border rounded p-4 h-100"
+                className="border card rounded p-4 h-100"
                 style={{
-                  backgroundColor: "var(--card)",
-                  borderColor: "var(--border)",
+                  // backgroundColor: "var(--card)",
+                  // borderColor: "var(--border)",
                   borderRadius: "12px",
                 }}
               >
@@ -456,10 +458,10 @@ export default function Markets() {
 
       {/* CTA */}
       <section
-        className="border rounded p-4 p-md-5 text-center"
+        className="border card rounded p-4 p-md-5 text-center"
         style={{
-          backgroundColor: "var(--card)",
-          borderColor: "var(--border)",
+          // backgroundColor: "var(--card)",
+          // borderColor: "var(--border)",
           borderRadius: "12px",
         }}
       >

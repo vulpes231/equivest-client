@@ -217,7 +217,7 @@ export default function Retirement() {
           <div className="row g-4">
             {PRINCIPLES.map((p) => (
               <div className="col-12 col-sm-6 col-lg-3" key={p.title}>
-                <Card className="h-100">
+                <div className="h-100 border card p-4">
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
                     style={{
@@ -238,7 +238,7 @@ export default function Retirement() {
                   >
                     {p.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -301,7 +301,7 @@ export default function Retirement() {
                       className="flex-shrink-0 fw-semibold small"
                       style={{
                         width: "144px",
-                        color: "var(--foreground)",
+                        color: "var(--body)",
                       }}
                     >
                       {row.country}
@@ -320,9 +320,9 @@ export default function Retirement() {
 
             {/* Right: illustrative retirement account card mockup */}
             <div className="col-12 col-lg-6">
-              <Card
-                className="border-2"
-                padding="none"
+              <div
+                className=" border card p-4"
+                // padding="none"
                 style={{
                   maxWidth: "384px",
                 }}
@@ -449,7 +449,7 @@ export default function Retirement() {
                     Illustrative layout — not real account data
                   </p>
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
         </div>
@@ -481,7 +481,7 @@ export default function Retirement() {
           <div className="row g-4">
             {SUPPORT_CARDS.map((card) => (
               <div className="col-12 col-sm-4" key={card.title}>
-                <Card className="h-100">
+                <div className="h-100 border card p-4">
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
                     style={{
@@ -502,7 +502,7 @@ export default function Retirement() {
                   >
                     {card.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -513,11 +513,11 @@ export default function Retirement() {
       <section className="container py-4">
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div
-            className="rounded border p-4"
+            className="rounded border p-4 card"
             style={{
               maxWidth: "672px",
-              backgroundColor: "var(--muted)",
-              borderColor: "var(--border)",
+              // backgroundColor: "var(--muted)",
+              // borderColor: "var(--border)",
             }}
           >
             <h3 className="h6 fw-semibold mb-3">Important notes</h3>
