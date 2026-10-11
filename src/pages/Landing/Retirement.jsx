@@ -607,7 +607,7 @@ export default function Retirement() {
             — with the tools, portfolios, and guidance you need.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Plan Your Retirement with Equivest
           </Button>
         </div>

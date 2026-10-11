@@ -495,7 +495,7 @@ export default function StockDetail() {
           extra cost.
         </p>
 
-        <Link to="/signup">
+        <Link to="/register">
           <Button>Start Researching Stocks</Button>
         </Link>
       </section>

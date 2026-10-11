@@ -635,7 +635,7 @@ export default function Home() {
               </p>
 
               <div className="d-flex flex-wrap align-items-center gap-3 mb-5">
-                <Button href="/signup" size="lg">
+                <Button href="/register" size="lg">
                   Create Free Account
                   <svg
                     width="16"
@@ -1359,7 +1359,7 @@ export default function Home() {
                 — with full transparency and competitive pricing.
               </p>
 
-              <Button href="/signup">Open a Global Account</Button>
+              <Button href="/register">Open a Global Account</Button>
             </div>
 
             <div className="row row-cols-1 row-cols-md-2 gx-3 gy-3">
@@ -1584,7 +1584,7 @@ export default function Home() {
 
             <div className="d-flex flex-wrap align-items-center justify-content-center gap-3">
               <Link
-                to="/signup"
+                to="/register"
                 className="px-4 py-3 rounded fw-semibold text-dark  transition "
                 style={{ background: "#00C9A7" }}
               >

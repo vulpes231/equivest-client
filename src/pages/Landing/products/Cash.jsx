@@ -144,7 +144,7 @@ export default function Cash() {
           <div className="row g-4">
             {FEATURES.map((feature) => (
               <div className="col-12 col-md-6" key={feature.title}>
-                <Card hover>
+                <div className="card border p-4 h-100">
                   <h3 className="h5 fw-semibold mb-2">{feature.title}</h3>
 
                   <p
@@ -156,7 +156,7 @@ export default function Cash() {
                   >
                     {feature.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -213,15 +213,11 @@ export default function Cash() {
               Cash vs. investments — what's the difference?
             </h2>
 
-            <Card padding="none">
+            <div className="card border">
               <div className="table-responsive">
                 <table className="table align-middle mb-0">
                   <thead>
-                    <tr
-                      style={{
-                        borderBottom: "1px solid var(--border)",
-                      }}
-                    >
+                    <tr className="border">
                       <th
                         scope="col"
                         className="px-3 px-md-4 py-3 text-uppercase small fw-semibold"
@@ -256,9 +252,10 @@ export default function Cash() {
                       <tr
                         key={row.attribute}
                         style={{
-                          borderBottom: "1px solid var(--border)",
+                          // borderBottom: "1px solid var(--border)",
                           transition: "background-color 0.2s ease",
                         }}
+                        className="border"
                       >
                         <th
                           scope="row"
@@ -269,7 +266,7 @@ export default function Cash() {
 
                         <td
                           className="px-3 px-md-4 py-3"
-                          style={{ color: "var(--foreground)" }}
+                          style={{ color: "var(--body)" }}
                         >
                           {row.cash}
                         </td>
@@ -285,7 +282,7 @@ export default function Cash() {
                   </tbody>
                 </table>
               </div>
-            </Card>
+            </div>
           </div>
         </section>
 
@@ -339,7 +336,7 @@ export default function Cash() {
             all your investments in one place.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Open Your Account
           </Button>
         </section>

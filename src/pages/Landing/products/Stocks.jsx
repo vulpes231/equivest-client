@@ -164,11 +164,16 @@ export default function Stocks() {
             </p>
 
             <div className="d-flex flex-wrap gap-3">
-              <Button href="/signup" size="lg">
+              <Button href="/register" size="lg">
                 Start Investing — $0 Commissions
               </Button>
 
-              <Button href="/trading" variant="outline" size="lg">
+              <Button
+                href="/trading"
+                variant="outline"
+                className="border text-body"
+                size="lg"
+              >
                 Open Trading Terminal
               </Button>
             </div>
@@ -223,7 +228,7 @@ export default function Stocks() {
           <div className="row g-4">
             {FEATURES.map((feature) => (
               <div className="col-12 col-sm-6 col-lg-4" key={feature.title}>
-                <Card hover>
+                <div className="h-100 card border p-4">
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-4"
                     style={{
@@ -241,7 +246,7 @@ export default function Stocks() {
                   <p className="small lh-base mb-0" style={mutedTextStyle}>
                     {feature.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -269,21 +274,21 @@ export default function Stocks() {
             {MARKET_COVERAGE.map((market) => (
               <div className="col-12 col-sm-6 col-lg-3" key={market.exchange}>
                 <div
-                  className="h-100 rounded border p-4 text-center"
-                  style={{
-                    background: "var(--card)",
-                    borderColor: "var(--border)",
-                  }}
+                  className="h-100 rounded border p-4 card text-center"
+                  // style={{
+                  //   background: "var(--card)",
+                  //   borderColor: "var(--border)",
+                  // }}
                 >
                   <div
-                    className="d-flex align-items-center justify-content-center rounded mx-auto mb-3"
+                    className="d-flex align-items-center justify-content-center rounded mx-auto mb-3 bg-dark-subtle"
                     style={{
                       width: "48px",
                       height: "48px",
-                      background: "rgba(26,58,107,0.08)",
+                      // background: "rgba(26,58,107,0.08)"
                     }}
                   >
-                    <IconTrendingUp style={{ color: "var(--primary)" }} />
+                    <IconTrendingUp style={{ color: "var(--body)" }} />
                   </div>
 
                   <p className="fs-5 mb-2" style={headingStyle}>
@@ -327,11 +332,11 @@ export default function Stocks() {
             {ORDER_TYPES.map((order) => (
               <div className="col-12 col-sm-6 col-lg-4" key={order.type}>
                 <div
-                  className="h-100 rounded border p-4"
-                  style={{
-                    background: "var(--card)",
-                    borderColor: "var(--border)",
-                  }}
+                  className="h-100 rounded border p-4 card"
+                  // style={{
+                  //   background: "var(--card)",
+                  //   borderColor: "var(--border)",
+                  // }}
                 >
                   <div className="d-flex align-items-start justify-content-between gap-2 mb-3">
                     <div className="d-flex align-items-center gap-2">
@@ -415,7 +420,7 @@ export default function Stocks() {
             and ETFs, and access to every professional tool from day one.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Open Free Account
           </Button>
 

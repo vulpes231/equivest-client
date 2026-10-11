@@ -173,7 +173,7 @@ export default function Crypto() {
           <div className="row g-4">
             {CRYPTO_ASSETS.map((asset) => (
               <div className="col-12 col-md-6 col-lg-4" key={asset.symbol}>
-                <Card hover>
+                <div className="h-100 border card p-4">
                   <div className="d-flex align-items-center gap-3 mb-3">
                     <div
                       className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0 text-white fw-bold small"
@@ -211,7 +211,7 @@ export default function Crypto() {
                   >
                     {asset.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -268,11 +268,11 @@ export default function Crypto() {
               How crypto differs from traditional investments
             </h2>
 
-            <Card padding="none">
+            <div className="card">
               <div className="table-responsive">
                 <table className="table table-hover align-middle mb-0">
                   <thead>
-                    <tr style={{ borderBottom: "1px solid var(--border)" }}>
+                    <tr className="border">
                       <th
                         scope="col"
                         className="px-3 px-md-4 py-3 text-uppercase small fw-semibold"
@@ -306,7 +306,8 @@ export default function Crypto() {
                     {COMPARISON_ROWS.map((row) => (
                       <tr
                         key={row.attribute}
-                        style={{ borderColor: "var(--border)" }}
+                        // style={{ borderColor: "var(--border)" }}
+                        className="border"
                       >
                         <th
                           scope="row"
@@ -317,7 +318,7 @@ export default function Crypto() {
 
                         <td
                           className="px-3 px-md-4 py-3"
-                          style={{ color: "var(--foreground)" }}
+                          style={{ color: "var(--body)" }}
                         >
                           {row.crypto}
                         </td>
@@ -333,7 +334,7 @@ export default function Crypto() {
                   </tbody>
                 </table>
               </div>
-            </Card>
+            </div>
           </div>
         </section>
 
@@ -357,7 +358,7 @@ export default function Crypto() {
               <div
                 className="px-4 py-3"
                 style={{
-                  background: "var(--muted)",
+                  background: "var(--body)",
                   borderBottom: "1px solid var(--border)",
                 }}
               >
@@ -376,8 +377,8 @@ export default function Crypto() {
                 {WALLET_HOLDINGS.map((holding) => (
                   <div
                     key={holding.symbol}
-                    className="d-flex align-items-center justify-content-between gap-3 px-4 py-3"
-                    style={{ borderBottom: "1px solid var(--border)" }}
+                    className="d-flex align-items-center justify-content-between gap-3 px-4 py-3 bg-body"
+                    // style={{ borderBottom: "1px solid var(--border)" }}
                   >
                     <div className="d-flex align-items-center gap-3">
                       <div
@@ -421,7 +422,7 @@ export default function Crypto() {
               <div
                 className="d-flex align-items-center justify-content-between gap-3 px-4 py-3"
                 style={{
-                  background: "var(--muted)",
+                  background: "var(--body)",
                   borderTop: "1px solid var(--border)",
                 }}
               >
@@ -532,7 +533,7 @@ export default function Crypto() {
             alongside all your other investments in one unified platform.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Start Investing in Crypto
           </Button>
 

@@ -274,7 +274,7 @@ function NavDropdown({ group, isMobile = false }) {
           fontSize: "0.875rem",
           fontWeight: 500,
           color: isActive || open ? "var(--accent)" : "var(--muted-foreground)",
-          background: isActive || open ? "var(--secondary)" : "transparent",
+          background: isActive || open ? "var(--light)" : "transparent",
           transition: "all 0.15s ease",
         }}
       >
@@ -329,10 +329,10 @@ function NavDropdown({ group, isMobile = false }) {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="d-flex align-items-start gap-3 text-decoration-none px-3 py-2 rounded mb-1"
+                    className={`d-flex align-items-start gap-3 text-decoration-none px-3 py-2 rounded mb-1 ${active ? "bg-success-subtle" : ""}`}
                     style={{
-                      color: active ? "var(--primary)" : "var(--foreground)",
-                      background: active ? "var(--secondary)" : "transparent",
+                      color: active ? "var(--accent)" : "var(--body)",
+                      // background: active ? "var(--accent)" : "transparent",
                       transition: "all 0.15s ease",
                     }}
                   >
@@ -601,7 +601,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
               </Link>
 
               <Link
-                to="/signup"
+                to="/register"
                 className="btn flex-fill text-white text-decoration-none"
                 style={{
                   padding: "8px",

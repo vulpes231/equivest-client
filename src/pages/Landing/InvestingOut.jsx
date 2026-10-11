@@ -902,7 +902,7 @@ export default function InvestingOut() {
             portfolio analytics.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Open Your Investing Account
           </Button>
         </div>

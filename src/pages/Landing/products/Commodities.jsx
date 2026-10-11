@@ -262,11 +262,16 @@ export default function Commodities() {
             </p>
 
             <div className="d-flex flex-wrap gap-3">
-              <Button href="/signup" size="lg">
+              <Button href="/register" size="lg">
                 Add Commodities to Portfolio
               </Button>
 
-              <Button href="/learn" variant="outline" size="lg">
+              <Button
+                href="/learn"
+                className="text-body border"
+                variant="outline"
+                size="lg"
+              >
                 Commodity Education
               </Button>
             </div>
@@ -284,7 +289,7 @@ export default function Commodities() {
                       : "var(--border)",
                     background: row.highlight
                       ? "rgba(0,201,167,0.04)"
-                      : "var(--card)",
+                      : "var(--body)",
                   }}
                 >
                   <span
@@ -298,9 +303,7 @@ export default function Commodities() {
                     className="small fw-semibold text-end flex-shrink-0"
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      color: row.highlight
-                        ? "var(--accent)"
-                        : "var(--foreground)",
+                      color: row.highlight ? "var(--accent)" : "var(--body)",
                     }}
                   >
                     {row.value}
@@ -335,11 +338,11 @@ export default function Commodities() {
             {CATEGORIES.map((category) => (
               <div className="col-12 col-md-6" key={category.name}>
                 <div
-                  className="h-100 rounded border p-4"
-                  style={{
-                    background: "var(--card)",
-                    borderColor: "var(--border)",
-                  }}
+                  className="h-100 rounded border p-4 card"
+                  // style={{
+                  //   background: "var(--card)",
+                  //   borderColor: "var(--border)",
+                  // }}
                 >
                   <div className="d-flex align-items-start gap-3 mb-3">
                     <div
@@ -381,8 +384,8 @@ export default function Commodities() {
                   </p>
 
                   <div
-                    className="rounded px-3 py-2"
-                    style={{ background: "var(--muted)" }}
+                    className="rounded px-3 py-2 border"
+                    style={{ background: "var(--body)" }}
                   >
                     <p
                       className="small mb-0"
@@ -390,7 +393,7 @@ export default function Commodities() {
                     >
                       <span
                         className="fw-semibold"
-                        style={{ color: "var(--foreground)" }}
+                        style={{ color: "var(--body)" }}
                       >
                         Key drivers:
                       </span>{" "}
@@ -415,7 +418,7 @@ export default function Commodities() {
           <div className="row g-4">
             {FEATURES.map((feature) => (
               <div className="col-12 col-md-6 col-lg-4" key={feature.title}>
-                <Card hover>
+                <div className="h-100 border card p-4">
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
                     style={{
@@ -439,7 +442,7 @@ export default function Commodities() {
                   >
                     {feature.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -455,16 +458,16 @@ export default function Commodities() {
           </h2>
 
           <div
-            className="rounded border overflow-hidden"
-            style={{
-              background: "var(--card)",
-              borderColor: "var(--border)",
-            }}
+            className="rounded border card overflow-hidden"
+            // style={{
+            //   background: "var(--card)",
+            //   borderColor: "var(--border)",
+            // }}
           >
             <div className="table-responsive">
               <table className="table table-hover align-middle mb-0">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
+                  <tr className="border">
                     {tableHeaders.map((header) => (
                       <th
                         key={header}
@@ -482,7 +485,8 @@ export default function Commodities() {
                   {COMMODITY_ETFS.map((etf) => (
                     <tr
                       key={etf.ticker}
-                      style={{ borderColor: "var(--border)" }}
+                      // style={{ borderColor: "var(--border)" }}
+                      className="border"
                     >
                       <th
                         scope="row"
@@ -588,11 +592,11 @@ export default function Commodities() {
             {FAQ.map((item) => (
               <div
                 key={item.q}
-                className="rounded border p-4"
-                style={{
-                  background: "var(--card)",
-                  borderColor: "var(--border)",
-                }}
+                className="rounded border card p-4"
+                // style={{
+                //   background: "var(--card)",
+                //   borderColor: "var(--border)",
+                // }}
               >
                 <h3 className="h6 fw-semibold mb-2">{item.q}</h3>
 
@@ -660,7 +664,7 @@ export default function Commodities() {
             commission-free, no futures account needed, with as little as $1.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Open Free Account
           </Button>
 

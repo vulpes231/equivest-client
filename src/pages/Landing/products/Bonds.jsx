@@ -225,11 +225,16 @@ export default function Bonds() {
           </p>
 
           <div className="d-flex flex-wrap gap-3">
-            <Button href="/signup" size="lg">
+            <Button href="/register" size="lg">
               Explore Bond Markets
             </Button>
 
-            <Button href="/learn" variant="outline" size="lg">
+            <Button
+              href="/learn"
+              className="border text-body"
+              variant="outline"
+              size="lg"
+            >
               Fixed Income Education
             </Button>
           </div>
@@ -247,7 +252,7 @@ export default function Bonds() {
                     : "var(--border)",
                   backgroundColor: row.highlight
                     ? "rgba(0, 201, 167, 0.04)"
-                    : "var(--card)",
+                    : "var(--body)",
                 }}
               >
                 <span
@@ -261,9 +266,7 @@ export default function Bonds() {
                   className="small fw-semibold text-sm-end"
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
-                    color: row.highlight
-                      ? "var(--accent)"
-                      : "var(--foreground)",
+                    color: row.highlight ? "var(--accent)" : "var(--body)",
                     overflowWrap: "anywhere",
                   }}
                 >
@@ -296,11 +299,11 @@ export default function Bonds() {
           {BOND_TYPES.map((bond) => (
             <div className="col-12 col-md-6" key={bond.name}>
               <div
-                className="h-100 rounded border p-4"
-                style={{
-                  backgroundColor: "var(--card)",
-                  borderColor: "var(--border)",
-                }}
+                className="h-100 rounded border p-4 card"
+                // style={{
+                //   backgroundColor: "var(--body)",
+                //   borderColor: "var(--border)",
+                // }}
               >
                 <div className="d-flex align-items-start gap-3 mb-3">
                   <div
@@ -384,7 +387,7 @@ export default function Bonds() {
         <div className="row g-4">
           {FEATURES.map((feature) => (
             <div className="col-12 col-sm-6 col-lg-4" key={feature.title}>
-              <Card hover className="h-100">
+              <div className="h-100 card border p-4">
                 <div
                   className="rounded d-flex align-items-center justify-content-center mb-3"
                   style={{
@@ -408,7 +411,7 @@ export default function Bonds() {
                 >
                   {feature.desc}
                 </p>
-              </Card>
+              </div>
             </div>
           ))}
         </div>
@@ -435,11 +438,11 @@ export default function Bonds() {
           {KEY_METRICS.map((metric) => (
             <div
               key={metric.term}
-              className="rounded border p-3 p-md-4"
-              style={{
-                backgroundColor: "var(--card)",
-                borderColor: "var(--border)",
-              }}
+              className="rounded border p-3 p-md-4 card"
+              // style={{
+              //   backgroundColor: "var(--card)",
+              //   borderColor: "var(--border)",
+              // }}
             >
               <div className="row g-2">
                 <div className="col-12 col-md-4">
@@ -525,11 +528,11 @@ export default function Bonds() {
           {FAQ.map((item) => (
             <div
               key={item.q}
-              className="rounded border p-4"
-              style={{
-                backgroundColor: "var(--card)",
-                borderColor: "var(--border)",
-              }}
+              className="rounded border p-4 card"
+              // style={{
+              //   backgroundColor: "var(--card)",
+              //   borderColor: "var(--border)",
+              // }}
             >
               <h3 className="small fw-semibold mb-2">{item.q}</h3>
 
@@ -584,7 +587,7 @@ export default function Bonds() {
           Equivest account in minutes — no minimum balance required.
         </p>
 
-        <Button href="/signup" size="lg">
+        <Button href="/register" size="lg">
           Open Free Account
         </Button>
 

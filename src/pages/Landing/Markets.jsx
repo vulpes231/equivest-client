@@ -479,7 +479,7 @@ export default function Markets() {
           Available on all Equivest account tiers. No subscription required.
         </p>
 
-        <Link to="/signup">
+        <Link to="/register">
           <Button>Explore Market Overview</Button>
         </Link>
       </section>

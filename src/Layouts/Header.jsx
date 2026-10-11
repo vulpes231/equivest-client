@@ -11,6 +11,7 @@ import { createSelector } from "reselect";
 import { changeSidebarVisibility } from "../features/layouts/thunk";
 import { darklogo, logo } from "../assets";
 import { getAccessToken } from "../constants";
+import { BRAND } from "../pages/Landing/data/config";
 
 const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
   const dispatch = useDispatch();
@@ -117,26 +118,40 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
             <div className="d-flex">
               <div className="navbar-brand-box horizontal-logo">
                 <Link
-                  to={token ? "/dashboard" : "/"}
-                  className="logo logo-dark"
+                  to="/"
+                  className="d-flex align-items-center gap-2 text-decoration-none flex-shrink-0"
+                  style={{ color: "var(--body)" }}
                 >
-                  <span className="logo-sm">
-                    <img src={logo} alt="" style={{ width: "100px" }} />
-                  </span>
-                  <span className="logo-lg">
-                    <img src={logo} alt="" style={{ width: "100px" }} />
-                  </span>
-                </Link>
+                  <div
+                    className="rounded-3 d-flex align-items-center justify-content-center"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
+                    }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path
+                        d="M3 13L7 9L10 12L15 5"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
 
-                <Link
-                  to={token ? "/dashboard" : "/"}
-                  className="logo logo-light"
-                >
-                  <span className="logo-sm">
-                    <img src={darklogo} alt="" style={{ width: "100px" }} />
-                  </span>
-                  <span className="logo-lg">
-                    <img src={darklogo} alt="" style={{ width: "100px" }} />
+                      <circle cx="15" cy="5" r="2" fill="#00C9A7" />
+                    </svg>
+                  </div>
+
+                  <span
+                    className="text-lg"
+                    style={{
+                      fontFamily: "'Nunito', sans-serif",
+                      fontWeight: 700,
+                      letterSpacing: "-0.02em",
+                    }}
+                  >
+                    {BRAND.name}
                   </span>
                 </Link>
               </div>

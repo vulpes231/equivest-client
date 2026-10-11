@@ -456,7 +456,7 @@ export default function Trading() {
           No minimums. Commission-free stocks and ETFs. Start in minutes.
         </p>
 
-        <Link to="/signup">
+        <Link to="/register">
           <Button>Open a Trading Account</Button>
         </Link>
       </section>

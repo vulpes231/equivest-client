@@ -669,7 +669,7 @@ export default function AutomatedInvesting() {
             handles the rest.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Start Auto Investing
           </Button>
         </div>

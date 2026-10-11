@@ -271,11 +271,16 @@ export default function Options() {
             </div>
 
             <div className="d-flex flex-wrap gap-3">
-              <Button href="/signup" size="lg">
+              <Button href="/register" size="lg">
                 Apply for Options Trading
               </Button>
 
-              <Button href="/learn" variant="outline" size="lg">
+              <Button
+                href="/learn"
+                className="border text-body"
+                variant="outline"
+                size="lg"
+              >
                 Options Education Center
               </Button>
             </div>
@@ -293,7 +298,7 @@ export default function Options() {
                       : "var(--border)",
                     background: row.highlight
                       ? "rgba(0,201,167,0.04)"
-                      : "var(--card)",
+                      : "var(--body)",
                   }}
                 >
                   <span
@@ -307,9 +312,7 @@ export default function Options() {
                     className="small fw-semibold text-end"
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
-                      color: row.highlight
-                        ? "var(--accent)"
-                        : "var(--foreground)",
+                      color: row.highlight ? "var(--accent)" : "var(--body)",
                     }}
                   >
                     {row.value}
@@ -332,7 +335,7 @@ export default function Options() {
           <div className="row g-4">
             {FEATURES.map((feature) => (
               <div className="col-12 col-md-6 col-lg-4" key={feature.title}>
-                <Card hover>
+                <div className="card h-100 border hover p-4 ">
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
                     style={{
@@ -356,7 +359,7 @@ export default function Options() {
                   >
                     {feature.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -383,11 +386,11 @@ export default function Options() {
             {APPROVAL_LEVELS.map((level) => (
               <div
                 key={level.level}
-                className="d-flex flex-column flex-sm-row align-items-sm-center gap-3 rounded border p-3 p-md-4"
-                style={{
-                  background: "var(--card)",
-                  borderColor: "var(--border)",
-                }}
+                className="d-flex flex-column flex-sm-row align-items-sm-center gap-3 rounded border p-3 p-md-4 card"
+                // style={{
+                //   background: "var(--card)",
+                //   borderColor: "var(--border)",
+                // }}
               >
                 <span
                   className="badge rounded-pill px-3 py-2 flex-shrink-0 align-self-start"
@@ -438,13 +441,7 @@ export default function Options() {
           <div className="row g-4">
             {STRATEGIES.map((strategy) => (
               <div className="col-12 col-md-6" key={strategy.name}>
-                <div
-                  className="h-100 rounded border p-3 p-md-4 d-flex flex-column gap-3"
-                  style={{
-                    background: "var(--card)",
-                    borderColor: "var(--border)",
-                  }}
-                >
+                <div className="h-100 rounded border p-3 p-md-4 d-flex flex-column gap-3 card">
                   <div className="d-flex align-items-start justify-content-between gap-3">
                     <div>
                       <h3 className="h5 fw-semibold mb-1">{strategy.name}</h3>
@@ -488,8 +485,8 @@ export default function Options() {
                   </p>
 
                   <div
-                    className="rounded p-3 mt-auto"
-                    style={{ background: "var(--muted)" }}
+                    className="rounded p-3 mt-auto card border "
+                    // style={{ background: "var(--body)" }}
                   >
                     <p
                       className="small mb-0"
@@ -559,7 +556,7 @@ export default function Options() {
             ticket charges.
           </p>
 
-          <Button href="/signup" size="lg">
+          <Button href="/register" size="lg">
             Apply for Options Trading
           </Button>
 

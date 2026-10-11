@@ -217,11 +217,16 @@ export default function ETFs() {
           </p>
 
           <div className="d-flex flex-wrap justify-content-center gap-3">
-            <Button href="/signup" size="lg">
+            <Button href="/register" size="lg">
               Start Investing in ETFs
             </Button>
 
-            <Button href="/automated-investing" variant="outline" size="lg">
+            <Button
+              href="/automated-investing"
+              variant="outline"
+              className="text-body border"
+              size="lg"
+            >
               Automated ETF Portfolios
             </Button>
           </div>
@@ -239,7 +244,7 @@ export default function ETFs() {
           <div className="row g-4">
             {BENEFITS.map((benefit) => (
               <div className="col-12 col-md-6 col-lg-4" key={benefit.title}>
-                <Card hover>
+                <div className="h-100 border p-4 card">
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
                     style={{
@@ -263,7 +268,7 @@ export default function ETFs() {
                   >
                     {benefit.desc}
                   </p>
-                </Card>
+                </div>
               </div>
             ))}
           </div>
@@ -293,11 +298,11 @@ export default function ETFs() {
             {CATEGORIES.map((category) => (
               <div className="col-12 col-sm-6 col-lg-3" key={category.name}>
                 <div
-                  className="h-100 rounded border p-4"
-                  style={{
-                    background: "var(--card)",
-                    borderColor: "var(--border)",
-                  }}
+                  className="h-100 rounded border card p-4"
+                  // style={{
+                  //   background: "var(--card)",
+                  //   borderColor: "var(--border)",
+                  // }}
                 >
                   <div
                     className="d-flex align-items-center justify-content-center rounded mb-3"
@@ -348,11 +353,11 @@ export default function ETFs() {
             Popular ETFs on Equivest
           </h2>
 
-          <Card padding="none">
+          <div className="h-100 p-4 card">
             <div className="table-responsive">
               <table className="table table-hover align-middle mb-0">
                 <thead>
-                  <tr style={{ borderBottom: "1px solid var(--border)" }}>
+                  <tr className="border">
                     {tableHeaders.map((header) => (
                       <th
                         key={header}
@@ -369,8 +374,9 @@ export default function ETFs() {
                 <tbody>
                   {TOP_ETFS.map((etf) => (
                     <tr
+                      className="border"
                       key={etf.ticker}
-                      style={{ borderColor: "var(--border)" }}
+                      // style={{ borderColor: "var(--border)" }}
                     >
                       <th
                         scope="row"
@@ -424,7 +430,7 @@ export default function ETFs() {
                 </tbody>
               </table>
             </div>
-          </Card>
+          </div>
 
           <p
             className="small mt-3 mb-0"
@@ -488,11 +494,16 @@ export default function ETFs() {
           </p>
 
           <div className="d-flex flex-wrap justify-content-center gap-3">
-            <Button href="/signup" size="lg">
+            <Button href="/register" size="lg">
               Get Started Free
             </Button>
 
-            <Button href="/automated-investing" variant="outline" size="lg">
+            <Button
+              href="/automated-investing"
+              className="text-body border"
+              variant="outline"
+              size="lg"
+            >
               Explore Automation
             </Button>
           </div>
