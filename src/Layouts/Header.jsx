@@ -115,7 +115,7 @@ const Header = ({ onChangeLayoutMode, layoutModeType, headerClass }) => {
       <header id="page-topbar" className={headerClass}>
         <div className="layout-width">
           <div className="navbar-header">
-            <div className="d-flex">
+            <div className="d-flex align-items-center">
               <div className="navbar-brand-box horizontal-logo">
                 <Link
                   to="/"
