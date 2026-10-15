@@ -390,7 +390,7 @@ const KYCVerification = ({ isKycVerification, setIsKycVerification }) => {
                   }}
                   disabled={mutation.isPending}
                   type="button"
-                  className="btn btn-primary btn-label right ms-auto d-flex align-items-center gap-1"
+                  className="btn bg-custom-gradient btn-label right ms-auto d-flex align-items-center gap-1 text-white border-0"
                 >
                   {mutation.isPending && <Spinner size={"sm"} />}
                   <>

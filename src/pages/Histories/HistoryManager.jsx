@@ -21,8 +21,8 @@ const HistoryManager = ({ activeHistoryTab, setActiveHistoryTab }) => {
               <button
                 className={`btn text-capitalize fs-13 ${
                   activeHistoryTab === btn.id
-                    ? "btn-secondary"
-                    : "bg-secondary-subtle text-secondary"
+                    ? "btn-primary"
+                    : "bg-primary-subtle text-primary"
                 }`}
                 key={btn.id}
                 type="button"
@@ -56,7 +56,9 @@ const HistoryManager = ({ activeHistoryTab, setActiveHistoryTab }) => {
           <Col md={5} />
           <Col className="d-flex align-items-center gap-2 mt-2 mt-md-0" md={3}>
             <Input type="text" placeholder="Search for transactions..." />
-            <button className="btn btn-secondary">filter</button>
+            <button className="btn bg-custom-gradient text-white border-0">
+              filter
+            </button>
           </Col>
         </Row>
       </Col>

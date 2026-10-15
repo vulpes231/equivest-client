@@ -45,6 +45,19 @@
   color: var(--bs-body-color);
 }
 
+.bg-custom-gradient {
+  background: linear-gradient(135deg, #1A3A6B, #00C9A7);
+}
+
+.intro-text {
+  max-width: 850px;
+}
+
+@media (min-width: 992px) {
+  .intro-text {
+    max-width: 850px;
+  }
+}
 
 
 /* @import 'tailwindcss'; */

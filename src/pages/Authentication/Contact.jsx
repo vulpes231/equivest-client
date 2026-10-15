@@ -111,7 +111,7 @@ const Contact = () => {
                     <span
                       style={{
                         border: location.pathname.includes("/contact")
-                          ? "1px solid #5162BE"
+                          ? "1px solid #00C9A7"
                           : "1px solid #E9EBEC",
                         borderRadius: "50%",
                       }}
@@ -121,7 +121,7 @@ const Contact = () => {
                         size={20}
                         style={{
                           color: location.pathname.includes("/contact")
-                            ? "#5162BE"
+                            ? "#00C9A7"
                             : "#E9EBEC",
                         }}
                       />
@@ -374,7 +374,7 @@ const Contact = () => {
                     </div>
 
                     <div className="mt-4 d-flex justify-content-end">
-                      <button className="btn btn-secondary" type="submit">
+                      <button className="btn btn-primary" type="submit">
                         Next
                       </button>
                     </div>

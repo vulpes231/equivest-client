@@ -60,9 +60,9 @@ const SavingsAccounts = ({ analytics, accts, cashAcct }) => {
             <div className="d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center gap-3">
                 <span
-                  className="p-1 d-flex align-items-center justify-content-center"
+                  className="p-1 d-flex align-items-center justify-content-center bg-primary"
                   style={{
-                    backgroundColor: "#5156be",
+                    // backgroundColor: "#5156be",
                     borderRadius: "50%",
                     width: "30px",
                     height: "30px",

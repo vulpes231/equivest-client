@@ -228,7 +228,7 @@ const Login = (props) => {
                           error ? null : mutation.isPending ? true : false
                         }
                         // color="secondary"
-                        className="btn btn-secondary w-100"
+                        className="btn bg-custom-gradient w-100"
                         type="submit"
                       >
                         {mutation.isPending ? (

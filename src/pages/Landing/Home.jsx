@@ -112,11 +112,8 @@ const ALLOCATION_DATA = [
 
 const STATS = [
   { value: "340K+", label: "Active Investors", icon: <IconUsers /> },
-
   { value: "$3.4B+", label: "Assets on Platform", icon: <IconDollarSign /> },
-
   { value: "120M+", label: "Trades Executed", icon: <IconZap /> },
-
   { value: "99.97%", label: "Platform Uptime", icon: <IconShieldCheck /> },
 ];
 
@@ -189,8 +186,8 @@ const portfolioData = generatePortfolioData(12);
 function HeroDashboardMockup() {
   return (
     <div className="position-relative">
-      <div className="d-none d-lg-d-block">
-        <div className="theme-card rounded border theme-border shadow-lg shadow-soft overflow-hidden">
+      <div className="d-none d-lg-block card">
+        <div className=" rounded border shadow-lg shadow-soft overflow-hidden ">
           <div className="d-flex align-items-center gap-2 px-3 py-3 border-bottom theme-border theme-muted-bg">
             <div className="w-2.5 home-h-2.5 rounded-pill bg-danger" />
 
@@ -201,8 +198,8 @@ function HeroDashboardMockup() {
             <div className="ml-4 d-flex-fill theme-border-bg rounded h-4 max-w-xs" />
           </div>
 
-          <div className="p-3 row home-grid home-grid-3 gap-3">
-            <div className="col-lg-8 d-flex flex-column gap-3">
+          <div className="p-3 row row-cols-4 gx-3">
+            <div className="col-md-8 d-flex flex-column gap-3">
               <div className="d-flex align-items-start justify-content-between">
                 <div>
                   <p className="home-text-10 theme-muted text-uppercase text-uppercase fw-medium">
@@ -228,14 +225,14 @@ function HeroDashboardMockup() {
                   {["1D", "1W", "1M", "1Y"].map((p) => (
                     <span
                       key={p}
-                      className="home-text-9 px-1.5 py-0.5 rounded theme-muted-bg theme-muted"
+                      className="home-text-9 px-1 py-1 rounded theme-muted-bg theme-muted"
                     >
                       {p}
                     </span>
                   ))}
 
                   <span
-                    className="home-text-9 px-1.5 py-0.5 rounded text-white"
+                    className="home-text-9 px-1 py-1 rounded text-white"
                     style={{
                       background: "linear-gradient(135deg,#1A3A6B,#00C9A7)",
                     }}
@@ -276,7 +273,7 @@ function HeroDashboardMockup() {
                 </ResponsiveContainer>
               </div>
 
-              <div className="d-flex flex-column gap-1.5">
+              <div className="d-flex flex-column gap-2">
                 {STOCKS.slice(0, 4).map((s) => (
                   <div
                     key={s.symbol}
@@ -287,13 +284,11 @@ function HeroDashboardMockup() {
                         {s.symbol[0]}
                       </div>
 
-                      <span className="fw-medium theme-foreground">
-                        {s.symbol}
-                      </span>
+                      <span className="fw-medium theme-body">{s.symbol}</span>
                     </div>
 
                     <div className="d-flex align-items-center gap-3">
-                      <span className="font-mono theme-foreground">
+                      <span className="font-mono theme-body">
                         ${s.price.toFixed(2)}
                       </span>
 
@@ -309,7 +304,7 @@ function HeroDashboardMockup() {
               </div>
             </div>
 
-            <div className="d-flex flex-column gap-3">
+            <div className="d-flex flex-column gap-3 col-md-4">
               <div className="text-center">
                 <p className="home-text-9 theme-muted text-uppercase text-uppercase mb-2 fw-medium">
                   Allocation
@@ -362,27 +357,30 @@ function HeroDashboardMockup() {
               <div className="border theme-border rounded p-2 d-flex flex-column gap-2">
                 <div className="d-flex gap-1">
                   <button
-                    className="d-flex-fill py-1 home-text-9 fw-semibold rounded text-white"
+                    className="d-flex btn py-1 home-text-9 fw-semibold rounded text-white"
                     style={{ background: "#10B981" }}
                   >
                     Buy
                   </button>
 
-                  <button className="d-flex-fill py-1 home-text-9 fw-semibold rounded theme-muted-bg theme-muted">
+                  <button className="d-flex btn py-1 home-text-9 fw-semibold rounded theme-muted-bg theme-muted">
                     Sell
                   </button>
                 </div>
 
-                <div className="d-flex flex-column gap-1.5">
+                <div className="d-flex flex-column gap-2">
                   {[
                     ["Symbol", "AAPL"],
                     ["Quantity", "10 shares"],
                     ["Est. Total", "$2,124.50"],
                   ].map(([lbl, val]) => (
-                    <div key={lbl} className="theme-muted-bg rounded px-2 py-2">
-                      <p className="home-text-8 theme-muted">{lbl}</p>
+                    <div
+                      key={lbl}
+                      className="theme-muted-bg rounded px-2 py-2 d-flex flex-column"
+                    >
+                      <span className="home-text-8 theme-muted">{lbl}</span>
 
-                      <p className="home-text-10 fw-semibold">{val}</p>
+                      <span className="home-text-10 fw-semibold">{val}</span>
                     </div>
                   ))}
                 </div>
@@ -403,9 +401,12 @@ function HeroDashboardMockup() {
 
       {/* Mobile phone overlay */}
 
-      <div className="position-absolute -bottom-8 -right-8 home-w-36 d-none d-lg-d-block">
-        <div className="theme-foreground-bg rounded p-2 shadow-lg">
-          <div className="theme-card rounded overflow-hidden home-h-56 p-2 d-flex flex-column gap-2">
+      <div
+        style={{ position: "absolute", bottom: "-10px", right: "-25px" }}
+        className="position-absolute home-w-36 d-none d-lg-block"
+      >
+        <div className="theme-foreground-bg rounded p-2 shadow-md">
+          <div className="card rounded overflow-hidden home-h-56 p-2 d-flex flex-column gap-2">
             <div className="d-flex align-items-center justify-content-between">
               <div className="home-text-8 fw-bold">{BRAND.name}</div>
 
@@ -504,15 +505,15 @@ function TradingMockup() {
         </div>
       </div>
 
-      <div className="row home-grid home-grid-3 gap-0 border-start theme-divide">
-        <div className="col-lg-8 p-3">
-          <div className="home-h-48" style={{ minHeight: 192 }}>
-            <ResponsiveContainer width="100%" height={192}>
+      <div className="row g-0 border-start theme-divide">
+        {/* Chart section */}
+        <div className="col-12 col-lg-8 p-3">
+          <div style={{ width: "100%", height: 192 }}>
+            <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={sparkData}>
                 <defs>
                   <linearGradient id="tradingGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#10B981" stopOpacity={0.15} />
-
                     <stop offset="95%" stopColor="#10B981" stopOpacity={0} />
                   </linearGradient>
                 </defs>
@@ -529,11 +530,11 @@ function TradingMockup() {
             </ResponsiveContainer>
           </div>
 
-          <div className="d-flex gap-3 mt-2">
+          <div className="d-flex flex-wrap gap-2 gap-md-3 mt-3">
             {["MA(20)", "RSI", "MACD", "BB"].map((ind) => (
               <span
                 key={ind}
-                className="home-text-10 px-2 py-0.5 rounded theme-secondary theme-primary fw-medium"
+                className="home-text-10 px-2 py-1 rounded theme-secondary theme-primary fw-medium"
               >
                 {ind}
               </span>
@@ -541,36 +542,38 @@ function TradingMockup() {
           </div>
         </div>
 
-        <div className="p-3 d-flex flex-column gap-3">
-          <div className="d-flex gap-1">
-            <button className="d-flex-fill py-2 small fw-semibold rounded text-white theme-gain-bg">
+        {/* Order panel */}
+        <div className="col-12 col-lg-4 p-3 d-flex flex-column gap-3 border-start theme-divide">
+          <div className="d-flex gap-2">
+            <button className="btn flex-fill py-2 fw-semibold rounded text-white theme-gain-bg">
               Buy
             </button>
 
-            <button className="d-flex-fill py-2 small fw-semibold rounded theme-muted-bg theme-muted">
+            <button className="btn flex-fill py-2 fw-semibold rounded theme-muted-bg theme-muted">
               Sell
             </button>
           </div>
 
-          <div className="d-flex flex-column gap-2">
+          <div className="row g-2">
             {[
               ["Order Type", "Market"],
               ["Quantity", "25 shares"],
               ["Price", "$212.45"],
               ["Est. Value", "$5,311.25"],
             ].map(([label, value]) => (
-              <div key={label} className="card border rounded px-3 py-2">
-                <p className="home-text-10 theme-muted">{label}</p>
+              <div className="col-6 col-md-12" key={label}>
+                <div className="h-100 border rounded p-3 d-flex flex-column gap-1 bg-light">
+                  <span className="home-text-10 theme-muted">{label}</span>
 
-                <p className="small fw-semibold font-mono mt-1">{value}</p>
+                  <span className="small fw-semibold font-mono text-break">
+                    {value}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
 
-          <button
-            className="w-100 py-2 small fw-bold rounded text-white"
-            style={{ background: "linear-gradient(135deg,#10B981,#059669)" }}
-          >
+          <button className="w-100 py-2 fw-bold rounded text-white btn bg-primary border-0">
             Place Buy Order
           </button>
         </div>
@@ -595,11 +598,14 @@ export default function Home() {
           />
         </div>
 
-        <div className="container mx-auto px-3 px-4 px-4 py-5 w-100">
-          <div className="row home-grid home-grid-2 gap-4 gap-4 align-items-center">
+        <div className="container mx-auto px-3 px-4 px-4 py-5 w-100 col-md-6">
+          <div className="row row-cols-md-2 gx-4">
             <div className="animate-fade-up">
-              <div className="d-inline-d-flex align-items-center gap-2 px-3 py-2 rounded-pill border small fw-medium theme-accent mb-4">
-                <span className="w-1.5 h-1.5 rounded-pill theme-accent-bg animate-pulse" />
+              <div className="d-flex align-items-center gap-2 px-3 py-2 rounded-pill border small fw-medium theme-accent mb-4">
+                <div
+                  style={{ width: "8px", height: "8px" }}
+                  className="rounded-circle bg-primary animate-pulse"
+                />
                 Live Markets · Real-Time Data · 2026
               </div>
 
@@ -688,7 +694,7 @@ export default function Home() {
             </div>
 
             <div
-              className="position-relative animate-fade-up"
+              className="position-relative animate-fade-up col-md-6"
               style={{ animationDelay: "0.2s" }}
             >
               <HeroDashboardMockup />
@@ -726,13 +732,13 @@ export default function Home() {
 
       {/* ── Stats bar ─────────────────────────────────────────────────────── */}
 
-      <section className="card border">
+      <section className="card border bg-light">
         <div className="container mx-auto px-3 px-4 px-4">
-          <div className="row home-grid home-grid-2 home-grid-4-lg border-start theme-divide">
+          <div className="row row-cols-2 row-cols-lg-4 theme-divide">
             {STATS.map((stat) => (
               <div
                 key={stat.label}
-                className="px-4 py-4 text-center d-flex d-flex-column align-items-center gap-2"
+                className="px-4 py-4 text-center d-flex flex-column align-items-center gap-1 border-start"
               >
                 <div
                   className="home-icon-9 rounded d-flex align-items-center justify-content-center theme-accent"
@@ -741,14 +747,16 @@ export default function Home() {
                   {stat.icon}
                 </div>
 
-                <p
+                <span
                   className="fs-3 fw-bold lh-1"
                   style={{ fontFamily: "'Nunito',sans-serif", fontWeight: 700 }}
                 >
                   {stat.value}
-                </p>
+                </span>
 
-                <p className="small theme-muted fw-medium">{stat.label}</p>
+                <span className="small theme-muted fw-medium lh-1">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
@@ -769,8 +777,7 @@ export default function Home() {
           >
             A Complete Investment Platform
           </h2>
-
-          <p className="theme-muted container mx-auto lh-lg">
+          <p className="theme-muted container mx-auto lh-lg intro-text">
             Equivest brings together everything a modern investor needs —
             real-time trading, automated portfolios, retirement accounts, and
             market research — in a single platform built for both beginners and
@@ -779,7 +786,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
           {FEATURE_CARDS.map((f) => (
             <Link key={f.title} to={f.href} className="">
               <div className="card border rounded p-4 home-hover home-card-hover transition h-100">
@@ -790,7 +797,7 @@ export default function Home() {
                   {f.icon}
                 </div>
 
-                <h3 className="fw-semibold text-body mb-2">{f.title}</h3>
+                <h3 className="fw-semibold text-body mb-2 fs-15">{f.title}</h3>
 
                 <p className="small theme-muted lh-lg">{f.desc}</p>
               </div>
@@ -837,7 +844,7 @@ export default function Home() {
               </Button>
             </div>
 
-            <div style={{ width: "100%" }} className="row row-cols-2 gx-2 gy-2">
+            <div style={{ width: "100%" }} className="row row-cols-2 gx-3 gy-3">
               {WHY_US.map((item) => (
                 <div key={item.title} className="col">
                   <div className="p-3 rounded border card transition h-100">
@@ -850,7 +857,9 @@ export default function Home() {
 
                     <h3 className="fw-semibold small mb-2">{item.title}</h3>
 
-                    <p className="small theme-muted lh-lg mb-0">{item.desc}</p>
+                    <p className="small theme-muted fs-11 lh-lg mb-0">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -1585,7 +1594,7 @@ export default function Home() {
             <div className="d-flex flex-wrap align-items-center justify-content-center gap-3">
               <Link
                 to="/register"
-                className="px-4 py-3 rounded fw-semibold text-dark  transition "
+                className="px-4 py-3 rounded fw-semibold text-dark transition "
                 style={{ background: "#00C9A7" }}
               >
                 Create Free Account

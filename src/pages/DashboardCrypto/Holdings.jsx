@@ -57,6 +57,7 @@ const Holdings = ({ currency }) => {
   const handleChange = (acct) => {
     setFilter(acct);
   };
+  const sign = sessionStorage.getItem("currencySign") ?? null;
 
   return (
     <React.Fragment>
@@ -143,7 +144,7 @@ const Holdings = ({ currency }) => {
                     </Col>
                     <Col className="d-flex flex-column align-items-end">
                       <h6 className="fs-15 text-nowrap">
-                        {currency?.sign}
+                        {sign}
                         {numeral(trade.currentValue).format("0,0.00")}
                       </h6>
                       <div
@@ -155,7 +156,7 @@ const Holdings = ({ currency }) => {
                       >
                         <span className="text-nowrap">
                           {safeValue < 0 ? "-" : ""}
-                          {currency?.sign}
+                          {sign}
                           {numeral(Math.abs(safeValue)).format("0,0.00")}
                         </span>
                         <span>
@@ -169,8 +170,8 @@ const Holdings = ({ currency }) => {
                 );
               })}
           </Col>
-          <button className="btn w-100 btn-success mt-3">
-            {currency?.sign}
+          <button className="btn w-100 bg-custom-gradient mt-3 text-white border-0">
+            {sign}
             {numeral(overall).format("0,0.00")}
           </button>
         </CardBody>

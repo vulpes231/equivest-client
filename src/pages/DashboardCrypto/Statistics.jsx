@@ -166,7 +166,7 @@ const Statistics = ({
           x: item.x,
           y: item.y,
         })),
-        color: "#5162be",
+        color: "#10B981",
       },
     ],
     [filteredData],
@@ -227,14 +227,14 @@ const Statistics = ({
           opacityTo: 0.05,
           stops: [0, 90],
         },
-        colors: ["#5162be"],
+        colors: ["#10B981"],
       },
 
       stroke: {
         curve: "smooth",
         width: 2,
         lineCap: "round",
-        colors: ["#5162be"],
+        colors: ["#10B981"],
       },
 
       grid: {

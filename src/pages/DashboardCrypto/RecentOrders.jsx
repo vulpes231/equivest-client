@@ -10,7 +10,7 @@ import { FaArrowTrendDown, FaArrowTrendUp } from "react-icons/fa6";
 const RecentOrders = ({ trades, currency }) => {
   const filteredTrades = trades && trades.length && trades.slice(0, 5);
 
-  // console.log(trades);
+  const sign = sessionStorage.getItem("currencySign") ?? null;
   return (
     <React.Fragment>
       <Col>
@@ -103,7 +103,7 @@ const RecentOrders = ({ trades, currency }) => {
                       </div>
                       <div className="flex-shrink-0 text-end">
                         <p className={`fs-15 fw-medium mb-0  `}>
-                          {currency?.sign}
+                          {sign}
                           {trade.execution.amount
                             ? numeral(trade.execution.amount).format("0,0.00")
                             : numeral(0).format("0,0.00")}
@@ -114,7 +114,7 @@ const RecentOrders = ({ trades, currency }) => {
                           } d-flex align-items-center gap-1`}
                         >
                           {safeValue < 0 ? "-" : ""}
-                          {currency?.sign}
+                          {sign}
                           {numeral(Math.abs(safeValue)).format("0,0.00")}
                         </span>
                       </div>

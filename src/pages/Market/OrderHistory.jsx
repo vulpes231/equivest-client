@@ -207,7 +207,7 @@ const OrderHistory = ({ currency }) => {
                 <button
                   type="button"
                   onClick={() => setShowFilter(!showFilter)}
-                  className="btn btn-secondary"
+                  className="btn text-white bg-custom-gradient border-0"
                 >
                   Filter
                 </button>
@@ -251,8 +251,8 @@ const OrderHistory = ({ currency }) => {
                   onClick={() => setActiveOrderTab("trades")}
                   className={`btn text-capitalize ${
                     activeOrderTab === "trades"
-                      ? "btn-secondary"
-                      : "bg-secondary-subtle text-secondary"
+                      ? "btn-primary"
+                      : "bg-primary-subtle text-primary"
                   }`}
                 >
                   trade orders
@@ -261,8 +261,8 @@ const OrderHistory = ({ currency }) => {
                   onClick={() => setActiveOrderTab("dividends")}
                   className={`btn text-capitalize ${
                     activeOrderTab === "dividends"
-                      ? "btn-secondary"
-                      : "bg-secondary-subtle text-secondary"
+                      ? "btn-primary"
+                      : "bg-primary-subtle text-primary"
                   }`}
                 >
                   dividends

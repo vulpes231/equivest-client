@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BRAND } from "./data/config";
 
+import { MdClose, MdMenu } from "react-icons/md";
+
 import {
   IconBarChart,
   IconZap,
@@ -522,35 +524,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
               onClick={() => setMenuOpen(!menuOpen)}
               className="btn border-0 d-lg-none d-flex align-items-center justify-content-center rounded"
               style={{
-                width: "36px",
-                height: "36px",
+                // width: "36px",
+                // height: "36px",
                 color: "var(--muted-foreground)",
               }}
               aria-label="Toggle navigation menu"
             >
-              {menuOpen ? (
-                <svg
-                  width="18"
-                  height="18"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg
-                  width="18"
-                  height="18"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              {!menuOpen ? <MdMenu size={20} /> : <MdClose size={20} />}
             </button>
           </div>
         </div>

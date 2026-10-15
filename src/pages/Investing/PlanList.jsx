@@ -22,7 +22,7 @@ const PlanList = ({ currency }) => {
               <button
                 type="button"
                 onClick={() => setShowFilter(!showFilter)}
-                className="btn btn-primary m-3"
+                className="btn bg-custom-gradient text-white border-0 m-3"
                 style={{ width: "100px" }}
               >
                 Filter

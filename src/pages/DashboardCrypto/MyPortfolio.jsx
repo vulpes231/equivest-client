@@ -26,6 +26,7 @@ const MyPortfolio = ({
   networth,
   user,
 }) => {
+  const sign = sessionStorage.getItem("currencySign") ?? null;
   const [selectedWallet, setSelectedWallet] = useState("All");
 
   const onWalletChange = (wallet) => {
@@ -193,11 +194,11 @@ const MyPortfolio = ({
                         </div>
                         <div className="flex-shrink-0 text-end">
                           <h6 className="mb-1 text-nowrap">
-                            {user?.currency?.sign}
+                            {sign}
                             {numeral(totalAccountBalance).format("0,0.00")}
                           </h6>
                           <p className="text-success fs-13 mb-0 text-nowrap">
-                            {user?.currency?.sign}{" "}
+                            {sign}{" "}
                             {wallet.slug === "auto"
                               ? numeral(
                                   wallet.balance.available - planTotal,

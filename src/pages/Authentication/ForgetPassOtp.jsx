@@ -161,7 +161,7 @@ const ForgetPassOtp = ({ handleStep }) => {
         <button
           disabled={disableResend || resendPasswordResetCode.isPending}
           onClick={handleCodeResend}
-          className="btn text-secondary"
+          className="btn text-primary"
           style={{
             background: "transparent",
             border: "none",

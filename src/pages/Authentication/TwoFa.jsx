@@ -174,7 +174,7 @@ const TwoFa = () => {
 
                     <button
                       type="submit"
-                      className="w-100 mt-3 btn btn-secondary"
+                      className="w-100 mt-3 btn bg-custom-gradient text-white border-0"
                       disabled={verifyTwoFaMutation.isPending}
                     >
                       {verifyTwoFaMutation.isPending && <Spinner size="sm" />}{" "}

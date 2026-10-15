@@ -10,16 +10,16 @@ import {
 import { capitalize } from "lodash";
 import numeral from "numeral";
 
+const sign = sessionStorage.getItem("currencySign") ?? null;
+
 const formatCurrency = (currency, value) => {
   const numericValue = Number(value) || 0;
 
   if (numericValue < 0) {
-    return `-${currency?.sign || ""}${numeral(Math.abs(numericValue)).format(
-      "0,0.00",
-    )}`;
+    return `-${sign || ""}${numeral(Math.abs(numericValue)).format("0,0.00")}`;
   }
 
-  return `${currency?.sign || ""}${numeral(numericValue).format("0,0.00")}`;
+  return `${sign || ""}${numeral(numericValue).format("0,0.00")}`;
 };
 
 const PortfolioCharts = ({
@@ -113,7 +113,7 @@ const PortfolioCharts = ({
                   return formatCurrency(currency, 0);
                 }
                 if (selectedWallet === "All") {
-                  return "$" + val;
+                  return currency?.sign + val;
                 }
                 return formatCurrency(currency, getTotalBalance());
               },

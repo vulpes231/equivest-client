@@ -238,7 +238,7 @@ const AllTransactions = ({ currency }) => {
               <button
                 type="button"
                 onClick={() => setShowFilter(!showFilter)}
-                className="btn btn-secondary"
+                className="btn bg-custom-gradient text-white border-0"
               >
                 <i className="ri-equalizer-line align-bottom me-1"></i>
                 Filters
@@ -272,8 +272,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("deposit")}
                   className={`btn text-capitalize ${
                     filter === "deposit"
-                      ? "btn-secondary"
-                      : "bg-secondary-subtle text-secondary"
+                      ? "btn-primary"
+                      : "bg-primary-subtle text-primary"
                   }`}
                 >
                   Deposit
@@ -283,8 +283,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("withdraw")}
                   className={`btn text-capitalize ${
                     filter === "withdraw"
-                      ? "btn-secondary"
-                      : "bg-secondary-subtle text-secondary"
+                      ? "btn-primary"
+                      : "bg-primary-subtle text-primary"
                   }`}
                 >
                   Withdrawals
@@ -294,8 +294,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("transfer")}
                   className={`btn text-capitalize ${
                     filter === "transfer"
-                      ? "btn-secondary"
-                      : "bg-secondary-subtle text-secondary"
+                      ? "btn-primary"
+                      : "bg-primary-subtle text-primary"
                   }`}
                 >
                   Transfers
@@ -305,8 +305,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("all")}
                   className={`btn text-capitalize ${
                     filter === "all"
-                      ? "btn-secondary"
-                      : "bg-secondary-subtle text-secondary"
+                      ? "btn-primary"
+                      : "bg-primary-subtle text-primary"
                   }`}
                 >
                   Transactions

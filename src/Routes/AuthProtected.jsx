@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { setAuthorization } from "../helpers/apiHelper";
 import { useProfile } from "../hooks/userHooks";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { logoutUser } from "../services/auth/logout";
+import { getUserInfo } from "../services/user/user";
 
 const publicRoutes = ["/login", "/twofactor"];
 
@@ -28,7 +29,20 @@ const AuthProtected = ({ children }) => {
 
   const isSuperUser = userLoginType === "superuser";
 
-  // console.log(userLoginType);
+  const { data: user } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUserInfo,
+    enabled: !!token,
+  });
+
+  console.log(user);
+  // console.log(user.currency);
+
+  useEffect(() => {
+    const currencySign = user?.currency?.sign || "$";
+
+    sessionStorage.setItem("currencySign", currencySign);
+  }, [user]);
 
   const kycStatus = userProfile?.identityVerification?.kycStatus;
   const isProfileComplete = userProfile?.accountStatus?.isProfileComplete;

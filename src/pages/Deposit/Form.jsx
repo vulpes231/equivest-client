@@ -203,7 +203,7 @@ const Form = ({
                       justifyContent: "space-between",
                       border:
                         selectedMethod === method.id
-                          ? "3px solid #5b71b9"
+                          ? "3px solid #10B981"
                           : "none",
 
                       borderRadius: "5px",
@@ -214,7 +214,7 @@ const Form = ({
                     onClick={() => {
                       setSelectedMethod(method.id);
                     }}
-                    className={`p-3 mb-2 ${selectedMethod === method.id ? "bg-secondary-subtle" : ""}`}
+                    className={`p-3 mb-2 ${selectedMethod === method.id ? "bg-primary-subtle" : ""}`}
                   >
                     <FlexRow>
                       <span

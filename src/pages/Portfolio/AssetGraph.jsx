@@ -9,6 +9,9 @@ const AssetGraph = ({ count, walletAnalytics, walletData, currency }) => {
   const totalInv = walletData ? walletData["default"]?.totalInvested : 0;
 
   // console.log(walletAnalytics);
+
+  const sign = sessionStorage.getItem("currencySign") ?? null;
+
   return (
     <Card>
       <CardBody className="px-4">
@@ -21,7 +24,7 @@ const AssetGraph = ({ count, walletAnalytics, walletData, currency }) => {
               total asset owned ({count || 0})
             </span>
             <h4 className="fs-28 fw-semibold">
-              {currency?.sign}
+              {sign}
               {walletData
                 ? numeral(totalInv).format("0,0.00")
                 : numeral(0).format("0,0.00")}

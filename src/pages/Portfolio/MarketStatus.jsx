@@ -299,7 +299,7 @@ const MarketStatus = ({ activeWallet, trades, accounts }) => {
           <div className="flex-shrink-0">
             <Input
               type="select"
-              className="bg-secondary-subtle border-0 text-secondary outline-none"
+              className="bg-primary-subtle border-0 text-primary outline-none"
               onChange={handleAccountChange}
               value={currentAccount}
             >

@@ -372,7 +372,7 @@ const Register = () => {
 
                       <div className="mt-4">
                         <button
-                          className="btn btn-secondary w-100"
+                          className="btn btn-secondary bg-custom-gradient w-100"
                           type="submit"
                           disabled={mutation.isPending || !turnstileToken}
                         >

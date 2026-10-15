@@ -164,7 +164,7 @@ const ChangePass = ({ handleStep }) => {
 
               <div className="text-center mt-4">
                 <button
-                  className="btn btn-secondary w-100 d-flex align-items-center gap-2 justify-content-center"
+                  className="btn btn-primary w-100 d-flex align-items-center gap-2 justify-content-center"
                   type="submit"
                   disabled={changePassWord.isPending}
                 >

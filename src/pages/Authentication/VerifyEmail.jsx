@@ -185,7 +185,7 @@ const VerifyEmail = () => {
                     border: "none",
                     textDecoration: "underline",
                   }}
-                  className="text-secondary"
+                  className="text-primary"
                 >
                   {resendMutation.isPending ? "Sending..." : "Resend"}
                 </button>

@@ -603,7 +603,7 @@ const BuyForm = ({ tradeType, wallets, activeTab, currency }) => {
           <button
             onClick={() => validation.handleSubmit()}
             type="button"
-            className={`btn w-100 btn-success d-flex align-items-center justify-content-center gap-2`}
+            className={`btn w-100 border-0 text-white bg-custom-gradient d-flex align-items-center justify-content-center gap-2`}
             disabled={mutation.isPending}
           >
             <span>

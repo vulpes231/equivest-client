@@ -113,7 +113,7 @@ const Personal = () => {
                     <span
                       style={{
                         border: location.pathname.includes("/personal")
-                          ? "1px solid #5162BE"
+                          ? "1px solid #00C9A7"
                           : "1px solid #E9EBEC",
                         borderRadius: "50%",
                       }}
@@ -123,7 +123,7 @@ const Personal = () => {
                         size={20}
                         style={{
                           color: location.pathname.includes("/personal")
-                            ? "#5162BE"
+                            ? "#00C9A7"
                             : "#E9EBEC",
                         }}
                       />
@@ -132,7 +132,7 @@ const Personal = () => {
                       style={{
                         height: "1px",
                         backgroundColor: location.pathname.includes("/personal")
-                          ? "#5162BE"
+                          ? "#00C9A7"
                           : "#E9EBEC",
                         width: "250px",
                       }}
@@ -140,7 +140,7 @@ const Personal = () => {
                     <span
                       style={{
                         border: location.pathname.includes("/personal")
-                          ? "1px solid #5162BE"
+                          ? "1px solid #00C9A7"
                           : "1px solid #E9EBEC",
                         borderRadius: "50%",
                       }}
@@ -150,7 +150,7 @@ const Personal = () => {
                         size={20}
                         style={{
                           color: location.pathname.includes("/personal")
-                            ? "#5162BE"
+                            ? "#00C9A7"
                             : "#E9EBEC",
                         }}
                       />
@@ -416,7 +416,7 @@ const Personal = () => {
                           error ? null : mutation.isPending ? true : false
                         }
                         color="primary"
-                        className="btn btn-secondary"
+                        className="btn btn-primary"
                         type="submit"
                       >
                         {mutation.isPending ? (

@@ -168,7 +168,10 @@ const Accounts = ({ analytics }) => {
             </span>
           </div>
           <div>
-            <Link to={"/open-account"} className="btn btn-primary">
+            <Link
+              to={"/open-account"}
+              className="btn bg-custom-gradient text-white border-0"
+            >
               Open an Account
             </Link>
           </div>

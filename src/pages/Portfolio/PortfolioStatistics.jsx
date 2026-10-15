@@ -176,7 +176,7 @@ const PortfolioStatistics = ({
           x: item.x,
           y: item.y,
         })),
-        color: "#5162be",
+        color: "#10B981",
       },
     ],
     [filteredData],
@@ -237,13 +237,13 @@ const PortfolioStatistics = ({
           opacityTo: 0.05,
           stops: [0, 90],
         },
-        colors: ["#5162be"],
+        colors: ["#10B981"],
       },
 
       stroke: {
         curve: "stepline",
         width: 3,
-        colors: ["#5162be"],
+        colors: ["#10B981"],
       },
 
       grid: {

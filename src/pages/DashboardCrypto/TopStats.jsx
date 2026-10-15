@@ -8,6 +8,8 @@ import { IoMdArrowDropup, IoMdArrowDropdown } from "react-icons/io";
 import numeral from "numeral";
 
 const TopStats = ({ walletAnalytics, networth, currency }) => {
+  const sign = sessionStorage.getItem("currencySign") ?? null;
+
   return (
     <Row className="p-3">
       <Col md={3}>
@@ -22,7 +24,7 @@ const TopStats = ({ walletAnalytics, networth, currency }) => {
         <div className="d-flex align-items-center justify-content-between gap-2">
           <span className="fs-24 fw-semibold">
             {" "}
-            {`${currency?.sign}${numeral(networth).format("0,0.00")}`}
+            {`${sign}${numeral(networth).format("0,0.00")}`}
           </span>
           <span
             className={`px-3 py-1  fs-10 fw-light rounded-1 d-flex gap-1 ${
