@@ -122,7 +122,7 @@ const Register = () => {
                       <h3 className="fw-bold">Create Account</h3>
                     </div>
                     <div className="d-flex flex-column align-items-center justify-content-center">
-                      <h5 className="text-primary">Get Started</h5>
+                      <h5 className="text-secondary">Get Started</h5>
                       <p className="text-muted">Create a new account</p>
                     </div>
                   </div>
@@ -363,7 +363,7 @@ const Register = () => {
                           By registering you agree to the Itrust
                           <Link
                             to="/terms-and-conditions"
-                            className="text-primary text-decoration-underline fst-normal fw-medium"
+                            className="text-secondary text-decoration-underline fst-normal fw-medium"
                           >
                             Terms of Use
                           </Link>
@@ -390,7 +390,7 @@ const Register = () => {
                   Already have an account?{" "}
                   <Link
                     to="/login"
-                    className="fw-semibold text-primary text-decoration-underline"
+                    className="fw-semibold text-secondary text-decoration-underline"
                   >
                     {" "}
                     Signin{" "}

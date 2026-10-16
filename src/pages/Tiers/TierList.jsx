@@ -55,6 +55,8 @@ const TierList = ({ currency }) => {
     enabled: !!token,
   });
 
+  // console.log(tiers);
+
   const {
     data: trxAnalytics,
     isLoading: getAnalyticsLoading,
@@ -366,7 +368,11 @@ const TierList = ({ currency }) => {
       )}
 
       {/* Error */}
-      {error && <ErrorToast errorMsg={error} onClose={() => setError("")} />}
+      {error &&
+        error !==
+          "You've not met the required deposit of your account tier." && (
+          <ErrorToast errorMsg={error} onClose={() => setError("")} />
+        )}
     </React.Fragment>
   );
 };

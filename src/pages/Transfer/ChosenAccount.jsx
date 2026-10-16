@@ -22,9 +22,9 @@ const ChoseAccount = ({
       {chosenAccount.map((wallet) => {
         return (
           <div
-            className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1 ${
+            className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border ${
               selectedAccount._id === wallet._id
-                ? "bg-primary-subtle border-secondary"
+                ? "bg-secondary-subtle border-secondary"
                 : ""
             }`}
             key={wallet._id}
@@ -84,7 +84,7 @@ const ChoseAccount = ({
               style={{
                 border:
                   selectedAccount._id === wallet._id
-                    ? "3px solid #5156be"
+                    ? "3px solid #00c9a7"
                     : "3px solid #505050",
                 borderRadius: "50%",
                 width: "16px",
@@ -96,7 +96,7 @@ const ChoseAccount = ({
                 style={{
                   display: selectedAccount._id === wallet._id ? "flex" : "none",
                   color:
-                    selectedAccount._id === wallet._id ? "#5156be" : "none",
+                    selectedAccount._id === wallet._id ? "#00c9a7" : "none",
                 }}
               />
             </div>

@@ -120,7 +120,7 @@ const Bank = ({ settings, userBank, currency }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -164,13 +164,13 @@ const Bank = ({ settings, userBank, currency }) => {
       </div>
 
       <Col lg={12}>
-        <div className="d-flex align-items-center bg-primary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
+        <div className="d-flex align-items-center bg-secondary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
           <div>
-            <IoAlertCircleOutline className="text-primary" />
+            <IoAlertCircleOutline className="text-secondary" />
           </div>
           <div
             style={{ fontWeight: 300, fontSize: "14px" }}
-            className="d-flex flex-column text-primary"
+            className="d-flex flex-column text-secondary"
           >
             <span>
               Please ensure you include the reference number in your wire
@@ -500,7 +500,7 @@ const Bank = ({ settings, userBank, currency }) => {
             <div
               {...getRootProps()}
               className={`dropzone dz-clickable bg-light-subtle ${
-                isDragActive ? "border-primary bg-primary-subtle" : ""
+                isDragActive ? "border-secondary bg-secondary-subtle" : ""
               }`}
               style={{ cursor: "pointer" }}
             >
@@ -538,7 +538,7 @@ const Bank = ({ settings, userBank, currency }) => {
             }}
             type="submit"
             disabled={mutation.isPending}
-            className="btn btn-primary d-flex align-items-cenetr justify-content-center gap-2"
+            className="btn bg-custom-gradient text-white border-0 d-flex align-items-cenetr justify-content-center gap-2"
           >
             {mutation.isPending && <Spinner size={"sm"} />}I have made payment
           </button>

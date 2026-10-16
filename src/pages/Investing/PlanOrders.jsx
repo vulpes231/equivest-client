@@ -39,7 +39,7 @@ const PlanOrders = ({
   if (isLoading) {
     return (
       <div className="text-center p-4">
-        <div className="spinner-border text-primary" role="status">
+        <div className="spinner-border text-secondary" role="status">
           <span className="visually-hidden">Loading orders...</span>
         </div>
       </div>

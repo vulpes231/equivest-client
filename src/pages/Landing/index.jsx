@@ -4,7 +4,7 @@ import Home from "./Home";
 import Footer from "./Footer";
 
 const Landing = () => {
-  document.title = "Welcome - ItrustInvestment";
+  document.title = "Welcome - Equivest Markets";
 
   window.onscroll = function () {
     scrollFunction();

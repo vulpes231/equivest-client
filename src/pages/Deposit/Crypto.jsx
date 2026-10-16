@@ -141,7 +141,7 @@ const Crypto = ({ settings, user }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -200,7 +200,7 @@ const Crypto = ({ settings, user }) => {
                     cursor: "pointer",
                   }}
                   key={mtd.id}
-                  className={`d-flex align-items-center gap-3 py-3 px-3 border border-1 ${
+                  className={`d-flex align-items-center gap-3 py-3 px-3 border ${
                     selectedMode.id === mtd.id
                       ? "bg-secondary-subtle border-secondary"
                       : ""
@@ -237,13 +237,13 @@ const Crypto = ({ settings, user }) => {
       {selectedMode && (
         <div>
           <Col lg={12}>
-            <div className="d-flex align-items-center bg-primary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
+            <div className="d-flex align-items-center bg-secondary-subtle rounded mx-2 gap-3 mb-3 py-2 px-4">
               <div>
-                <IoAlertCircleOutline className="text-primary" />
+                <IoAlertCircleOutline className="text-secondary" />
               </div>
               <div
                 style={{ fontWeight: 300, fontSize: "14px" }}
-                className="d-flex flex-column text-primary"
+                className="d-flex flex-column text-secondary"
               >
                 <span>
                   Send{" "}
@@ -477,7 +477,7 @@ const Crypto = ({ settings, user }) => {
             }}
             type="submit"
             disabled={cryptoMutation.isPending || !selectedMode}
-            className="btn btn-primary d-flex align-items-center justify-content-center gap-2"
+            className="btn bg-custom-gradient text-white border-0 d-flex align-items-center justify-content-center gap-2"
           >
             {cryptoMutation.isPending && <Spinner size={"sm"} />}I have made
             payment

@@ -152,7 +152,7 @@ const Crypto = ({ settings, user }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -239,7 +239,7 @@ const Crypto = ({ settings, user }) => {
                   key={mtd.id}
                   className={`d-flex align-items-center gap-3 py-1 px-2 border border-2 ${
                     selectedMode.id === mtd.id
-                      ? "bg-primary-subtle border-secondary "
+                      ? "bg-secondary-subtle border-secondary "
                       : ""
                   }`}
                   onClick={() => handleMode(mtd)}
@@ -300,7 +300,7 @@ const Crypto = ({ settings, user }) => {
             <button
               style={{ width: "100%" }}
               type="button"
-              className="btn btn-primary mb-4"
+              className="btn bg-custom-gradient text-white border-0 mb-4"
               onClick={toggleConnect}
             >
               Connect Wallet
@@ -468,13 +468,13 @@ const Crypto = ({ settings, user }) => {
       </Col>
 
       <Col lg={12}>
-        <div className="d-flex align-items-start bg-primary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
+        <div className="d-flex align-items-start bg-secondary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
           <span>
-            <IoAlertCircleOutline className="text-primary" />
+            <IoAlertCircleOutline className="text-secondary" />
           </span>
           <span
             style={{ fontWeight: 300, fontSize: "14px" }}
-            className="d-flex flex-column text-primary"
+            className="d-flex flex-column text-secondary"
           >
             <span style={{ fontWeight: 500 }}>Processing details</span>
             <ul>
@@ -497,7 +497,7 @@ const Crypto = ({ settings, user }) => {
             }}
             type="submit"
             disabled={cryptoMutation.isPending}
-            className="btn btn-primary d-flex align-items-center gap-2 justify-content-center"
+            className="btn bg-custom-gradient text-white border-0 d-flex align-items-center gap-2 justify-content-center"
           >
             {cryptoMutation.isPending && <Spinner size={"sm"} />} Confirm
             Withdrawal

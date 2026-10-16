@@ -12,6 +12,7 @@ import {
   changePreLoaderAction,
   changeSidebarVisibilityAction,
 } from "./reducer";
+import { layoutModeTypes } from "../../components/constants/layout";
 
 /**
  * Changes the layout type

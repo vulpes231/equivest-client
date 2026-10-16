@@ -35,7 +35,7 @@ const AuthProtected = ({ children }) => {
     enabled: !!token,
   });
 
-  console.log(user);
+  // console.log(user);
   // console.log(user.currency);
 
   useEffect(() => {

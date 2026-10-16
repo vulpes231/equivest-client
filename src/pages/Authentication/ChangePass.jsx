@@ -75,7 +75,7 @@ const ChangePass = ({ handleStep }) => {
               <h3 className="fw-bold">Reset Password</h3>
             </div>
             <div className="d-flex flex-column align-items-center justify-content-center">
-              <h5 className="text-primary">Update Account Password</h5>
+              <h5 className="text-secondary">Update Account Password</h5>
               <p className="text-muted">Reset your Password</p>
             </div>
           </div>
@@ -164,7 +164,7 @@ const ChangePass = ({ handleStep }) => {
 
               <div className="text-center mt-4">
                 <button
-                  className="btn btn-primary w-100 d-flex align-items-center gap-2 justify-content-center"
+                  className="btn bg-custom-gradient text-white w-100 d-flex align-items-center gap-2 justify-content-center"
                   type="submit"
                   disabled={changePassWord.isPending}
                 >

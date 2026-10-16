@@ -308,7 +308,7 @@ const Market = () => {
 
                 {/* Asset Type Filter */}
                 <select
-                  className="btn btn-soft-primary btn-sm text-capitalize"
+                  className="btn btn-soft-secondary btn-sm text-capitalize"
                   name="assetFilter"
                   onChange={(e) => handleAssetFilterChange(e.target.value)}
                   value={assetFilter}
@@ -324,8 +324,8 @@ const Market = () => {
                   onClick={() => handleSortChange("24h_change")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "24h_change" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   24H
@@ -336,7 +336,9 @@ const Market = () => {
                   type="button"
                   onClick={handleWatchlistFilter}
                   className={`btn btn-sm text-capitalize ${
-                    showWatchlistOnly ? "btn-primary" : "btn-soft-primary"
+                    showWatchlistOnly
+                      ? "bg-custom-gradient text-white border-0"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   {"Watchlist"}
@@ -348,8 +350,8 @@ const Market = () => {
                   onClick={() => handleSortChange("top_gainers")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "top_gainers" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   Top Gainers
@@ -361,8 +363,8 @@ const Market = () => {
                   onClick={() => handleSortChange("top_losers")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "top_losers" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   Top Losers
@@ -374,8 +376,8 @@ const Market = () => {
                   onClick={() => handleSortChange("market_cap")}
                   className={`btn btn-sm text-capitalize ${
                     sort === "market_cap" && !showWatchlistOnly
-                      ? "btn-primary"
-                      : "btn-soft-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "btn-soft-secondary"
                   }`}
                 >
                   Market Cap
@@ -391,7 +393,7 @@ const Market = () => {
               className="text-center py-5 gap-2 d-flex align-items-center justify-content-center"
               style={{ height: "500px" }}
             >
-              <div className="spinner-border text-primary" role="status">
+              <div className="spinner-border text-secondary" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
               <p className="mt-2 text-muted">
@@ -423,7 +425,7 @@ const Market = () => {
               {showWatchlistOnly && (
                 <button
                   onClick={() => setShowWatchlistOnly(false)}
-                  className="btn btn-sm btn-primary mt-2"
+                  className="btn btn-sm bg-custom-gradient text-white border-0 mt-2"
                 >
                   Browse Assets
                 </button>

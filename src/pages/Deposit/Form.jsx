@@ -112,7 +112,7 @@ const Form = ({
         <div className="pb-4">
           <FlexRow>
             <span
-              className="bg-primary d-flex align-items-center justify-content-center"
+              className="bg-secondary d-flex align-items-center justify-content-center"
               style={{
                 fontSize: "25px",
                 fontWeight: 600,
@@ -214,7 +214,7 @@ const Form = ({
                     onClick={() => {
                       setSelectedMethod(method.id);
                     }}
-                    className={`p-3 mb-2 ${selectedMethod === method.id ? "bg-primary-subtle" : ""}`}
+                    className={`p-3 mb-2 ${selectedMethod === method.id ? "bg-secondary-subtle" : ""}`}
                   >
                     <FlexRow>
                       <span
@@ -247,7 +247,7 @@ const Form = ({
                         alignItems: "center",
                         justifyItems: "center",
                       }}
-                      className={`border-3 border ${selectedMethod === method.id ? "border-secondary" : "border-muted"} `}
+                      className={`border-3 ${selectedMethod === method.id ? "border-secondary" : "border-muted"} `}
                     >
                       {selectedMethod === method.id && (
                         <GoDotFill className="text-secondary" />
@@ -264,7 +264,7 @@ const Form = ({
             <button
               onClick={handleConfirm}
               style={{ width: "100%" }}
-              className="btn btn-primary"
+              className="btn bg-custom-gradient text-white border-0"
             >
               Continue
             </button>

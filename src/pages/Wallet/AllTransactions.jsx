@@ -272,8 +272,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("deposit")}
                   className={`btn text-capitalize ${
                     filter === "deposit"
-                      ? "btn-primary"
-                      : "bg-primary-subtle text-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "bg-secondary-subtle text-secondary"
                   }`}
                 >
                   Deposit
@@ -283,8 +283,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("withdraw")}
                   className={`btn text-capitalize ${
                     filter === "withdraw"
-                      ? "btn-primary"
-                      : "bg-primary-subtle text-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "bg-secondary-subtle text-secondary"
                   }`}
                 >
                   Withdrawals
@@ -294,8 +294,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("transfer")}
                   className={`btn text-capitalize ${
                     filter === "transfer"
-                      ? "btn-primary"
-                      : "bg-primary-subtle text-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "bg-secondary-subtle text-secondary"
                   }`}
                 >
                   Transfers
@@ -305,8 +305,8 @@ const AllTransactions = ({ currency }) => {
                   onClick={() => setFilter("all")}
                   className={`btn text-capitalize ${
                     filter === "all"
-                      ? "btn-primary"
-                      : "bg-primary-subtle text-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "bg-secondary-subtle text-secondary"
                   }`}
                 >
                   Transactions

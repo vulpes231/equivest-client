@@ -98,7 +98,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
         <div className="pb-4">
           <FlexRow>
             <span
-              className="bg-primary d-flex align-items-center justify-content-center"
+              className="bg-secondary d-flex align-items-center justify-content-center"
               style={{
                 fontSize: "25px",
                 fontWeight: 600,
@@ -189,11 +189,11 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                       alignItems: "center",
                       justifyContent: "space-between",
 
-                      borderRadius: "5px",
+                      // borderRadius: "5px",
                       cursor: "pointer",
                     }}
                     onClick={() => setSelectedMethod(method.id)}
-                    className={`p-3 border border-2 ${selectedMethod === method.id ? "bg-secondary-subtle border-secondary" : ""}`}
+                    className={`p-3  ${selectedMethod === method.id ? "bg-secondary-subtle border-secondary border-2" : ""}`}
                   >
                     <FlexRow>
                       <span
@@ -218,7 +218,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                     </FlexRow>
                     <span
                       style={{
-                        border: "3px solid #5b71b9",
+                        border: "3px solid #00c9a7",
                         width: "13px",
                         height: "13px",
                         borderRadius: "50%",
@@ -228,7 +228,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                       }}
                     >
                       {selectedMethod === method.id && (
-                        <GoDotFill className="text-primary" />
+                        <GoDotFill className="text-secondary" />
                       )}
                     </span>
                   </div>
@@ -242,7 +242,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
             <button
               onClick={handleConfirm}
               style={{ width: "100%" }}
-              className="btn btn-primary"
+              className="btn bg-custom-gradient text-white border-0"
             >
               Continue
             </button>

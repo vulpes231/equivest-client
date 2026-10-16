@@ -123,7 +123,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
             key={tb.id}
             className={`btn ${
               activeTab === tb.id
-                ? "bg-primary-subtle text-primary"
+                ? "bg-secondary-subtle text-secondary"
                 : "btn-light"
             }`}
             onClick={() => handleTabChange(tb.id)}

@@ -124,7 +124,7 @@ const Login = (props) => {
                     <h3 className="fw-bold">Sign In</h3>
                   </div>
                   <div className="d-flex flex-column align-items-center justify-content-center">
-                    <h5 className="text-primary lh-1">Welcome Back!</h5>
+                    <h5 className="text-secondary lh-1">Welcome Back!</h5>
                     <p className="text-muted lh-1">Sign in to continue</p>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ const Login = (props) => {
                 Don't have an account?{" "}
                 <Link
                   to="/register"
-                  className="fw-semibold text-primary text-decoration-underline"
+                  className="fw-semibold text-secondary text-decoration-underline"
                 >
                   {" "}
                   Signup{" "}

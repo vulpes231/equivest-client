@@ -1,50 +1,57 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-// Layouts
+//Layouts
 import NonAuthLayout from "../Layouts/NonAuthLayout";
 import VerticalLayout from "../Layouts/index";
-import PublicLayout from "./PublicLayout";
 
-// Routes
+//routes
 import { authProtectedRoutes, publicRoutes } from "./allRoutes";
 import { AuthProtected } from "./AuthProtected";
+import { useDispatch } from "react-redux";
+import { initializeLayoutMode } from "../features/layouts/thunk";
+import PublicLayout from "./PublicLayout";
 
 const Index = () => {
   const { pathname } = useLocation();
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initializeLayoutMode());
+  }, [dispatch]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
   return (
     <React.Fragment>
       <Routes>
-        {/* PUBLIC ROUTES */}
-        {publicRoutes.map((route, idx) => (
-          <Route
-            key={idx}
-            path={route.path}
-            element={
-              <PublicLayout>
-                <NonAuthLayout>{route.component}</NonAuthLayout>
-              </PublicLayout>
-            }
-          />
-        ))}
+        <Route>
+          {publicRoutes.map((route, idx) => (
+            <Route
+              path={route.path}
+              element={<PublicLayout>{route.component}</PublicLayout>}
+              key={idx}
+              exact={true}
+            />
+          ))}
+        </Route>
 
-        {/* PROTECTED ROUTES */}
-        {authProtectedRoutes.map((route, idx) => (
-          <Route
-            key={idx}
-            path={route.path}
-            element={
-              <AuthProtected>
-                <VerticalLayout>{route.component}</VerticalLayout>
-              </AuthProtected>
-            }
-          />
-        ))}
+        <Route>
+          {authProtectedRoutes.map((route, idx) => (
+            <Route
+              path={route.path}
+              element={
+                <AuthProtected>
+                  <VerticalLayout>{route.component}</VerticalLayout>
+                </AuthProtected>
+              }
+              key={idx}
+              exact={true}
+            />
+          ))}
+        </Route>
       </Routes>
     </React.Fragment>
   );

@@ -27,6 +27,7 @@ import { auto, broke, btc, cash, eth, ltc, usdt } from "../../assets";
 import Deposit from "../Deposit";
 import Withdraw from "../Withdraw";
 import Transfer from "../Transfer";
+import MobileTrnxs from "./MobileTrnxs";
 
 const TransactionHistory = ({ filter, currency }) => {
   const token = getAccessToken();
@@ -94,8 +95,8 @@ const TransactionHistory = ({ filter, currency }) => {
         from: transaction.method?.mode || "Unknown",
         to: transaction.account || "Unknown",
         details: transaction.memo || "No details",
-        amount: `${currency?.sign}${transaction.amount}`,
-        amount1: `${transaction.amount} ${currency?.symbol}`,
+        amount: `${currency?.sign || null}${transaction.amount}`,
+        amount1: `${transaction.amount} ${currency?.symbol || null}`,
         status: transaction.status,
         type: transaction.type,
         tag: transaction.tag,
@@ -204,19 +205,24 @@ const TransactionHistory = ({ filter, currency }) => {
           Recent Transactions
         </CardHeader>
         <CardBody>
-          <TableContainer
-            columns={columns}
-            data={transformedData}
-            isGlobalFilter={false}
-            isAddUserList={false}
-            customPageSize={8}
-            className="custom-header-css"
-            divClass="table-responsive table-card mb-4"
-            tableClass="align-middle table-nowrap mb-0"
-            theadClass="table-light table-nowrap"
-            thClass="table-light text-muted"
-            isLoading={getTransactionLoading}
-          />
+          <div className="d-none d-md-flex flex-md-column">
+            <TableContainer
+              columns={columns}
+              data={transformedData}
+              isGlobalFilter={false}
+              isAddUserList={false}
+              customPageSize={8}
+              className="custom-header-css"
+              divClass="table-responsive table-card mb-4"
+              tableClass="align-middle table-nowrap mb-0"
+              theadClass="table-light table-nowrap"
+              thClass="table-light text-muted"
+              isLoading={getTransactionLoading}
+            />
+          </div>
+          <div className="d-flex d-md-none">
+            <MobileTrnxs data={transformedData} />
+          </div>
         </CardBody>
       </Card>
       <Modal

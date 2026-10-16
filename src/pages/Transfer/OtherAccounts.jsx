@@ -14,9 +14,9 @@ const OtherAccounts = ({ otherAccts, setToAccount, toAccount, currency }) => {
       {otherAccts.map((wallet) => {
         return (
           <div
-            className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1  ${
+            className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border ${
               toAccount._id === wallet._id
-                ? "bg-primary-subtle border-secondary"
+                ? "bg-secondary-subtle border-secondary"
                 : ""
             }`}
             key={wallet._id}
@@ -73,18 +73,18 @@ const OtherAccounts = ({ otherAccts, setToAccount, toAccount, currency }) => {
               style={{
                 // border:
                 //   toAccount._id === wallet._id
-                //     ? "3px solid #5156be"
+                //     ? "3px solid #00c9a7"
                 //     : "3px solid #505050",
                 // borderRadius: "50%",
                 width: "16px",
                 height: "16px",
               }}
-              className={`d-flex align-items-center justify-content-center border border-1 ${toAccount._id === wallet._id ? "border-secondary" : ""}`}
+              className={`d-flex align-items-center justify-content-center border  ${toAccount._id === wallet._id ? "border-secondary" : ""}`}
             >
               <GoDotFill
                 style={{
                   display: toAccount._id === wallet._id ? "flex" : "none",
-                  color: toAccount._id === wallet._id ? "#5156be" : "none",
+                  color: toAccount._id === wallet._id ? "#00c9a7" : "none",
                 }}
               />
             </div>

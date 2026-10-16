@@ -105,7 +105,7 @@ const Personal = () => {
               <CardBody className="p-4">
                 <div className="d-flex flex-column gap-2 align-items-center justify-content-center mt-2">
                   <div className="d-flex flex-column align-items-center justify-content-center">
-                    <h5 className="text-primary">Complete Your Account</h5>
+                    <h5 className="text-secondary">Complete Your Account</h5>
                     <p className="text-muted">Enter Other Information</p>
                   </div>
 
@@ -405,7 +405,7 @@ const Personal = () => {
 
                     <div className="mt-5 d-flex align-items-center justify-content-between">
                       <button
-                        className="btn btn-transparent border border-1 text-muted"
+                        className="btn btn-transparent border text-muted"
                         type="button"
                         onClick={() => history("/contact")}
                       >
@@ -416,7 +416,7 @@ const Personal = () => {
                           error ? null : mutation.isPending ? true : false
                         }
                         color="primary"
-                        className="btn btn-primary"
+                        className="btn bg-custom-gradient"
                         type="submit"
                       >
                         {mutation.isPending ? (

@@ -91,8 +91,8 @@ const AssetManager = ({
               }}
               className={`btn text-capitalize ${
                 activeTab === "asset"
-                  ? "btn-primary"
-                  : "bg-primary-subtle text-primary"
+                  ? "btn-secondary"
+                  : "bg-secondary-subtle text-secondary"
               }`}
             >
               assets
@@ -104,8 +104,8 @@ const AssetManager = ({
               }}
               className={`btn text-capitalize ${
                 activeTab === "trade"
-                  ? "btn-primary"
-                  : "bg-primary-subtle text-primary"
+                  ? "btn-secondary"
+                  : "bg-secondary-subtle text-secondary"
               }`}
             >
               trade now

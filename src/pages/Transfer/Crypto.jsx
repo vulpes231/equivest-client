@@ -118,7 +118,7 @@ const Crypto = ({ currency }) => {
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-primary d-flex align-items-center justify-content-center"
+            className="bg-secondary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -178,9 +178,9 @@ const Crypto = ({ currency }) => {
               wallets.map((wallet) => {
                 return (
                   <div
-                    className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border border-1  ${
+                    className={`d-flex align-items-center gap-2 justify-content-between px-4 py-2 rounded border  ${
                       selectedAccount._id === wallet._id
-                        ? "bg-primary-subtle border-secondary"
+                        ? "bg-secondary-subtle border-secondary"
                         : ""
                     }`}
                     // style={{
@@ -252,7 +252,7 @@ const Crypto = ({ currency }) => {
                         width: "16px",
                         height: "16px",
                       }}
-                      className={`d-flex align-items-center justify-content-center border border-1 ${selectedAccount._id === wallet._id ? "border-secondary" : ""}`}
+                      className={`d-flex align-items-center justify-content-center border ${selectedAccount._id === wallet._id ? "border-secondary" : ""}`}
                     >
                       <GoDotFill
                         style={{
@@ -349,7 +349,7 @@ const Crypto = ({ currency }) => {
             validation.submitForm();
           }}
           style={{ width: "100%" }}
-          className="btn btn-primary d-flex align-items-center gap-1 justify-content-center"
+          className="btn bg-custom-gradient text-white border-0 d-flex align-items-center gap-1 justify-content-center"
           disabled={mutation.isPending || !toAccount}
         >
           {mutation.isPending && <Spinner size={"sm"}></Spinner>}

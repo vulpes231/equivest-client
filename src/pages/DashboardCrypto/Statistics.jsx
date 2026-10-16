@@ -374,7 +374,9 @@ const Statistics = ({
                     key={r}
                     type="button"
                     className={`${
-                      range === r ? "btn-primary" : "btn-soft-primary"
+                      range === r
+                        ? "bg-custom-gradient text-white border-0"
+                        : "btn-soft-secondary"
                     } btn timeline-btn btn-sm`}
                     onClick={() => setRange(r)}
                   >

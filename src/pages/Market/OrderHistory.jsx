@@ -251,8 +251,8 @@ const OrderHistory = ({ currency }) => {
                   onClick={() => setActiveOrderTab("trades")}
                   className={`btn text-capitalize ${
                     activeOrderTab === "trades"
-                      ? "btn-primary"
-                      : "bg-primary-subtle text-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "bg-secondary-subtle text-secondary"
                   }`}
                 >
                   trade orders
@@ -261,8 +261,8 @@ const OrderHistory = ({ currency }) => {
                   onClick={() => setActiveOrderTab("dividends")}
                   className={`btn text-capitalize ${
                     activeOrderTab === "dividends"
-                      ? "btn-primary"
-                      : "bg-primary-subtle text-primary"
+                      ? "bg-custom-gradient text-white border-0"
+                      : "bg-secondary-subtle text-secondary"
                   }`}
                 >
                   dividends

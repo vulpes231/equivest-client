@@ -167,7 +167,7 @@ const VerifyEmail = () => {
 
                   <Button
                     onClick={handleSubmit}
-                    className="w-100 mt-3"
+                    className="w-100 mt-3 bg-custom-gradient"
                     disabled={verifyMutation.isPending}
                   >
                     {verifyMutation.isPending && <Spinner size="sm" />} Confirm
@@ -185,7 +185,7 @@ const VerifyEmail = () => {
                     border: "none",
                     textDecoration: "underline",
                   }}
-                  className="text-primary"
+                  className="text-secondary"
                 >
                   {resendMutation.isPending ? "Sending..." : "Resend"}
                 </button>

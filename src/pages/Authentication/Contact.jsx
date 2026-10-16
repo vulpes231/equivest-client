@@ -102,7 +102,7 @@ const Contact = () => {
               <CardBody className="p-4">
                 <div className="d-flex flex-column gap-2 align-items-center justify-content-center mt-2">
                   <div className="d-flex flex-column align-items-center justify-content-center">
-                    <h5 className="text-primary">Complete Your Profile</h5>
+                    <h5 className="text-secondary">Complete Your Profile</h5>
                     <p className="text-muted fs-13">
                       Enter Contact Information
                     </p>
@@ -374,7 +374,7 @@ const Contact = () => {
                     </div>
 
                     <div className="mt-4 d-flex justify-content-end">
-                      <button className="btn btn-primary" type="submit">
+                      <button className="btn bg-custom-gradient" type="submit">
                         Next
                       </button>
                     </div>

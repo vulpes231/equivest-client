@@ -112,7 +112,7 @@ const ForgetPassOtp = ({ handleStep }) => {
               <h3 className="fw-bold">Reset Password</h3>
             </div>
             <div className="d-flex flex-column align-items-center justify-content-center">
-              <h5 className="text-primary">Confirm Reset Password Code</h5>
+              <h5 className="text-secondary">Confirm Reset Password Code</h5>
               <p className="text-muted">
                 {" "}
                 Enter the 4-digit code sent to <strong>{sessionEmail}</strong>
@@ -147,7 +147,7 @@ const ForgetPassOtp = ({ handleStep }) => {
 
           <Button
             onClick={handleSubmit}
-            className="w-100 mt-3"
+            className="w-100 mt-3 bg-custom-gradient"
             disabled={confirmPasswordResetCode.isPending}
           >
             {confirmPasswordResetCode.isPending && <Spinner size="sm" />}{" "}
@@ -161,7 +161,7 @@ const ForgetPassOtp = ({ handleStep }) => {
         <button
           disabled={disableResend || resendPasswordResetCode.isPending}
           onClick={handleCodeResend}
-          className="btn text-primary"
+          className="btn text-secondary"
           style={{
             background: "transparent",
             border: "none",

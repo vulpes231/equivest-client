@@ -158,11 +158,14 @@ const Widgets = ({ wallets, user, trxAnalytics }) => {
             </div>
           </div>
           <div md={6} className="d-flex gap-2">
-            <Link className="btn btn-primary" to={"/deposit"}>
+            <Link
+              className="btn bg-custom-gradient text-white border-0"
+              to={"/deposit"}
+            >
               Deposit
             </Link>
             <Link
-              className="btn bg-none border border-secondary text-primary"
+              className="btn bg-none border border-secondary text-secondary"
               to={"/transfer"}
             >
               Transfer

@@ -2,9 +2,10 @@ import { capitalize } from "lodash";
 import React from "react";
 import { Card, Col, Row } from "reactstrap";
 import { cash } from "../../assets";
-import { formatCurrency } from "../../constants";
+import { formatCurrency, liveUrl } from "../../constants";
 
 const ClosedPlans = ({ plans, style }) => {
+  // console.log(plans);
   return (
     <React.Fragment>
       <Row className="g-4 py-3">
@@ -16,7 +17,7 @@ const ClosedPlans = ({ plans, style }) => {
                 <Card className="d-flex flex-column gap-3 py-3">
                   <div className="d-flex align-items-center gap-3 px-4 py-2">
                     <span className="bg-light">
-                      <img src={plan.image} alt="" width={40} />
+                      <img src={`${liveUrl}${plan.image}`} alt="" width={40} />
                     </span>
                     <span className="d-flex flex-column">
                       <span
@@ -36,7 +37,7 @@ const ClosedPlans = ({ plans, style }) => {
                   <Row className="px-4">
                     <Col xs={6} className="d-flex flex-column px-4">
                       <span
-                        style={{ color: style.light }}
+                        style={{ color: style.light, whiteSpace: "nowrap" }}
                         className={style.slim}
                       >
                         Min Investment
@@ -117,27 +118,27 @@ const ClosedPlans = ({ plans, style }) => {
                       </span>
                       <span
                         className={`d-flex align-items-center p-1 rounded justify-content-center fs-10 fw-semibold  ${
-                          plan.type === "conservative"
+                          plan.risk === "conservative"
                             ? "bg-primary-subtle"
-                            : plan.type === "aggressive"
-                            ? "bg-danger-subtle"
-                            : plan.type === "moderate"
-                            ? "bg-warning-subtle"
-                            : null
+                            : plan.risk === "aggressive"
+                              ? "bg-danger-subtle"
+                              : plan.risk === "moderate"
+                                ? "bg-warning-subtle"
+                                : null
                         }`}
                         style={{
                           color:
-                            plan.type === "conservative"
+                            plan.risk === "conservative"
                               ? "#5162be"
-                              : plan.type === "aggressive"
-                              ? "#F17171"
-                              : plan.type === "moderate"
-                              ? "#FFC84B"
-                              : null,
+                              : plan.risk === "aggressive"
+                                ? "#F17171"
+                                : plan.risk === "moderate"
+                                  ? "#FFC84B"
+                                  : null,
                           width: "98px",
                         }}
                       >
-                        {capitalize(plan.type)}{" "}
+                        {capitalize(plan.risk)}{" "}
                         <i className="ri-arrow-right-up-line fs-10"></i>
                       </span>
                     </Col>
@@ -147,12 +148,16 @@ const ClosedPlans = ({ plans, style }) => {
                     <Col xs={6} className="d-flex flex-column px-4">
                       <span
                         className={style.large}
-                        style={{ color: style.green, fontSize: "32px" }}
+                        style={{
+                          color: style.green,
+                          fontSize: "32px",
+                          whiteSpace: "nowrap",
+                        }}
                       >
                         {plan.analytics.expectedReturn}%
                       </span>
                       <span
-                        style={{ color: style.light }}
+                        style={{ color: style.light, whiteSpace: "nowrap" }}
                         className={style.slim}
                       >
                         Expected returns
