@@ -28,6 +28,10 @@ const FOOTER_LINKS = {
     { label: "Cookie Policy", href: "/legal/cookies" },
     { label: "Disclosures", href: "/legal/disclosures" },
     { label: "SIPC Protection", href: "/legal/sipc" },
+    {
+      label: "FINRA Broker check",
+      href: "https://files.brokercheck.finra.org/firm/firm_14010.pdf",
+    },
   ],
 };
 
@@ -184,9 +188,9 @@ export default function Footer() {
             style={{ color: "var(--muted-foreground)" }}
           >
             © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
-            Member SIPC. Equivest Securities LLC is a registered broker-dealer.
-            Securities products are not FDIC insured, not bank guaranteed, and
-            may lose value.
+            Member SIPC. Equivest LLC is a registered broker-dealer. Securities
+            products are not FDIC insured, not bank guaranteed, and may lose
+            value.
           </p>
 
           <p
