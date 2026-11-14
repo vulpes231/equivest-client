@@ -18,9 +18,12 @@ import {
 import { format } from "date-fns";
 import numeral from "numeral";
 import MobileTrade from "./MobileTrade";
+import ManageTrade from "../ManageTrade";
+import { FaEllipsisVertical } from "react-icons/fa6";
 
 const TradeHistory = ({ trades }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [showManageTradeModal, setShowManageTradeModal] = useState(false);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -161,8 +164,52 @@ const TradeHistory = ({ trades }) => {
           return <Status {...cell} />;
         },
       },
+      {
+        header: "",
+        accessorKey: "_id",
+        enableColumnFilter: false,
+
+        cell: (cell) => {
+          const trade = cell.row.original;
+          const id = String(cell.row.original._id);
+          const isOpen = String(showManageTradeModal) === id;
+
+          const currentData = cell.row.original;
+
+          // console.log(currentData);
+
+          const showButton =
+            currentData?.status !== "closed" &&
+            currentData?.wallet?.slug !== "auto";
+
+          return (
+            <div
+              className={` ${showButton ? "position-relative d-block" : "d-none"}`}
+            >
+              <button
+                type="button"
+                className="bg-transparent border-0"
+                onClick={() =>
+                  setShowManageTradeModal((prev) =>
+                    String(prev) === id ? null : id,
+                  )
+                }
+              >
+                <FaEllipsisVertical />
+              </button>
+
+              {isOpen && (
+                <ManageTrade
+                  onClose={() => setShowManageTradeModal(null)}
+                  trade={trade}
+                />
+              )}
+            </div>
+          );
+        },
+      },
     ],
-    [],
+    [showManageTradeModal],
   );
 
   // console.log(trades);

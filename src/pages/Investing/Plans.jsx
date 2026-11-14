@@ -34,9 +34,7 @@ const style = {
 };
 
 const Plans = ({ status = "all", risk = "all", currency }) => {
-  const [activeTab, setActiveTab] = useState(() => {
-    return sessionStorage.getItem("investTab") || "active" || "plans";
-  });
+  const [activeTab, setActiveTab] = useState("active");
 
   const { data: plans = [] } = useQuery({
     queryKey: ["autoplans"],
@@ -51,7 +49,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
   const userActivePlans = user?.activePlans || [];
 
   const userOpenPlans = userActivePlans.filter(
-    (plan) => plan?.status === "open",
+    (plan) => plan?.status === "active",
   );
 
   const userClosedPlans = userActivePlans.filter(
@@ -61,8 +59,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
   const userActivePlanLength = userOpenPlans.length;
   const userClosedPlanLength = userClosedPlans.length;
 
-  const activeAll = tabs.filter((tb) => tb.id !== "closed");
-  const all = tabs.filter((tb) => tb.id === "plans");
+  // console.log(userActivePlans);
 
   const tabsToShow = tabs.filter((tab) => {
     if (tab.id === "active") {
@@ -79,22 +76,38 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
   useEffect(() => {
     if (!isUserLoaded) return;
 
-    const isValidTab = tabsToShow.some((tab) => tab.id === activeTab);
+    let defaultTab = "plans";
 
-    if (!isValidTab) {
-      const fallbackTab = tabsToShow[0]?.id || "plans";
-
-      setActiveTab(fallbackTab);
-      sessionStorage.setItem("investTab", fallbackTab);
+    if (userOpenPlans.length > 0) {
+      defaultTab = "active";
     }
-  }, [isUserLoaded, activeTab, tabsToShow]);
+
+    const savedTab = sessionStorage.getItem("investTab");
+
+    // If there are active plans, always default to Active Plans
+    if (userOpenPlans.length > 0) {
+      setActiveTab("active");
+      sessionStorage.setItem("investTab", "active");
+      return;
+    }
+
+    // Otherwise use saved tab if it is still valid
+    const isValidSavedTab = tabsToShow.some((tab) => tab.id === savedTab);
+
+    if (isValidSavedTab) {
+      setActiveTab(savedTab);
+    } else {
+      setActiveTab(defaultTab);
+      sessionStorage.setItem("investTab", defaultTab);
+    }
+  }, [isUserLoaded, userOpenPlans.length]);
 
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
     sessionStorage.setItem("investTab", tabId);
   };
 
-  const getFilteredPlans = () => {
+  const getFilteredPlans = (status) => {
     if (status === "all") return userActivePlans;
     if (status === "active") return userOpenPlans;
     if (status === "closed") return userClosedPlans;
@@ -102,7 +115,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
     return [];
   };
 
-  const filteredPlans = getFilteredPlans();
+  const filteredPlans = getFilteredPlans(status);
 
   const getFilteredByRiskPlans = () => {
     if (!plans || plans.length === 0) return [];
@@ -123,7 +136,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
             key={tb.id}
             className={`btn ${
               activeTab === tb.id
-                ? "bg-secondary-subtle text-secondary"
+                ? "bg-primary-subtle text-primary"
                 : "btn-light"
             }`}
             onClick={() => handleTabChange(tb.id)}
@@ -145,7 +158,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
         <TabPane tabId="active">
           <ActivePlans
             style={style}
-            plans={filteredPlans}
+            plans={userOpenPlans}
             currency={currency}
           />
         </TabPane>
@@ -153,7 +166,7 @@ const Plans = ({ status = "all", risk = "all", currency }) => {
         <TabPane tabId="closed">
           <ClosedPlans
             style={style}
-            plans={filteredPlans}
+            plans={userClosedPlans}
             currency={currency}
           />
         </TabPane>

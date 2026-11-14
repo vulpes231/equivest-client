@@ -32,7 +32,7 @@ import ChangePass from "./ChangePass";
 import AuthNav from "./AuthNav";
 
 const ForgetPasswordPage = (props) => {
-  document.title = "Reset Password | Itrust Investments";
+  document.title = "Reset Password | Equivest Market";
 
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);

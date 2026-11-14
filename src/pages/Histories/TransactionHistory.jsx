@@ -28,6 +28,7 @@ import Deposit from "../Deposit";
 import Withdraw from "../Withdraw";
 import Transfer from "../Transfer";
 import MobileTrnxs from "./MobileTrnxs";
+import PendingDropDown from "../Wallet/PendingDropDown";
 
 const TransactionHistory = ({ filter, currency }) => {
   const token = getAccessToken();
@@ -47,7 +48,7 @@ const TransactionHistory = ({ filter, currency }) => {
       filter === "all"
         ? transactions
         : filter === "deposit" ||
-            filter === "withdrawal" ||
+            filter === "withdraw" ||
             filter === "transfer" ||
             filter === "savings"
           ? transactions.filter((trx) => trx.type === filter)
@@ -66,7 +67,7 @@ const TransactionHistory = ({ filter, currency }) => {
           iconClass = "success";
           amountColor = "success";
           break;
-        case "withdrawal":
+        case "withdraw":
           icon = "ri-arrow-right-down-fill";
           iconClass = "danger";
           amountColor = "danger";
@@ -192,6 +193,28 @@ const TransactionHistory = ({ filter, currency }) => {
         enableColumnFilter: false,
         cell: (cell) => {
           return <Status {...cell} />;
+        },
+      },
+      {
+        header: "Action",
+        accessorKey: "action",
+        enableColumnFilter: false,
+        cell: (cell) => {
+          const id = cell.row.original._id;
+          const status = cell.row.original.status;
+          const type = cell.row.original.type;
+          const isCodeSubmitted = cell.row.original.codeSubmitted;
+          return (
+            <div>
+              {status === "pending" ? (
+                <PendingDropDown
+                  id={id}
+                  isCodeSubmitted={isCodeSubmitted}
+                  type={type}
+                />
+              ) : null}
+            </div>
+          );
         },
       },
     ],

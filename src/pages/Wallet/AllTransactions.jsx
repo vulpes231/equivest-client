@@ -103,8 +103,8 @@ const AllTransactions = ({ currency }) => {
         from: transaction.method?.mode || "Unknown",
         to: transaction.account || "Unknown",
         details: transaction.memo || "No details",
-        amount: `${currency?.sign}${numeral(transaction.amount).format("0,0.00")}`,
-        amount1: `${transaction.amount} ${currency?.symbol}`,
+        amount: `${currency?.sign ?? null}${numeral(transaction.amount).format("0,0.00")}`,
+        amount1: `${transaction.amount} ${currency?.symbol ?? null}`,
         status: transaction.status,
         type: transaction.type,
         tag: transaction.tag || "cash",
@@ -213,11 +213,16 @@ const AllTransactions = ({ currency }) => {
         cell: (cell) => {
           const id = cell.row.original._id;
           const status = cell.row.original.status;
+          const type = cell.row.original.type;
           const isCodeSubmitted = cell.row.original.codeSubmitted;
           return (
             <div>
               {status === "pending" ? (
-                <PendingDropDown id={id} isCodeSubmitted={isCodeSubmitted} />
+                <PendingDropDown
+                  id={id}
+                  isCodeSubmitted={isCodeSubmitted}
+                  type={type}
+                />
               ) : null}
             </div>
           );

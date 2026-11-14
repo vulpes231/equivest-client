@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { Link } from "react-router-dom";
-import { Card, CardBody, Col, Row } from "reactstrap";
-import { useQuery } from "@tanstack/react-query";
-import { getTransactionAnalytics } from "../../services/user/transactions";
-import { formatCurrency, getAccessToken } from "../../constants";
-import { getUserWallets } from "../../services/user/wallet";
-import { brief, cash } from "../../assets";
+import { Card } from "reactstrap";
+import { brief } from "../../assets";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { format } from "date-fns";
-import { getUserInfo } from "../../services/user/user";
 import numeral from "numeral";
 
 const Widgets = ({ wallets, user, trxAnalytics }) => {
@@ -133,7 +128,7 @@ const Widgets = ({ wallets, user, trxAnalytics }) => {
             <div className="d-none d-md-flex">
               <span
                 style={{ border: "1px solid #dedede" }}
-                className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+                className="d-flex gap-2 flex-column align-items-start border border-dotted bg-light-subtle py-2 px-2 px-md-4"
               >
                 <h5 className="fs-13 fs-md-14 text-muted">Total Deposits</h5>
                 <h4 className="d-flex align-items-center gap-1 fw-normal fw-md-bold">
@@ -178,7 +173,7 @@ const Widgets = ({ wallets, user, trxAnalytics }) => {
           <div className="d-flex d-md-none">
             <span
               style={{ border: "1px solid #dedede", width: "100%" }}
-              className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+              className="d-flex gap-2 flex-column align-items-start border border-dotted bg-light-subtle py-2 px-2 px-md-4"
             >
               <h5 className="fs-13 fs-md-14 text-muted">Total Deposits</h5>
               <h4
@@ -193,7 +188,7 @@ const Widgets = ({ wallets, user, trxAnalytics }) => {
             </span>
             <span
               style={{ border: "1px solid #dedede", width: "100%" }}
-              className="d-flex gap-2 flex-column align-items-start border-1 border-dotted bg-light-subtle py-2 px-2 px-md-4"
+              className="d-flex gap-2 flex-column align-items-start border border-dotted bg-light-subtle py-2 px-2 px-md-4"
             >
               <h5 className="fs-13 fs-md-18 text-muted">Total Withdrawals</h5>
               <h4

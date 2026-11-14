@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getUserTrades } from "../../services/user/trade";
 import { formatCurrency, getAccessToken } from "../../constants";
 import { format } from "date-fns";
+
 const RecentTransaction = () => {
   const queryData = { limit: 6 };
   const token = getAccessToken();

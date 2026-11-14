@@ -100,7 +100,7 @@ const Register = () => {
     }
   }, [error]);
 
-  document.title = "Register - Itrust Investments";
+  document.title = "Register - Equivest Market";
 
   return (
     <React.Fragment>

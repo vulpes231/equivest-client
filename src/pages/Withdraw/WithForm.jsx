@@ -6,6 +6,7 @@ import { GoDotFill } from "react-icons/go";
 import { FaDollarSign } from "react-icons/fa";
 import { CenterSpan, CustomSpan, FlexRow } from "../Deposit/DepositUtils";
 import ErrorToast from "../../components/Common/ErrorToast";
+import CurrencySign from "../CurrencySign";
 
 const buttons = [
   "100",
@@ -33,7 +34,7 @@ const paymentMethods = [
   },
 ];
 
-const WithForm = ({ handleView, limits, settings, currency }) => {
+const WithForm = ({ handleView, limits, settings, currency, analytics }) => {
   const [selectedMethod, setSelectedMethod] = useState("crypto");
 
   const [amount, setAmount] = useState("");
@@ -46,6 +47,11 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
 
   function handleConfirm(e) {
     e.preventDefault();
+
+    if (analytics?.pendingWithdrawal > 0) {
+      setError("You have a pending request!");
+      return;
+    }
 
     if (!amount) {
       setError("Amount required!");
@@ -98,7 +104,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
         <div className="pb-4">
           <FlexRow>
             <span
-              className="bg-secondary d-flex align-items-center justify-content-center"
+              className="bg-primary d-flex align-items-center justify-content-center"
               style={{
                 fontSize: "25px",
                 fontWeight: 600,
@@ -156,12 +162,12 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                     }}
                     key={idx}
                     type="button"
-                    className="btn bg-light mt-2"
+                    className="btn bg-light mt-2 d-flex align-items-center justify-content-center"
                     onClick={() => {
                       setAmount(btn);
                     }}
                   >
-                    {currency?.sign}
+                    <CurrencySign />
                     {btn}
                   </button>
                 );
@@ -188,12 +194,11 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                       gap: "10px",
                       alignItems: "center",
                       justifyContent: "space-between",
-
-                      // borderRadius: "5px",
+                      borderRadius: "5px",
                       cursor: "pointer",
                     }}
                     onClick={() => setSelectedMethod(method.id)}
-                    className={`p-3  ${selectedMethod === method.id ? "bg-secondary-subtle border-secondary border-2" : ""}`}
+                    className={`p-3 border-2 ${selectedMethod === method.id ? "bg-secondary-subtle border-secondary" : ""}`}
                   >
                     <FlexRow>
                       <span
@@ -218,7 +223,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                     </FlexRow>
                     <span
                       style={{
-                        border: "3px solid #00c9a7",
+                        border: "3px solid #00C9A7",
                         width: "13px",
                         height: "13px",
                         borderRadius: "50%",
@@ -228,7 +233,7 @@ const WithForm = ({ handleView, limits, settings, currency }) => {
                       }}
                     >
                       {selectedMethod === method.id && (
-                        <GoDotFill className="text-secondary" />
+                        <GoDotFill className="text-primary" />
                       )}
                     </span>
                   </div>

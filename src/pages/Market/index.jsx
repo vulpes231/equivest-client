@@ -22,7 +22,7 @@ import { getUserPositions } from "../../services/user/position";
 import { getUserInfo } from "../../services/user/user";
 
 const BuySell = () => {
-  document.title = "Market - Itrust Investments";
+  document.title = "Market - Equivest Market";
 
   const tk = getAccessToken();
   const { assetId } = useParams();

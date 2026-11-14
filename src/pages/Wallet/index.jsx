@@ -11,7 +11,7 @@ import { getUserWallets, getWalletAnalytics } from "../../services/user/wallet";
 import { getUserInfo } from "../../services/user/user";
 
 const Wallet = () => {
-  document.title = "Cash Account - Itrust Investments";
+  document.title = "Cash Account - Equivest Market";
 
   const token = getAccessToken();
 

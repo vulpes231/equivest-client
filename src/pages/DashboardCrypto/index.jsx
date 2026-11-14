@@ -23,7 +23,7 @@ import { getUserPositions } from "../../services/user/position";
 import { getUserInfo } from "../../services/user/user";
 
 const DashboardCrypto = () => {
-  document.title = "Dashboard - Itrust Investments";
+  document.title = "Dashboard - Equivest Market";
 
   const tk = getAccessToken();
 

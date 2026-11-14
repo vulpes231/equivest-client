@@ -43,7 +43,7 @@ const Logout = (props) => {
       </Toast>
     );
   }
-  document.title = "Logout | Itrust Investments";
+  document.title = "Logout | Equivest Market";
   return <></>;
 };
 

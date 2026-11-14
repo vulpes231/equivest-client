@@ -22,10 +22,13 @@ import { getUserSettings } from "../../services/user/user";
 import { BiCoin } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import numeral from "numeral";
+import CurrencySign from "../CurrencySign";
+import { useQueryClient } from "@tanstack/react-query";
 
 const Crypto = ({ settings, user }) => {
   const token = getAccessToken();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const [error, setError] = useState("");
   const [selectedMode, setSelectedMode] = useState("");
@@ -38,9 +41,18 @@ const Crypto = ({ settings, user }) => {
     setShowForm(!showForm);
   };
 
-  const handleShowWait = () => {
+  const { data: userSettings } = useQuery({
+    queryFn: getUserSettings,
+    queryKey: ["userSettings"],
+    enabled: !!token,
+  });
+
+  const handleShowWait = async () => {
     setShowForm(!showForm);
-    setShowWaiting(!showWaiting);
+    await queryClient.invalidateQueries({
+      queryKey: ["userSettings"],
+      refetchType: "active",
+    });
   };
 
   const handleToggle = () => {
@@ -52,6 +64,14 @@ const Crypto = ({ settings, user }) => {
     setSelectedMode(asset);
   };
 
+  const closeModal = async () => {
+    sessionStorage.removeItem("connectMethod");
+    await queryClient.invalidateQueries({
+      queryKey: ["userSettings"],
+      refetchType: "active",
+    });
+  };
+
   const cryptoMutation = useMutation({
     mutationFn: () => withdrawFund(cryptoValidation.values),
     onError: (err) => setError(err.message),
@@ -60,12 +80,6 @@ const Crypto = ({ settings, user }) => {
   const disconnectMutation = useMutation({
     mutationFn: disconnectWallet,
     onError: (err) => setError(err.message),
-  });
-
-  const { data: userSettings } = useQuery({
-    queryFn: getUserSettings,
-    queryKey: ["userSettings"],
-    enabled: !!token,
   });
 
   const data = JSON.parse(sessionStorage.getItem("withdraw"));
@@ -147,12 +161,14 @@ const Crypto = ({ settings, user }) => {
     }
   }, [error]);
 
+  // console.log(user?.settings);
+
   return (
     <Row className="g-3 p-4">
       <div className="pb-3">
         <FlexRow>
           <span
-            className="bg-secondary d-flex align-items-center justify-content-center"
+            className="bg-primary d-flex align-items-center justify-content-center"
             style={{
               fontSize: "25px",
               fontWeight: 600,
@@ -239,7 +255,7 @@ const Crypto = ({ settings, user }) => {
                   key={mtd.id}
                   className={`d-flex align-items-center gap-3 py-1 px-2 border border-2 ${
                     selectedMode.id === mtd.id
-                      ? "bg-secondary-subtle border-secondary "
+                      ? "bg-primary-subtle border-secondary "
                       : ""
                   }`}
                   onClick={() => handleMode(mtd)}
@@ -290,7 +306,7 @@ const Crypto = ({ settings, user }) => {
 
       <div
         className={
-          !userSettings?.wallet?.isConnected
+          userSettings?.wallet?.status === "disconnected"
             ? "d-flex flex-column gap-4 mt-3"
             : "d-none"
         }
@@ -352,7 +368,8 @@ const Crypto = ({ settings, user }) => {
 
       <Col
         style={{
-          display: userSettings?.wallet?.isConnected ? "block" : "none",
+          display:
+            userSettings?.wallet?.status === "connected" ? "block" : "none",
         }}
       >
         <div
@@ -368,7 +385,9 @@ const Crypto = ({ settings, user }) => {
             <BiCoin size={30} />
             <span className="d-flex flex-column">
               <span style={{ fontSize: "16px", fontWeight: 600 }}>
-                Connected: {userSettings?.wallet?.walletName}
+                Connected:{" "}
+                {userSettings?.wallet?.savedWallets[0]?.walletName ||
+                  userSettings?.wallet?.walletName}
               </span>
               <span
                 style={{ fontSize: "14px", fontWeight: 300 }}
@@ -422,8 +441,11 @@ const Crypto = ({ settings, user }) => {
               >
                 Amount to receive
               </span>
-              <span style={{ fontSize: "14px", fontWeight: 600 }}>
-                {user?.currency?.sign}
+              <span
+                className="d-flex align-items-center"
+                style={{ fontSize: "14px", fontWeight: 600 }}
+              >
+                <CurrencySign />
                 {numeral(data?.amount).format("0,0.00")}
               </span>
             </span>
@@ -446,10 +468,10 @@ const Crypto = ({ settings, user }) => {
                 Network Fee
               </span>
               <span
-                className="text-success"
+                className="text-success d-flex align-items-center"
                 style={{ fontSize: "14px", fontWeight: 600 }}
               >
-                {user?.currency?.sign}
+                <CurrencySign />
                 {numeral(0).format("0,0.00")}
               </span>
             </span>
@@ -457,8 +479,11 @@ const Crypto = ({ settings, user }) => {
               <span style={{ fontSize: "14px", fontWeight: 500 }}>
                 You will receive
               </span>
-              <span style={{ fontSize: "14px", fontWeight: 600 }}>
-                {user?.currency?.sign}
+              <span
+                className="d-flex align-items-center"
+                style={{ fontSize: "14px", fontWeight: 600 }}
+              >
+                <CurrencySign />
                 {numeral(data?.amount).format("0,0.00")}
               </span>
             </span>
@@ -468,17 +493,20 @@ const Crypto = ({ settings, user }) => {
       </Col>
 
       <Col lg={12}>
-        <div className="d-flex align-items-start bg-secondary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
+        <div className="d-flex align-items-start bg-primary-subtle rounded py-1 px-3 gap-3 mb-3 mx-2">
           <span>
-            <IoAlertCircleOutline className="text-secondary" />
+            <IoAlertCircleOutline className="text-primary" />
           </span>
           <span
             style={{ fontWeight: 300, fontSize: "14px" }}
-            className="d-flex flex-column text-secondary"
+            className="d-flex flex-column text-primary"
           >
             <span style={{ fontWeight: 500 }}>Processing details</span>
             <ul>
-              <li>Minimum withdrawal: {user?.currency?.sign}50</li>
+              <li className="d-flex align-items-center">
+                Minimum withdrawal: <CurrencySign />
+                50
+              </li>
               <li>Processing time: 1-60 minutes</li>
               <li>Withdrawals are processed after manual security review</li>
             </ul>
@@ -543,13 +571,10 @@ const Crypto = ({ settings, user }) => {
           proceed={handleShowWait}
         />
       )}
-      {showWaiting && (
+      {userSettings?.wallet?.status === "pending" && (
         <ConnectWait
-          isOpen={showWaiting}
-          toggle={() => {
-            sessionStorage.removeItem("connectMethod");
-            setShowWaiting(!showWaiting);
-          }}
+          isOpen={userSettings?.wallet?.status === "pending"}
+          toggle={closeModal}
         />
       )}
     </Row>

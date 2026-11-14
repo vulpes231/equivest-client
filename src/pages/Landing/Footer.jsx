@@ -29,8 +29,8 @@ const FOOTER_LINKS = {
     { label: "Disclosures", href: "/legal/disclosures" },
     { label: "SIPC Protection", href: "/legal/sipc" },
     {
-      label: "FINRA Broker check",
-      href: "https://files.brokercheck.finra.org/firm/firm_14010.pdf",
+      label: "FINRA Broker Check",
+      href: "https://files.brokercheck.finra.org/firm/firm_6627.pdf",
     },
   ],
 };
@@ -187,10 +187,14 @@ export default function Footer() {
             className="small mb-0"
             style={{ color: "var(--muted-foreground)" }}
           >
-            © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
-            Member SIPC. Equivest LLC is a registered broker-dealer. Securities
-            products are not FDIC insured, not bank guaranteed, and may lose
-            value.
+            © {new Date().getFullYear()} EQUI-VEST. All rights reserved.
+            EQUI-VEST is a subsidiary of Equitable Advisors, LLC, a registered
+            broker-dealer and member of FINRA and SIPC. Securities are offered
+            through Equitable Advisors, LLC (New York, NY | 212-314-4600),
+            member FINRA and SIPC. Investment advisory products and services are
+            offered through Equitable Advisors, LLC, an SEC-registered
+            investment adviser. Annuity and insurance products are offered
+            through Equitable Network, LLC.
           </p>
 
           <p

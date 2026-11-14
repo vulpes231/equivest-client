@@ -21,9 +21,11 @@ import {
   Type,
   UnrealizedPL,
 } from "./OrderCol";
+import { FaEllipsisVertical } from "react-icons/fa6";
 
 import { format } from "date-fns";
 import numeral from "numeral";
+import ManageTrade from "../ManageTrade";
 
 const OrderHistory = ({ currency }) => {
   const tk = getAccessToken();
@@ -32,6 +34,7 @@ const OrderHistory = ({ currency }) => {
   const [filter, setFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
   const [activeOrderTab, setActiveOrderTab] = useState("trades");
+  const [showManageTradeModal, setShowManageTradeModal] = useState(false);
 
   const { data: trades } = useQuery({
     queryKey: ["recentTrades"],
@@ -187,8 +190,52 @@ const OrderHistory = ({ currency }) => {
           return <Status {...cell} />;
         },
       },
+      {
+        header: "",
+        accessorKey: "_id",
+        enableColumnFilter: false,
+
+        cell: (cell) => {
+          const trade = cell.row.original;
+          const id = String(cell.row.original._id);
+          const isOpen = String(showManageTradeModal) === id;
+
+          const currentData = cell.row.original;
+
+          // console.log(currentData);
+
+          const showButton =
+            currentData?.status !== "closed" &&
+            currentData?.wallet?.slug !== "auto";
+
+          return (
+            <div
+              className={` ${showButton ? "position-relative d-block" : "d-none"}`}
+            >
+              <button
+                type="button"
+                className="bg-transparent border-0"
+                onClick={() =>
+                  setShowManageTradeModal((prev) =>
+                    String(prev) === id ? null : id,
+                  )
+                }
+              >
+                <FaEllipsisVertical />
+              </button>
+
+              {isOpen && (
+                <ManageTrade
+                  onClose={() => setShowManageTradeModal(null)}
+                  trade={trade}
+                />
+              )}
+            </div>
+          );
+        },
+      },
     ],
-    [],
+    [showManageTradeModal],
   );
 
   // console.log(filter, statusFilter, transformedData);
@@ -207,7 +254,7 @@ const OrderHistory = ({ currency }) => {
                 <button
                   type="button"
                   onClick={() => setShowFilter(!showFilter)}
-                  className="btn text-white bg-custom-gradient border-0"
+                  className="btn btn-secondary"
                 >
                   Filter
                 </button>
@@ -251,7 +298,7 @@ const OrderHistory = ({ currency }) => {
                   onClick={() => setActiveOrderTab("trades")}
                   className={`btn text-capitalize ${
                     activeOrderTab === "trades"
-                      ? "bg-custom-gradient text-white border-0"
+                      ? "btn-secondary"
                       : "bg-secondary-subtle text-secondary"
                   }`}
                 >
@@ -261,7 +308,7 @@ const OrderHistory = ({ currency }) => {
                   onClick={() => setActiveOrderTab("dividends")}
                   className={`btn text-capitalize ${
                     activeOrderTab === "dividends"
-                      ? "bg-custom-gradient text-white border-0"
+                      ? "btn-secondary"
                       : "bg-secondary-subtle text-secondary"
                   }`}
                 >

@@ -22,7 +22,7 @@ import withRouter from "../../components/Common/withRouter";
 import AuthNav from "./AuthNav";
 
 const Login = (props) => {
-  document.title = "Login - Itrust Investments";
+  document.title = "Login - Equivest Market";
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [passwordShow, setPasswordShow] = useState(false);

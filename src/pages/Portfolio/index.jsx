@@ -24,7 +24,7 @@ import { getUserPositions } from "../../services/user/position";
 import { getUserInfo } from "../../services/user/user";
 
 const Portfolio = () => {
-  document.title = "Portfolio - Itrust Investments";
+  document.title = "Portfolio - Equivest Market";
 
   const tk = getAccessToken();
 

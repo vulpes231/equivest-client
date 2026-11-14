@@ -21,7 +21,7 @@ import { Loader } from "feather-icons-react";
 import { CiMail } from "react-icons/ci";
 
 const TwoFa = () => {
-  document.title = "Two Factor - Itrust Investments";
+  document.title = "Two Factor - Equivest Market";
 
   const [disableResend, setDisableResend] = useState(true);
   const [error, setError] = useState("");

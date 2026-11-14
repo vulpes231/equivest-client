@@ -3,7 +3,7 @@ import TransferForm from "./TransferForm";
 import { Container } from "reactstrap";
 
 const Transfer = () => {
-  document.title = "Transfer | Itrust Investments";
+  document.title = "Transfer | Equivest Market";
   return (
     <React.Fragment>
       <div className="page-content">

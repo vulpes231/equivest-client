@@ -8,7 +8,7 @@ import { getUserInfo } from "../../services/user/user";
 import { getAccessToken } from "../../constants";
 
 const Tiers = () => {
-  document.title = "Account Tiers - Itrust Investments";
+  document.title = "Account Tiers - Equivest Market";
 
   const token = getAccessToken();
 

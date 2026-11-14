@@ -1,17 +1,18 @@
 import { format } from "date-fns";
 import numeral from "numeral";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Label, Row } from "reactstrap";
+import { FaEllipsisVertical } from "react-icons/fa6";
+import ManagePosition from "../ManagePosition";
 
 const PositionTab = ({ position }) => {
-  // useEffect(() => {
-  //   if (position) {
-  //     console.log(position, "data");
-  //   }
-  // }, [position]);
+  const [showManageTradeModal, setShowManageTradeModal] = useState(false);
+  const showButton =
+    position?.status !== "closed" &&
+    position?.wallet?.name !== "automated investing";
 
   return (
-    <div className="border-1 border px-4 py-2 rounded-3">
+    <div className="border px-4 py-2 rounded-3">
       <Col className="d-flex align-items-center justify-content-between px-2">
         <div className="d-flex align-items-center  gap-2">
           <span className="p-1 bg-light rounded-circle">
@@ -30,6 +31,22 @@ const PositionTab = ({ position }) => {
           <span className="fs-12 text-muted">
             as of {format(new Date(), "dd/mm/yyyy")}
           </span>
+          {showButton && (
+            <button
+              onClick={() => setShowManageTradeModal(true)}
+              className="btn bg-transparent"
+            >
+              <FaEllipsisVertical />{" "}
+            </button>
+          )}
+          <div className="position-relative">
+            {showManageTradeModal && (
+              <ManagePosition
+                position={position}
+                onClose={() => setShowManageTradeModal(false)}
+              />
+            )}
+          </div>
         </div>
       </Col>
       <hr className="text-muted" />
